@@ -249,8 +249,6 @@ La IA analiza el "ADN lingüístico" de un texto: métricas cuantitativas, carac
 - [TFG. Análisis del Sesgo Algorítmico en Sistemas de IA](https://github.com/MarioFlorido/TallerIA2/raw/main/TFG.Analisis_del_sesgo_Algoritmico_en_Sistemas_de_IA.pdf)
 - [TFG. Arquitectura para el Alzheimer. Residencias o viviendas adaptables](https://github.com/MarioFlorido/TallerIA2/raw/main/TFG.Arquitectura_para_el_Alzheimer.pdf)
 
-#### Info: Notas
-*Espacio para anotar ideas, reflexiones ejemplos, URL.*
 
 #### Prompt Principal
 ```
