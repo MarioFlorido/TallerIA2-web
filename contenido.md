@@ -43,10 +43,8 @@ Necesito que hagas INGENIERÍA INVERSA:
 ```
 
 #### Bonus Extra
-**Desafío iterativo:** Usa el prompt mejorado para generar una nueva respuesta. Luego, aplica el análisis de ingeniería inversa a ESTA nueva respuesta. ¿Puedes mejorarla aún más? Repite el ciclo 3 veces y observa la evolución.
+**Desafío:** Genera un texto con alguna errata. Por ejemplo, en el ejercicio anterior, incluye un autor nuevo como Mickey Mouse. Verás que la IA lo incluye en el texto. Indicale a la IA que reconstruya el propmt original indicando por qué lo ha incluido.
 
-#### Pregunta de Reflexión
-¿Qué patrones identificaste en los prompts efectivos vs. los inefectivos? ¿Cómo cambió tu comprensión sobre cómo "hablarle" a la IA después de este ejercicio?
 
 ---
 
@@ -58,7 +56,9 @@ Necesito que hagas INGENIERÍA INVERSA:
 **Transformar la relación con la IA: en lugar de usarla para obtener respuestas directas, entrenarla para que actúe como tutor que guía el pensamiento mediante preguntas estratégicas, fomentando el razonamiento autónomo.**
 
 #### Descripción
-El concepto más poderoso de todos: la IA NO da respuestas, sino que hace preguntas que te guían a descubrir las respuestas por ti mismo. *Este método desarrolla pensamiento crítico genuino y habilidades metacognitivas, evitando la dependencia de respuestas prefabricadas* (ChatGPT dixit). A diferencia del uso habitual de la IA —donde el estudiante recibe información pasivamente—, aquí se invierte la dinámica: eres tú quien razona, argumenta y construye conocimiento, mientras la IA se limita a formular las preguntas adecuadas en el momento preciso. Esta práctica entrena la capacidad de cuestionar supuestos, considerar múltiples perspectivas y articular el propio pensamiento de forma rigurosa.
+La mayoría de las veces usas la IA para obtener respuestas. Este ejercicio invierte esa lógica: la IA no te da nada, solo te pregunta. Y esas preguntas son las que te obligan a pensar.
+Es incómodo al principio. Estás acostumbrado a recibir información, no a construirla. Pero ahí está precisamente el valor: razonas tú, argumentas tú, llegas a las conclusiones tú. La IA solo aparece para empujarte un poco más lejos con la pregunta adecuada en el momento oportuno.
+El resultado no es solo entender mejor un concepto. Es aprender a cuestionar lo que das por sentado, a considerar otras perspectivas y a sostener tus propios argumentos. Una habilidad que, una vez desarrollada, se queda.
 
 #### Info: Preguntas para experimentar el método socrático
 - *"¿Debe el médico respetar siempre la decisión del paciente, incluso cuando va en contra del tratamiento recomendado?"*
@@ -106,7 +106,7 @@ REGLA CRÍTICA: Nunca muestres todas las preguntas a la vez. Solo una por turno.
 ```
 
 #### Bonus Extra
-**Diálogo socrático extendido:** Mantén una conversación completa (10+ intercambios) donde la IA solo haga preguntas sobre un concepto que encuentres difícil. Guarda todas tus interacciones y respeustas en un documento. Luego pide a la IA que te elebore un resumen con los conceptos e ideas tratados.
+**Diálogo socrático extendido:** Mantén una conversación completa (10+ intercambios) donde la IA solo haga preguntas sobre un concepto que encuentres difícil.  Luego pide a la IA que te elebore un resumen con los conceptos e ideas tratados así como las conclusiones.
 
 #### Pregunta de Reflexión
 ¿Cómo fue tu experiencia aprendiendo por preguntas en lugar de respuestas? ¿En qué momentos del aprendizaje es más valioso este enfoque vs. obtener información directa?
@@ -126,7 +126,9 @@ REGLA CRÍTICA: Nunca muestres todas las preguntas a la vez. Solo una por turno.
 **Aprender a transformar textos académicos densos en múltiples formatos visuales de conocimiento, facilitando la comprensión y comunicación de información compleja.**
 
 #### Descripción
-La IA convierte textos académicos complejos en representaciones visuales automáticas: mapas conceptuales, infografías de proceso, tablas comparativas, líneas de tiempo y diagramas. Lo que tomaría horas de diseño manual se genera en minutos, permitiendo múltiples iteraciones rápidas. Esta capacidad resulta especialmente valiosa cuando trabajas con textos densos cuya estructura interna no es evidente a primera vista: al solicitar distintos formatos de visualización, la IA te obliga a pensar en qué tipo de relación predomina en el contenido —jerárquica, secuencial, comparativa o temporal— y a elegir la representación más adecuada para cada caso. El resultado no es solo un recurso visual, sino una comprensión más profunda de la información.
+Un texto denso no siempre se entiende mejor leyéndolo más veces o pidiéndole a la IA que nos lo resuma. A veces lo que necesitas es verlo de otra forma.
+La IA puede convertir cualquier texto complejo en un mapa conceptual, una línea de tiempo, una tabla comparativa o un diagrama de flujo. En minutos, y con tantas iteraciones como quieras. Pero lo más valioso no es la velocidad: es que para pedir la visualización correcta, primero tienes que decidir o pedirle a la IA es qué tipo de relación describe el texto. ¿Es una secuencia? ¿Una jerarquía? ¿Una comparación? Esa pregunta, aparentemente técnica, es en realidad una pregunta de comprensión. Y responderla bien significa que ya has entendido algo importante del contenido.
+La visualización es el resultado. El aprendizaje ocurre antes.
 
 #### Info: Temas especialmente complejos para desarrollar a la IA
 Buscar textos sobre: *Teoría de la Relatividad, Programación Neurolingüística, Principio de incertidumbre de Heisenberg, Sindrome de Cushing, Interacción estructura-agencia, Filosofía del lenguaje y de la mente...*
@@ -173,8 +175,6 @@ IMPORTANTE: Elige los 3 formatos más apropiados para ESTE texto específico
 #### Bonus Extra
 **Narrativa visual:** Toma un paper completo de 20+ páginas. Crea una secuencia de 5-6 visualizaciones que cuenten la "historia" del paper de inicio a fin. ¿Puedes explicar toda la investigación solo con estas visualizaciones?
 
-#### Pregunta de Reflexión
-¿Qué aspectos del texto se comprenden mejor visualmente vs. en prosa? ¿Cuándo es apropiado usar cada tipo de visualización según el contenido y la audiencia?
 
 ---
 
@@ -186,7 +186,9 @@ IMPORTANTE: Elige los 3 formatos más apropiados para ESTE texto específico
 **Desarrollar pensamiento crítico avanzado mediante el uso de IA como herramienta de auditoría intelectual que identifica sesgos cognitivos, falacias lógicas y debilidades metodológicas en textos académicos.**
 
 #### Descripción
-La IA actúa como un auditor especializado que analiza textos académicos, científicos... para detectar problemas argumentativos, sesgos y debilidades metodológicas que normalmente pasan desapercibidos en una lectura superficial. Es especialmente útil para revisar artículos de opinión disfrazados de científicos o textos con conclusiones discutibles. Más allá de la detección, esta actividad entrena al estudiante para leer cualquier texto con una mirada analítica: aprender a distinguir una correlación de una causalidad, reconocer cuándo una muestra es insuficiente o detectar cuándo un autor presenta como universal algo que solo aplica en un contexto limitado. Es una competencia transferible a cualquier disciplina y situación profesional.
+Leer un texto académico no es lo mismo que leerlo bien. La mayoría de los sesgos, las falacias y los problemas metodológicos pasan desapercibidos precisamente porque el texto tiene forma de rigor aunque no lo tenga.
+Este ejercicio te entrena para ver lo que está debajo: si una conclusión se sostiene realmente en los datos, si la muestra es suficiente, si el autor está presentando como universal algo que solo ocurrió en un contexto muy concreto, o si hay una correlación disfrazada de causa. La IA actúa aquí como un auditor que señala dónde mirar, pero la lectura crítica la haces tú.
+Con el tiempo, ese filtro se vuelve automático. Y se aplica a cualquier texto, de cualquier disciplina, en cualquier situación profesional..
 
 #### Info: Ejemplos de papers con "anomalías"
 - [Incidencia de la pandemia COVID en los delitos de odio en España](https://dialnet.unirioja.es/descarga/articulo/8400381.pdf)
@@ -228,10 +230,19 @@ Formato: Tabla con columnas [Tipo de problema | Cita textual | Explicación | Su
 ```
 
 #### Bonus Extra
-**Análisis cruzado:** Toma dos textos que presenten posiciones opuestas sobre un mismo tema. Usa el prompt en ambos para identificar qué bando tiene argumentos más sólidos desde el punto de vista lógico y metodológico.
-
-#### Pregunta de Reflexión
-¿Cómo cambia tu percepción sobre un texto académico después de someterlo a este análisis crítico? ¿Identificaste sesgos que coinciden con tus propias creencias preconcebidas?
+> **SESGOS COGNITIVOS**
+> ***Sesgo de confirmación*** — Buscar solo lo que confirma lo que ya crees, ignorando lo que lo contradice. Ejemplo: un investigador que solo cita estudios favorables a su hipótesis. 
+>***Sesgo de disponibilidad*** — Sobrevalorar lo que te viene fácilmente a la mente. Ejemplo: creer que los accidentes aéreos son más frecuentes que los de tráfico porque generan más noticias.
+> ***Sesgo de anclaje*** — Dejarse influir demasiado por el primer dato que recibes. Ejemplo: valorar un estudio como "bueno" porque el primero que leíste del mismo autor era excelente.
+> **FALACIAS LÓGICAS**
+> ***Ad hominem*** — Atacar a quien dice algo en lugar de lo que dice. Ejemplo: "Este estudio no es fiable porque su autor tiene intereses comerciales."
+> ***Falsa causa*** — Asumir que si B ocurre después de A, A lo ha causado. Ejemplo: "Desde que se legalizó el cannabis, aumentó el consumo de alcohol. El cannabis lleva al alcohol."
+> ***Generalización apresurada*** — Sacar conclusiones amplias de pocos casos. Ejemplo: entrevistar a tres estudiantes y concluir cómo estudia "la juventud española".
+> ***Pendiente resbaladiza*** — Suponer que un primer paso inevitablemente lleva a consecuencias extremas. Ejemplo: "Si permitimos el uso de IA en clase, nadie volverá a pensar por sí mismo."
+> **DEBILIDADES METODOLÓGICAS**
+> ***Problemas con la muestra*** — Muestra demasiado pequeña, sesgada o no representativa. Ejemplo: estudiar hábitos de lectura encuestando solo a usuarios de bibliotecas universitarias.
+> ***Confusión correlación-causalidad*** — Dos variables se mueven juntas, pero eso no significa que una cause la otra. Ejemplo: los países con más chocolatinas per cápita tienen más premios Nobel... pero el chocolate no da premios.
+> ***Variables no controladas*** — Factores externos que influyen en el resultado y no se han tenido en cuenta. Ejemplo: un estudio sobre rendimiento académico que no controla el nivel socioeconómico de los participantes.
 
 ---
 
@@ -243,7 +254,9 @@ Formato: Tabla con columnas [Tipo de problema | Cita textual | Explicación | Su
 **Desarrollar capacidad analítica forense sobre textos mediante estilometría computacional, identificando patrones de autoría, autenticidad académica e indicadores de generación por IA.**
 
 #### Descripción
-La IA analiza el "ADN lingüístico" de un texto: métricas cuantitativas, características cualitativas y patrones estilísticos. Puede determinar probabilidad de autoría humana vs. IA, detectar inconsistencias y evaluar autenticidad académica. Es meta-irónico: IA detectando IA. En la práctica, este ejercicio desarrolla una sensibilidad lingüística que va más allá de la simple detección: te enseña a observar rasgos como la variabilidad sintáctica, la presencia de marcas personales en la escritura, el uso de muletillas o la uniformidad excesiva que delata una generación automática. Comprender estos patrones te hace mejor escritor, mejor lector y más consciente de las huellas que tu propio estilo deja en cada texto que produces.
+Todo texto deja huellas. La forma en que construyes las frases, si varías o repites estructuras, si aparece tu voz o si el texto suena demasiado pulido para ser humano. Esos patrones son tu ADN lingüístico, y son más reveladores de lo que parece.
+En este ejercicio usas la IA para analizar textos e identificar esos rasgos: si hay demasiada uniformidad sintáctica, si faltan las pequeñas imperfecciones naturales de quien escribe de verdad, si el tono es consistente o cambia sin razón. Sí, hay algo de paradoja en pedirle a una IA que detecte textos escritos por IA. Pero funciona, y el proceso te enseña más de lo que esperas.
+Porque al final no se trata solo de detección. Se trata de entender qué hace que un texto suene auténtico, y usar eso para escribir mejor.
 
 #### Info: Un trabajo creado por un investigador y otro por una IA
 - [TFG. Análisis del Sesgo Algorítmico en Sistemas de IA](https://github.com/MarioFlorido/TallerIA2/raw/main/TFG.Analisis_del_sesgo_Algoritmico_en_Sistemas_de_IA.pdf)
@@ -294,7 +307,7 @@ Presenta el análisis en formato de INFORME PERICIAL
 ```
 
 #### Bonus Extra
-**Experimento de Turing:** Escribe tú mismo un párrafo de 200 palabras sobre un tema académico. Pídele a la IA que genere otro párrafo similar. Mezcla ambos y pásalos por el detector. ¿Puede la IA identificar cuál escribiste tú? ¿Qué revelan las diferencias sobre tu estilo?
+**Experimento de Turing:** Escribe tú mismo un párrafo de 200 palabras sobre un tema académico. Pídele a la IA que genere otro párrafo similar. Pásalos por el detector. ¿Puede la IA identificar cuál escribiste tú? ¿Qué revelan las diferencias sobre tu estilo?
 
 #### Pregunta de Reflexión
 ¿Qué implicaciones éticas tiene poder detectar textos generados por IA? ¿Cómo afecta esto a la autenticidad académica y la evaluación del aprendizaje?
@@ -314,7 +327,9 @@ Presenta el análisis en formato de INFORME PERICIAL
 **Desarrollar habilidades avanzadas de fact-checking mediante búsqueda inversa: partir de una conclusión o afirmación popular para rastrear su fuente primaria, validar su precisión y detectar distorsiones en su propagación.**
 
 #### Descripción
-En lugar de buscar desde preguntas, esta técnica revolucionaria parte de afirmaciones que "todo el mundo sabe" y rastrea hacia atrás hasta encontrar el estudio original. La IA actúa como arqueólogo digital, desenterrando el origen real de "datos" populares, identificando cómo se distorsionaron y validando su autenticidad científica actual. Esta actividad es especialmente reveladora porque demuestra cómo muchas ideas ampliamente aceptadas —incluso en contextos académicos— se basan en estudios mal citados, sacados de contexto o directamente malinterpretados a lo largo de su cadena de difusión. Practicar este rastreo inverso desarrolla un hábito intelectual fundamental: no dar por válida ninguna afirmación sin verificar su procedencia y el rigor de su base empírica.
+"Solo usamos el 10% del cerebro." "El 93% de la comunicación es no verbal." Todo el mundo lo ha oído. Casi nadie ha comprobado de dónde viene.
+Este ejercicio convierte a la IA en un arqueólogo digital: parte de afirmaciones que circulan como verdades establecidas y excava hacia atrás hasta encontrar —o no encontrar— el estudio original. ¿Quién lo hizo? ¿Cuándo? ¿Con qué muestra? ¿Qué decía realmente? Muchas veces lo que encuentras no es el dato que se repite, sino algo bastante más matizado que se fue distorsionando cada vez que alguien lo citó de memoria.
+El hábito que desarrollas es el más valioso: no dar por válida ninguna afirmación sin preguntarte de dónde viene.
 
 #### Info: Afirmaciones pseudocientíficas para investigar
 - *Sólo usamos el 10% de nuestro cerebro.*
