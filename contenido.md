@@ -11,7 +11,9 @@
 **Desarrollar habilidades sobre cómo funcionan los prompts mediante ingeniería inversa: analizar una respuesta de IA para deducir qué prompt la generó y cómo optimizarla.**
 
 #### Descripción
-Esta técnica te permite "hackear" el proceso de prompting. A partir de una respuesta de IA, reconstruyes el prompt original, identificas sus debilidades y creas una versión mejorada. Es una especie de técnica forense aplicada a la ingenieria de prompts. Al desmontar la relación entre instrucción y resultado, comprendes qué elementos del prompt influyen realmente en la calidad de la respuesta: el rol asignado, el nivel de detalle, las restricciones de formato o el contexto proporcionado. Esta comprensión te convierte en un usuario más consciente y estratégico de cualquier modelo de lenguaje.
+Normalmente escribes un prompt y esperas a ver qué pasa. Este ejercicio funciona al revés: partes de una respuesta ya generada e intentas deducir qué instrucción la produjo.
+Es una forma de aprender ingeniería de prompts desde dentro. Al reconstruir el prompt original, identificar por qué funciona o falla y reescribirlo para obtener algo mejor, entiendes qué elementos influyen realmente en el resultado: el rol que asignas, el contexto que das, el formato que pides, los límites que estableces. No como teoría, sino comprobándolo directamente.
+Quien sabe desmontar un prompt sabe construir uno mejor.
 
 #### Info: Generar un texto previo con esta instrucción u otra parecida para experimentar
 *Redacta un texto de no más de cuatro párrafos sobre la teoría del constructivismo y sus fundamentos: el aprendizaje por descubrimiento, la asimilación, la acomodación y el equilibrio. Cita a Piaget, Bruner y Vygotsky, y menciona cómo ha evolucionado la teoría en los últimos años. Evita el formato esquemático y adopta un tono académico para una audiencia de expertos en pedagogía.*
@@ -126,7 +128,7 @@ REGLA CRÍTICA: Nunca muestres todas las preguntas a la vez. Solo una por turno.
 **Aprender a transformar textos académicos densos en múltiples formatos visuales de conocimiento, facilitando la comprensión y comunicación de información compleja.**
 
 #### Descripción
-Un texto denso no siempre se entiende mejor leyéndolo más veces o pidiéndole a la IA que nos lo resuma. A veces lo que necesitas es verlo de otra forma.
+Un texto denso no siempre se entiende mejor leyéndolo más veces o pidiéndole a la IA que nos lo resuma. A veces lo que necesitas es "verlo" de otra forma.
 La IA puede convertir cualquier texto complejo en un mapa conceptual, una línea de tiempo, una tabla comparativa o un diagrama de flujo. En minutos, y con tantas iteraciones como quieras. Pero lo más valioso no es la velocidad: es que para pedir la visualización correcta, primero tienes que decidir o pedirle a la IA es qué tipo de relación describe el texto. ¿Es una secuencia? ¿Una jerarquía? ¿Una comparación? Esa pregunta, aparentemente técnica, es en realidad una pregunta de comprensión. Y responderla bien significa que ya has entendido algo importante del contenido.
 La visualización es el resultado. El aprendizaje ocurre antes.
 
@@ -393,7 +395,8 @@ Formato: Informe estructurado con secciones claras y fuentes verificables
 **Aprender a realizar análisis comparativos exhaustivos de literatura científica mediante matrices que serían imposibles de construir manualmente en poco tiempo, identificando consensos, contradicciones y lagunas de investigación.**
 
 #### Descripción
-La IA compara sistemáticamente múltiples fuentes académicas (3 o más) creando una matriz detallada que contrasta metodologías, hallazgos, limitaciones y conclusiones. Automatiza un proceso que normalmente tomaría horas y permite identificar patrones y discrepancias entre estudios. Este enfoque matricial es una práctica estándar en las revisiones sistemáticas de literatura, pero su complejidad manual suele disuadir a los estudiantes de aplicarlo con rigor. Con la asistencia de la IA, puedes construir estas matrices de forma rápida, iterar sobre los criterios de comparación y descubrir lagunas de investigación que no serían evidentes al leer los artículos de forma aislada.
+Leer varios artículos sobre un mismo tema no es lo mismo que compararlos. Puedes terminar todos y seguir sin saber bien en qué coinciden, en qué se contradicen o qué pregunta importante ninguno responde.
+La matriz de fuentes resuelve eso: obliga a confrontar los estudios criterio por criterio —metodología, muestra, hallazgos, limitaciones, conclusiones— y hace visible lo que una lectura lineal oculta. Es una herramienta estándar en las revisiones sistemáticas de literatura, pero construirla a mano con rigor lleva horas. Con la IA, el proceso es rápido y puedes iterar: cambiar los criterios, añadir más fuentes, afinar la comparación..
 
 #### Info: Ejemplos
 [Referencias académicas (por tema) sobre Inteligencia Artificial y sus implicaciones](https://hackmd.io/@maflope/SJDJQ_2gWl)
@@ -444,7 +447,8 @@ ARTÍCULOS:
 **Aprender a diseñar estrategias de búsqueda bibliográfica rigurosas y efectivas mediante la identificación de términos clave, uso de tesauros especializados, construcción de ecuaciones booleanas y selección estratégica de fuentes de información académica.**
 
 #### Descripción
-La IA actúa como especialista en documentación científica que te ayuda a construir búsquedas bibliográficas profesionales desde cero. No se trata solo de "buscar en Google Scholar", sino de diseñar estrategias sistemáticas con vocabulario controlado, operadores booleanos y selección de bases de datos apropiadas para tu disciplina. Esta actividad aborda una de las carencias más habituales en la formación universitaria: la mayoría de estudiantes realizan búsquedas intuitivas y poco eficientes, perdiendo tiempo y obteniendo resultados de calidad irregular. Aprender a construir ecuaciones de búsqueda, manejar tesauros y seleccionar las bases de datos adecuadas marca la diferencia entre una revisión bibliográfica superficial y una verdaderamente rigurosa y reproducible.
+Buscar bibliografía no es lo mismo que buscar bien. La mayoría de estudiantes escriben unas palabras en un buscador, cogen los primeros resultados y dan el tema por resuelto. El problema es que así se pierden estudios importantes y se cuela material de poca calidad.
+Este ejercicio te enseña a hacerlo de otra manera: eligiendo las palabras exactas, combinándolas con criterio y sabiendo en qué base de datos buscar según tu disciplina. La IA te guía en ese proceso paso a paso, desde cero.
 
 #### Info: Temas
 - *Estimulación Magnética Transcraneal y neuroplasticidad en pacientes con tumores cerebrales*
@@ -609,7 +613,9 @@ FORMATO: Tabla con columnas [Audiencia | Texto adaptado | Decisiones retóricas]
 **Dominar el proceso de edición profesional mediante un análisis multinivel que mejora estructura, claridad, estilo y corrección lingüística de textos académicos, manteniendo la voz autoral y potenciando la calidad argumentativa.**
 
 #### Descripción
-Esta es la actividad más innovadora: la IA NO escribe por ti, sino que actúa como editor profesional que revisa tu texto en múltiples niveles (macro, medio, micro), identificando problemas específicos y sugiriendo mejoras concretas. Conservas tu creatividad y autoría, pero obtienes retroalimentación experta que normalmente solo darían profesores experimentados. Este enfoque reproduce el flujo de trabajo real de las editoriales académicas y científicas, donde un manuscrito pasa por varias rondas de revisión antes de su publicación. Al aplicar este proceso a tus propios textos, no solo mejoras el documento en cuestión, sino que interiorizas criterios de calidad que acabarás aplicando de forma autónoma: coherencia argumentativa, precisión terminológica, integración adecuada de fuentes y corrección formal.
+Escribir un texto es solo la mitad del trabajo. La otra mitad es revisarlo bien, y eso es mucho más difícil de lo que parece.
+La IA no escribe por ti en este ejercicio: lee lo que has escrito y te da retroalimentación como haría un editor profesional. Qué argumentos no se sostienen, qué frases son confusas, dónde tu voz desaparece, qué errores se repiten. En varios niveles y con señalamientos concretos, no comentarios vagos.
+El texto sigue siendo tuyo. Pero cada revisión te enseña algo que la próxima vez aplicarás solo, sin necesitar que nadie te lo señale.
 
 #### Info: Temas para la comunicación
 [Preprint sobre un artículo sobre la resistencia digital](https://raw.githubusercontent.com/MarioFlorido/TallerIA2/49e3f31768a3a9e694f4b68c45076bcb77ea2c1b/Articulo_Resistencia_Digital_Cooperativismo.docx)
