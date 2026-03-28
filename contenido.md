@@ -238,7 +238,7 @@ Formato: Tabla con columnas [Tipo de problema | Cita textual | Explicación | Su
 ```
 
 #### Bonus Extra
-**Análisis cruzado:** Toma dos textos que presenten posiciones opuestas sobre un mismo tema. Usa el prompt en ambos para identificar qué bando tiene argumentos más sólidos desde el punto de vista lógico y metodológico.
+**Terminología empleada:**
 
 ### SESGOS COGNITIVOS
 
