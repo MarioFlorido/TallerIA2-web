@@ -12,7 +12,9 @@
 
 #### Descripción
 Normalmente escribes un prompt y esperas a ver qué pasa. Este ejercicio funciona al revés: partes de una respuesta ya generada e intentas deducir qué instrucción la produjo.
+
 Es una forma de aprender ingeniería de prompts desde dentro. Al reconstruir el prompt original, identificar por qué funciona o falla y reescribirlo para obtener algo mejor, entiendes qué elementos influyen realmente en el resultado: el rol que asignas, el contexto que das, el formato que pides, los límites que estableces. No como teoría, sino comprobándolo directamente.
+
 Quien sabe desmontar un prompt sabe construir uno mejor.
 
 #### Info: Generar un texto previo con esta instrucción u otra parecida para experimentar
@@ -45,8 +47,7 @@ Necesito que hagas INGENIERÍA INVERSA:
 ```
 
 #### Bonus Extra
-**Desafío:** Genera un texto con alguna errata. Por ejemplo, en el ejercicio anterior, incluye un autor nuevo como Mickey Mouse. Verás que la IA lo incluye en el texto. Indicale a la IA que reconstruya el propmt original indicando por qué lo ha incluido.
-
+**Desafío:** Genera un texto con alguna errata. Por ejemplo, en el ejercicio anterior, incluye un autor nuevo como Mickey Mouse. Verás que la IA lo incluye en el texto. Indícale a la IA que reconstruya el prompt original indicando por qué lo ha incluido.
 
 ---
 
@@ -59,7 +60,9 @@ Necesito que hagas INGENIERÍA INVERSA:
 
 #### Descripción
 La mayoría de las veces usas la IA para obtener respuestas. Este ejercicio invierte esa lógica: la IA no te da nada, solo te pregunta. Y esas preguntas son las que te obligan a pensar.
+
 Es incómodo al principio. Estás acostumbrado a recibir información, no a construirla. Pero ahí está precisamente el valor: razonas tú, argumentas tú, llegas a las conclusiones tú. La IA solo aparece para empujarte un poco más lejos con la pregunta adecuada en el momento oportuno.
+
 El resultado no es solo entender mejor un concepto. Es aprender a cuestionar lo que das por sentado, a considerar otras perspectivas y a sostener tus propios argumentos. Una habilidad que, una vez desarrollada, se queda.
 
 #### Info: Preguntas para experimentar el método socrático
@@ -90,9 +93,9 @@ Cuando el estudiante pregunte: [PREGUNTA DEL ESTUDIANTE AQUÍ]
 
 Haz lo siguiente:
 
-1. Formula una pregunta de clarificación: "Antes de continuar, ¿qué entiendes por [algo relacionado con la pregunta del estudiante pero no directameente con el conceto clave]?"
+1. Formula una pregunta de clarificación: "Antes de continuar, ¿qué entiendes por [algo relacionado con la pregunta del estudiante pero no directamente con el concepto clave]?"
 2. Si consideras que hay ambigüedades en su respuesta, pon ejemplos y pregunta sobre ellos.
-2. A partir de entonces, formula solo una pregunta guía por turno, sobre:
+3. A partir de entonces, formula solo una pregunta guía por turno, sobre:
     * fundamentos
     * relaciones
     * aplicación
@@ -108,7 +111,7 @@ REGLA CRÍTICA: Nunca muestres todas las preguntas a la vez. Solo una por turno.
 ```
 
 #### Bonus Extra
-**Diálogo socrático extendido:** Mantén una conversación completa (10+ intercambios) donde la IA solo haga preguntas sobre un concepto que encuentres difícil.  Luego pide a la IA que te elebore un resumen con los conceptos e ideas tratados así como las conclusiones.
+**Diálogo socrático extendido:** Mantén una conversación completa (10+ intercambios) donde la IA solo haga preguntas sobre un concepto que encuentres difícil. Luego pide a la IA que te elabore un resumen con los conceptos e ideas tratados así como las conclusiones.
 
 #### Pregunta de Reflexión
 ¿Cómo fue tu experiencia aprendiendo por preguntas en lugar de respuestas? ¿En qué momentos del aprendizaje es más valioso este enfoque vs. obtener información directa?
@@ -128,12 +131,14 @@ REGLA CRÍTICA: Nunca muestres todas las preguntas a la vez. Solo una por turno.
 **Aprender a transformar textos académicos densos en múltiples formatos visuales de conocimiento, facilitando la comprensión y comunicación de información compleja.**
 
 #### Descripción
-Un texto denso no siempre se entiende mejor leyéndolo más veces o pidiéndole a la IA que nos lo resuma. A veces lo que necesitas es "verlo" de otra forma.
-La IA puede convertir cualquier texto complejo en un mapa conceptual, una línea de tiempo, una tabla comparativa o un diagrama de flujo. En minutos, y con tantas iteraciones como quieras. Pero lo más valioso no es la velocidad: es que para pedir la visualización correcta, primero tienes que decidir o pedirle a la IA es qué tipo de relación describe el texto. ¿Es una secuencia? ¿Una jerarquía? ¿Una comparación? Esa pregunta, aparentemente técnica, es en realidad una pregunta de comprensión. Y responderla bien significa que ya has entendido algo importante del contenido.
+Un texto denso no siempre se entiende mejor leyéndolo más veces. A veces lo que necesitas es verlo de otra forma.
+
+La IA puede convertir cualquier texto complejo en un mapa conceptual, una línea de tiempo, una tabla comparativa o un diagrama de flujo. En minutos, y con tantas iteraciones como quieras. Pero lo más valioso no es la velocidad: es que para pedir la visualización correcta, primero tienes que preguntarte qué tipo de relación describe el texto. ¿Es una secuencia? ¿Una jerarquía? ¿Una comparación? Esa pregunta, aparentemente técnica, es en realidad una pregunta de comprensión. Y responderla bien significa que ya has entendido algo importante del contenido.
+
 La visualización es el resultado. El aprendizaje ocurre antes.
 
-#### Info: Temas especialmente complejos para desarrollar a la IA
-Buscar textos sobre: *Teoría de la Relatividad, Programación Neurolingüística, Principio de incertidumbre de Heisenberg, Sindrome de Cushing, Interacción estructura-agencia, Filosofía del lenguaje y de la mente...*
+#### Info: Temas especialmente complejos para trabajar con la IA
+Buscar textos sobre: *Teoría de la Relatividad, Programación Neurolingüística, Principio de incertidumbre de Heisenberg, Síndrome de Cushing, Interacción estructura-agencia, Filosofía del lenguaje y de la mente...*
 
 #### Prompt Principal
 ```
@@ -177,7 +182,6 @@ IMPORTANTE: Elige los 3 formatos más apropiados para ESTE texto específico
 #### Bonus Extra
 **Narrativa visual:** Toma un paper completo de 20+ páginas. Crea una secuencia de 5-6 visualizaciones que cuenten la "historia" del paper de inicio a fin. ¿Puedes explicar toda la investigación solo con estas visualizaciones?
 
-
 ---
 
 ### 4. Auditoría de textos
@@ -189,8 +193,10 @@ IMPORTANTE: Elige los 3 formatos más apropiados para ESTE texto específico
 
 #### Descripción
 Leer un texto académico no es lo mismo que leerlo bien. La mayoría de los sesgos, las falacias y los problemas metodológicos pasan desapercibidos precisamente porque el texto tiene forma de rigor aunque no lo tenga.
+
 Este ejercicio te entrena para ver lo que está debajo: si una conclusión se sostiene realmente en los datos, si la muestra es suficiente, si el autor está presentando como universal algo que solo ocurrió en un contexto muy concreto, o si hay una correlación disfrazada de causa. La IA actúa aquí como un auditor que señala dónde mirar, pero la lectura crítica la haces tú.
-Con el tiempo, ese filtro se vuelve automático. Y se aplica a cualquier texto, de cualquier disciplina, en cualquier situación profesional..
+
+Con el tiempo, ese filtro se vuelve automático. Y se aplica a cualquier texto, de cualquier disciplina, en cualquier situación profesional.
 
 #### Info: Ejemplos de papers con "anomalías"
 - [Incidencia de la pandemia COVID en los delitos de odio en España](https://dialnet.unirioja.es/descarga/articulo/8400381.pdf)
@@ -232,19 +238,26 @@ Formato: Tabla con columnas [Tipo de problema | Cita textual | Explicación | Su
 ```
 
 #### Bonus Extra
-> **SESGOS COGNITIVOS**
-> ***Sesgo de confirmación*** — Buscar solo lo que confirma lo que ya crees, ignorando lo que lo contradice. Ejemplo: un investigador que solo cita estudios favorables a su hipótesis. 
->***Sesgo de disponibilidad*** — Sobrevalorar lo que te viene fácilmente a la mente. Ejemplo: creer que los accidentes aéreos son más frecuentes que los de tráfico porque generan más noticias.
-> ***Sesgo de anclaje*** — Dejarse influir demasiado por el primer dato que recibes. Ejemplo: valorar un estudio como "bueno" porque el primero que leíste del mismo autor era excelente.
-> **FALACIAS LÓGICAS**
-> ***Ad hominem*** — Atacar a quien dice algo en lugar de lo que dice. Ejemplo: "Este estudio no es fiable porque su autor tiene intereses comerciales."
-> ***Falsa causa*** — Asumir que si B ocurre después de A, A lo ha causado. Ejemplo: "Desde que se legalizó el cannabis, aumentó el consumo de alcohol. El cannabis lleva al alcohol."
-> ***Generalización apresurada*** — Sacar conclusiones amplias de pocos casos. Ejemplo: entrevistar a tres estudiantes y concluir cómo estudia "la juventud española".
-> ***Pendiente resbaladiza*** — Suponer que un primer paso inevitablemente lleva a consecuencias extremas. Ejemplo: "Si permitimos el uso de IA en clase, nadie volverá a pensar por sí mismo."
-> **DEBILIDADES METODOLÓGICAS**
-> ***Problemas con la muestra*** — Muestra demasiado pequeña, sesgada o no representativa. Ejemplo: estudiar hábitos de lectura encuestando solo a usuarios de bibliotecas universitarias.
-> ***Confusión correlación-causalidad*** — Dos variables se mueven juntas, pero eso no significa que una cause la otra. Ejemplo: los países con más chocolatinas per cápita tienen más premios Nobel... pero el chocolate no da premios.
-> ***Variables no controladas*** — Factores externos que influyen en el resultado y no se han tenido en cuenta. Ejemplo: un estudio sobre rendimiento académico que no controla el nivel socioeconómico de los participantes.
+**Análisis cruzado:** Toma dos textos que presenten posiciones opuestas sobre un mismo tema. Usa el prompt en ambos para identificar qué bando tiene argumentos más sólidos desde el punto de vista lógico y metodológico.
+
+### SESGOS COGNITIVOS
+
+- **Sesgo de confirmación** — Buscar solo lo que confirma lo que ya crees, ignorando lo que lo contradice. *Ejemplo: un investigador que solo cita estudios favorables a su hipótesis.*
+- **Sesgo de disponibilidad** — Sobrevalorar lo que te viene fácilmente a la mente. *Ejemplo: creer que los accidentes aéreos son más frecuentes que los de tráfico porque generan más noticias.*
+- **Sesgo de anclaje** — Dejarse influir demasiado por el primer dato que recibes. *Ejemplo: valorar un estudio como "bueno" porque el primero que leíste del mismo autor era excelente.*
+
+### FALACIAS LÓGICAS
+
+- **Ad hominem** — Atacar a quien dice algo en lugar de lo que dice. *Ejemplo: "Este estudio no es fiable porque su autor tiene intereses comerciales."*
+- **Falsa causa** — Asumir que si B ocurre después de A, A lo ha causado. *Ejemplo: "Desde que se legalizó el cannabis, aumentó el consumo de alcohol. El cannabis lleva al alcohol."*
+- **Generalización apresurada** — Sacar conclusiones amplias de pocos casos. *Ejemplo: entrevistar a tres estudiantes y concluir cómo estudia "la juventud española".*
+- **Pendiente resbaladiza** — Suponer que un primer paso lleva inevitablemente a consecuencias extremas. *Ejemplo: "Si permitimos el uso de IA en clase, nadie volverá a pensar por sí mismo."*
+
+### DEBILIDADES METODOLÓGICAS
+
+- **Problemas con la muestra** — Muestra demasiado pequeña, sesgada o no representativa. *Ejemplo: estudiar hábitos de lectura encuestando solo a usuarios de bibliotecas universitarias.*
+- **Confusión correlación-causalidad** — Dos variables se mueven juntas, pero eso no significa que una cause la otra. *Ejemplo: los países con más chocolatinas per cápita tienen más premios Nobel... pero el chocolate no da premios.*
+- **Variables no controladas** — Factores externos que influyen en el resultado y no se han tenido en cuenta. *Ejemplo: un estudio sobre rendimiento académico que no controla el nivel socioeconómico de los participantes.*
 
 ---
 
@@ -257,13 +270,14 @@ Formato: Tabla con columnas [Tipo de problema | Cita textual | Explicación | Su
 
 #### Descripción
 Todo texto deja huellas. La forma en que construyes las frases, si varías o repites estructuras, si aparece tu voz o si el texto suena demasiado pulido para ser humano. Esos patrones son tu ADN lingüístico, y son más reveladores de lo que parece.
+
 En este ejercicio usas la IA para analizar textos e identificar esos rasgos: si hay demasiada uniformidad sintáctica, si faltan las pequeñas imperfecciones naturales de quien escribe de verdad, si el tono es consistente o cambia sin razón. Sí, hay algo de paradoja en pedirle a una IA que detecte textos escritos por IA. Pero funciona, y el proceso te enseña más de lo que esperas.
+
 Porque al final no se trata solo de detección. Se trata de entender qué hace que un texto suene auténtico, y usar eso para escribir mejor.
 
 #### Info: Un trabajo creado por un investigador y otro por una IA
 - [TFG. Análisis del Sesgo Algorítmico en Sistemas de IA](https://github.com/MarioFlorido/TallerIA2/raw/main/TFG.Analisis_del_sesgo_Algoritmico_en_Sistemas_de_IA.pdf)
 - [TFG. Arquitectura para el Alzheimer. Residencias o viviendas adaptables](https://github.com/MarioFlorido/TallerIA2/raw/main/TFG.Arquitectura_para_el_Alzheimer.pdf)
-
 
 #### Prompt Principal
 ```
@@ -330,7 +344,9 @@ Presenta el análisis en formato de INFORME PERICIAL
 
 #### Descripción
 "Solo usamos el 10% del cerebro." "El 93% de la comunicación es no verbal." Todo el mundo lo ha oído. Casi nadie ha comprobado de dónde viene.
+
 Este ejercicio convierte a la IA en un arqueólogo digital: parte de afirmaciones que circulan como verdades establecidas y excava hacia atrás hasta encontrar —o no encontrar— el estudio original. ¿Quién lo hizo? ¿Cuándo? ¿Con qué muestra? ¿Qué decía realmente? Muchas veces lo que encuentras no es el dato que se repite, sino algo bastante más matizado que se fue distorsionando cada vez que alguien lo citó de memoria.
+
 El hábito que desarrollas es el más valioso: no dar por válida ninguna afirmación sin preguntarte de dónde viene.
 
 #### Info: Afirmaciones pseudocientíficas para investigar
@@ -396,7 +412,10 @@ Formato: Informe estructurado con secciones claras y fuentes verificables
 
 #### Descripción
 Leer varios artículos sobre un mismo tema no es lo mismo que compararlos. Puedes terminar todos y seguir sin saber bien en qué coinciden, en qué se contradicen o qué pregunta importante ninguno responde.
-La matriz de fuentes resuelve eso: obliga a confrontar los estudios criterio por criterio —metodología, muestra, hallazgos, limitaciones, conclusiones— y hace visible lo que una lectura lineal oculta. Es una herramienta estándar en las revisiones sistemáticas de literatura, pero construirla a mano con rigor lleva horas. Con la IA, el proceso es rápido y puedes iterar: cambiar los criterios, añadir más fuentes, afinar la comparación..
+
+La matriz de fuentes resuelve eso: obliga a confrontar los estudios criterio por criterio —metodología, muestra, hallazgos, limitaciones, conclusiones— y hace visible lo que una lectura lineal oculta. Es una herramienta estándar en las revisiones sistemáticas de literatura, pero construirla a mano con rigor lleva horas. Con la IA, el proceso es rápido y puedes iterar: cambiar los criterios, añadir más fuentes, afinar la comparación.
+
+Lo más interesante suele aparecer en las contradicciones. Ahí es donde están las preguntas que todavía nadie ha respondido bien.
 
 #### Info: Ejemplos
 [Referencias académicas (por tema) sobre Inteligencia Artificial y sus implicaciones](https://hackmd.io/@maflope/SJDJQ_2gWl)
@@ -405,7 +424,7 @@ La matriz de fuentes resuelve eso: obliga a confrontar los estudios criterio por
 ```
 Eres un investigador especializado en análisis comparativo de literatura científica.
 
-He recopilado 3 artículos sobre [TEMA]. Necesito que crees una MATRIZ COMPARATIVA EXHAUSTIVA que incluya:
+He recopilado artículos sobre [TEMA]. Necesito que crees una MATRIZ COMPARATIVA EXHAUSTIVA que incluya:
 
 ESTRUCTURA DE LA MATRIZ:
 
@@ -428,11 +447,11 @@ Después de la matriz, proporciona:
 - 3 preguntas de investigación derivadas de las contradicciones encontradas
 
 ARTÍCULOS:
-[Pegar los 3 textos o resúmenes]
+[Pegar los textos o resúmenes]
 ```
 
 #### Bonus Extra
-**Expansión progresiva:** Comienza con 3 artículos. Luego añade un cuarto y quinto artículo a la matriz. Observa cómo cambia la síntesis y si emergen nuevos patrones o contradicciones con más datos.
+**Expansión progresiva:** Comienza con unos pocos artículos. Luego añade más a la matriz. Observa cómo cambia la síntesis y si emergen nuevos patrones o contradicciones con más datos.
 
 #### Pregunta de Reflexión
 ¿Qué descubriste al comparar sistemáticamente las fuentes que no habrías notado leyéndolas individualmente? ¿Las contradicciones encontradas sugieren nuevas líneas de investigación?
@@ -448,6 +467,7 @@ ARTÍCULOS:
 
 #### Descripción
 Buscar bibliografía no es lo mismo que buscar bien. La mayoría de estudiantes escriben unas palabras en un buscador, cogen los primeros resultados y dan el tema por resuelto. El problema es que así se pierden estudios importantes y se cuela material de poca calidad.
+
 Este ejercicio te enseña a hacerlo de otra manera: eligiendo las palabras exactas, combinándolas con criterio y sabiendo en qué base de datos buscar según tu disciplina. La IA te guía en ese proceso paso a paso, desde cero.
 
 #### Info: Temas
@@ -537,11 +557,13 @@ FORMATO: Entrega estructurada con las ecuaciones listas para copiar y pegar
 **Dominar la alternancia de código (code-switching) retórico: transformar el mismo contenido académico para audiencias radicalmente diferentes, manteniendo la esencia pero adaptando registro lingüístico, tono, estructura y vocabulario.**
 
 #### Descripción
-Esta habilidad profesional crítica te permite comunicar efectivamente con cualquier audiencia. No se trata de simplificar o complicar, sino de hacer verdadera adaptación estratégica. Aprenderás a hablar el "idioma" de académicos, ejecutivos, público general, audiencias jóvenes y profesionales técnicos con el mismo mensaje. En el mundo profesional y académico, la capacidad de adaptar un mismo contenido a diferentes interlocutores es una de las competencias comunicativas más demandadas y menos trabajadas. Un investigador que solo sabe escribir para revistas científicas, un profesional que no puede explicar su proyecto a un público no especializado o un estudiante que no distingue entre un registro formal e informal pierden oportunidades de impacto y conexión con sus audiencias.
+Esta habilidad profesional crítica te permite comunicar efectivamente con cualquier audiencia. No se trata de simplificar o complicar, sino de hacer verdadera adaptación estratégica. Aprenderás a hablar el "idioma" de académicos, ejecutivos, público general, audiencias jóvenes y profesionales técnicos con el mismo mensaje.
+
+En el mundo profesional y académico, la capacidad de adaptar un mismo contenido a diferentes interlocutores es una de las competencias comunicativas más demandadas y menos trabajadas. Un investigador que solo sabe escribir para revistas científicas, un profesional que no puede explicar su proyecto a un público no especializado o un estudiante que no distingue entre un registro formal e informal pierden oportunidades de impacto y conexión con sus audiencias.
 
 #### Info: Temas para la comunicación
-- *Importancia de ciberseguridad*
-- *CAmbio climático y negacionismo*
+- *Importancia de la ciberseguridad*
+- *Cambio climático y negacionismo*
 - *Inteligencia artificial y brecha digital*
 
 #### Prompt Principal
@@ -614,10 +636,12 @@ FORMATO: Tabla con columnas [Audiencia | Texto adaptado | Decisiones retóricas]
 
 #### Descripción
 Escribir un texto es solo la mitad del trabajo. La otra mitad es revisarlo bien, y eso es mucho más difícil de lo que parece.
+
 La IA no escribe por ti en este ejercicio: lee lo que has escrito y te da retroalimentación como haría un editor profesional. Qué argumentos no se sostienen, qué frases son confusas, dónde tu voz desaparece, qué errores se repiten. En varios niveles y con señalamientos concretos, no comentarios vagos.
+
 El texto sigue siendo tuyo. Pero cada revisión te enseña algo que la próxima vez aplicarás solo, sin necesitar que nadie te lo señale.
 
-#### Info: Temas para la comunicación
+#### Info: Texto de ejemplo
 [Preprint sobre un artículo sobre la resistencia digital](https://raw.githubusercontent.com/MarioFlorido/TallerIA2/49e3f31768a3a9e694f4b68c45076bcb77ea2c1b/Articulo_Resistencia_Digital_Cooperativismo.docx)
 
 #### Prompt Principal
