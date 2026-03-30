@@ -237,8 +237,7 @@ Para cada punto identificado:
 Formato: Tabla con columnas [Tipo de problema | Cita textual | Explicación | Sugerencia de mejora]
 ```
 
-#### Bonus Extra
-**Terminología empleada:**
+#### Terminología empleada:
 
 ### SESGOS COGNITIVOS
 
