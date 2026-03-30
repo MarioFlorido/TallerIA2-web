@@ -299,7 +299,7 @@ function parseAndRender(md) {
       else if(t.startsWith('Info:'))sec={type:'info',title:t.slice(5).trim()};
       else if(t==='Info')sec={type:'info',title:''};
       else if(t==='Prompt Principal')sec={type:'prompt',title:t};
-      else if(t==='Bonus Extra')sec={type:'bonus',title:t};
+      else if(t==='Bonus Extra'||t.startsWith('Terminología'))sec={type:'bonus',title:t};
       else if(t.startsWith('Pregunta de Reflexión'))sec={type:'reflexion',title:t};
       else sec={type:'generic',title:t};
       continue;
@@ -338,13 +338,14 @@ function render(phases,ethicsMd,warningMd){
       let img='';
       if(a.image)img=`<div class="activity-img"><img src="${a.image}" alt="Actividad ${pad}" onerror="this.parentElement.innerHTML='<span class=img-placeholder>📷 ${esc(a.image)}</span>'"></div>`;
 
-      let obj='',desc='',infos=[],promptTxt='',bonus='',refl='';
+      let obj='',desc='',infos=[],promptTxt='',bonus='',bonusTitle='Bonus Extra',refl='';
       a.sections.forEach(s=>{
         const h=marked.parse(s.content);
         switch(s.type){
           case 'objetivo':obj=h;break;case 'descripcion':desc=h;break;
           case 'info':infos.push({title:s.title,html:h});break;
-          case 'prompt':promptTxt=s.content;break;case 'bonus':bonus=h;break;case 'reflexion':refl=h;break;
+          case 'prompt':promptTxt=s.content;break;case 'bonus':bonus=h;bonusTitle=s.title||'Bonus Extra';break;
+          case 'reflexion':refl=h;break;
         }
       });
 
@@ -375,7 +376,7 @@ function render(phases,ethicsMd,warningMd){
             </button>
             <div class="prompt-content"><pre>${esc(code)}</pre></div>
           </div>`:''}
-          ${bonus?`<div class="bonus-section"><h4>Bonus Extra</h4>${bonus}</div>`:''}
+${bonus?`<div class="bonus-section"><h4>${bonusTitle}</h4>${bonus}</div>`:''}
           ${refl?`<div class="reflection-section"><h4>Pregunta de Reflexión</h4>${refl}</div>`:''}
         </div>
       </article>`;
