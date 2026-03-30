@@ -732,9 +732,7 @@ IMPORTANTE:
 **Checklist personalizado:** Pide a la IA que genere un "checklist de calidad académica" específico para tu disciplina y tipo de trabajo. Úsalo como autoevaluación antes de entregar cualquier trabajo.
 
 #### Pregunta de Reflexión
-¿En qué nivel (macro, medio o micro) descubriste más problemas en tu texto? ¿Qué aprendiste sobre tu estilo de escritura que no habías notado antes? ¿Cómo te aseguras de que las correcciones mejoran el texto sin eliminar tu voz personal?
-
-**Reflexión ética:** Si un profesor te preguntara cómo usaste IA en este trabajo, ¿podrías explicarlo con transparencia y sentirte cómodo? ¿Dónde está la línea entre "asistencia para mejorar" y "hacer el trabajo por ti"?
+Si un profesor te preguntara cómo usaste IA en este trabajo, ¿podrías explicarlo con transparencia y sentirte cómodo? ¿Dónde está la línea entre "asistencia para mejorar" y "hacer el trabajo por ti"?
 
 ---
 
@@ -746,26 +744,26 @@ IMPORTANTE:
 **La IA es tu aliada en el aprendizaje, no tu sustituta.** Estas herramientas están diseñadas para POTENCIAR tu pensamiento crítico, no para reemplazarlo. El objetivo es que desarrolles habilidades que te servirán toda la vida académica o profesional, no solo para completar tareas.
 
 ### USA LA IA PARA:
-- Verificar información antes de citarla
-- Mejorar tu comunicación académica
-- Desarrollar habilidades metacognitivas
-- Aprender más profundamente
-- Analizar críticamente textos
-- Expandir tu capacidad de razonamiento
+-  Verificar información antes de citarla
+-  Mejorar tu comunicación académica
+-  Desarrollar habilidades metacognitivas
+-  Aprender más profundamente
+-  Analizar críticamente textos
+-  Expandir tu capacidad de razonamiento
 
 ### NO LA USES PARA:
-- Hacer trampa en trabajos
-- Evitar pensar críticamente
-- Plagiar o copiar sin atribución
-- Reemplazar tu voz autoral
-- Generar trabajos completos sin comprensión
-- Evitar el proceso de aprendizaje
-
+-  Hacer trampa en trabajos
+-  Evitar pensar críticamente
+-  Plagiar o copiar sin atribución
+-  Reemplazar tu voz autoral
+-  Generar trabajos completos sin comprensión
+-  Evitar el proceso de aprendizaje
+ 
 ---
 
 # AVISO
 
 ## Aviso Importante
-La parte de este taller que se ha realizado con IA:
-- La secuenciación de contenidos
-- Los prompts fueron refinados con ChatGPT y Claude
+Como habrás deducido parte de este taller que se ha realizado con IA:
+- La secuenciación de contenidos. La IA ha asistido a darle una coherencia al itinerario de aprendizaje.
+- Los prompts fueron refinados con ChatGPT y Claude.
