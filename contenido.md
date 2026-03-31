@@ -110,7 +110,7 @@ REGLAS CRÍTICAS: Nunca muestres todas las preguntas a la vez. Solo una por turn
 
 ---
 
-# FASE 2: ANÁLISIS CRÍTICO
+# FASE 2: ANÁLISIS
 ## Desarrollar pensamiento crítico
 
 ---
