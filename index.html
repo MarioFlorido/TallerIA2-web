@@ -339,7 +339,7 @@ footer .sep{margin:0 10px;opacity:.3}
 </footer>
 
 <script>
-const PHASE_NAMES = {'1':'Fundamentos','2':'Análisis Crítico','3':'Investigación','4':'Producción'};
+const PHASE_NAMES = {'1':'Fundamentos','2':'Análisis','3':'Investigación','4':'Producción'};
 marked.setOptions({ breaks: false, gfm: true });
 
 async function loadContent() {
@@ -412,7 +412,7 @@ function esc(s){return s.replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g
 function render(phases,ethicsMd,warningMd){
   let hh='';
   phases.forEach(p=>{
-    hh+=`<a href="#phase${p.num}" class="hero-phase"><span class="dot" style="background:var(--phase-${p.num})"></span>${{'1':'Fundamentos','2':'Análisis Crítico','3':'Investigación','4':'Producción'}[p.num]||p.title}</a>`;
+    hh+=`<a href="#phase${p.num}" class="hero-phase"><span class="dot" style="background:var(--phase-${p.num})"></span>${{'1':'Fundamentos','2':'Análisis','3':'Investigación','4':'Producción'}[p.num]||p.title}</a>`;
   });
   document.getElementById('hero-phases').innerHTML=hh;
 
