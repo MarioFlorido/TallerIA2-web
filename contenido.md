@@ -74,18 +74,15 @@ El resultado no es solo entender mejor un concepto. Es aprender a cuestionar lo 
 #### Prompt Principal
 ```
 Actúa como un tutor socrático experto.
-Tu objetivo NO es dar respuestas, sino guiar el pensamiento del estudiante paso a paso mediante preguntas estratégicas.
+Tu objetivo NO es dar respuestas, sino guiar el pensamiento del estudiante paso a paso mediante preguntas estratégicas. Nunca proporciones respuestas, definiciones ni soluciones.
 
 INSTRUCCIONES GENERALES
 1. Haz solo UNA pregunta por turno.
 2. Espera SIEMPRE la respuesta del estudiante antes de continuar.
-3. Nunca des respuestas directas.
-4. No expliques conceptos: el estudiante debe descubrirlos.
-5. Usa preguntas para dividir problemas, explorar supuestos y fomentar razonamiento autónomo.
-6. Si la respuesta es confusa o incorrecta, pregunta:
-      "¿Estás seguro?"
-      "¿Qué pasaría si…?"
-      "¿Podrías pensar en un contraejemplo?"
+3. Usa preguntas para dividir problemas, explorar supuestos y fomentar razonamiento autónomo.
+4. Si la respuesta es confusa o incorrecta, haz preguntas del tipo:
+      "¿Estás seguro?", "¿Qué pasaría si…?", "¿Ocurre siempre así?"...
+5.
 
 FLUJO DE INTERACCIÓN
 
@@ -100,18 +97,13 @@ Haz lo siguiente:
     * relaciones
     * aplicación
     * consecuencias
-    * contraejemplos
 
 Cuando observes que el estudiante ya tiene los elementos necesarios, formula una pregunta de síntesis:
 "Con todo lo que has reflexionado, ¿cómo responderías ahora tu propia pregunta?"
 
-TONO: Paciente, curioso, no condescendiente.
 
-REGLA CRÍTICA: Nunca muestres todas las preguntas a la vez. Solo una por turno.
+REGLAS CRÍTICAS: Nunca muestres todas las preguntas a la vez. Solo una por turno. Prohibido usar listas de viñetas o múltiples preguntas en un mismo mensaje. Mantén un tono paciente, curioso y profesional. Si el estudiante se desvía del tema, reconduce la conversación sutilmente hacia el objetivo de aprendizaje. No prolongues en exceso el diálogo con preguntas vacias, redundantes...
 ```
-
-#### Bonus Extra
-**Diálogo socrático extendido:** Mantén una conversación completa (10+ intercambios) donde la IA solo haga preguntas sobre un concepto que encuentres difícil. Luego pide a la IA que te elabore un resumen con los conceptos e ideas tratados así como las conclusiones.
 
 #### Pregunta de Reflexión
 ¿Cómo fue tu experiencia aprendiendo por preguntas en lugar de respuestas? ¿En qué momentos del aprendizaje es más valioso este enfoque vs. obtener información directa?
@@ -147,40 +139,29 @@ Actúa como un diseñador instruccional experto en visualización de conocimient
 Tengo el siguiente texto académico complejo:
 [INSERTAR TEXTO]
 
-Necesito que lo transformes en 4 FORMATOS VISUALES diferentes:
+Tarea a realizar:
+1. SÍNTESIS PREVIA: Identifica en 3 puntos clave el núcleo lógico del texto (tesis, proceso principal o categorías centrales).
+2. SELECCIÓN ESTRATÉGICA: Elige los 3 formatos visuales de la siguiente lista que mejor representen la estructura del texto. Justifica brevemente tu elección.
+3. GENERACIÓN: Proporciona el código Mermaid (o descripción detallada) para cada uno.
 
-1. **MAPA CONCEPTUAL JERÁRQUICO**
-   - Identifica concepto central
-   - Conceptos de 2º nivel (4-6)
-   - Conceptos de 3º nivel
-   - Dibuja las conexiones con formato de diagrama (usa símbolos ASCII o describe para Mermaid)
-
-2. **INFOGRAFÍA TIPO PROCESO/FLUJO**
-   - Si el texto describe un proceso, conviértelo en pasos numerados
-   - Incluye íconos sugeridos para cada paso
-   - Añade "datos destacados" en cada fase
-
-3. **TABLA COMPARATIVA**
-   - Si hay múltiples elementos, crea una tabla que los compare
-   - Mínimo 5 criterios de comparación
-
-4. **TIMELINE/LÍNEA DE TIEMPO**
-   - Si hay evolución histórica o secuencia temporal, créala
-   - Incluye fechas clave y eventos
-
-5. **DIAGRAMA DE VENN O MATRIZ 2X2**
-   - Identifica dimensiones de análisis
-   - Posiciona los conceptos según estas dimensiones
+Formatos disponibles:
+A. MAPA CONCEPTUAL (Mermaid: `graph TD`): Enfocado en la jerarquía y relaciones ontológicas. Máximo 15 nodos para mantener claridad.
+B. DIAGRAMA DE FLUJO/PROCESO (Mermaid: `graph LR` o `sequenceDiagram`): Ideal si hay una secuencia lógica, causal o temporal. Incluye hitos de decisión.
+C. TABLA COMPARATIVA ESTRUCTURADA: Crea una tabla Markdown con al menos 5 criterios de comparación transversales.
+D. MATRIZ DE ANÁLISIS 2x2: Identifica dos variables críticas (ejes X e Y) y posiciona los elementos del texto en los cuadrantes.
+E. TIMELINE (Mermaid: `timeline`): Solo si el factor cronológico es el eje vertebrador del texto.
 
 Para cada formato:
 - Justifica por qué ese formato es apropiado
-- Proporciona el código Mermaid o descripción detallada para crearlo
+- Evita frases largas dentro de los nodos de los diagramas (máximo 4-5 palabras por nodo).
+- Usa diferentes formas de nodos en Mermaid para distinguir conceptos de ejemplos o procesos.
+- Entrega cada diagrama en un bloque de código separado para facilitar la copia.
 
-IMPORTANTE: Elige los 3 formatos más apropiados para ESTE texto específico
+IMPORTANTE: Si el texto es contradictorio o presenta debates, prioriza la Matriz 2x2 o la Tabla Comparativa para mostrar las diferentes perspectivas.
 ```
 
 #### Bonus Extra
-**Narrativa visual:** Toma un paper completo de 20+ páginas. Crea una secuencia de 5-6 visualizaciones que cuenten la "historia" del paper de inicio a fin. ¿Puedes explicar toda la investigación solo con estas visualizaciones?
+**Mermaid:** Es una sencilla codificación, con un lenguaje muy sencillo, que posibilita crear grafos, diagramas... algunas IA pueden interpretarlo o pueden generar el código para su visualización. Internet está repleto de visualizadores, tanto gratuitos como de pago y Microsoft dispone de plugins para su integración en Word, PowerPoint...
 
 ---
 
@@ -280,45 +261,37 @@ Porque al final no se trata solo de detección. Se trata de entender qué hace q
 
 #### Prompt Principal
 ```
-Eres un experto en estilometría y análisis forense de textos académicos.
+Actua un experto en Estilometría Computacional y Lingüística Forense. Tu objetivo es realizar un "Análisis de ADN Textual" para determinar la autenticidad y el origen de un texto.
 
-Analiza el siguiente texto con profundidad científica:
+Este es el texto a analizar
 [INSERTAR TEXTO]
 
-Proporciona un PERFIL ESTILÍSTICO COMPLETO:
+TAREA: INFORME PERICIAL ESTILOMÉTRICO
+Analiza basándote exclusivamente en evidencias observables, estructurado en:
 
-1. MÉTRICAS CUANTITATIVAS:
-- Longitud promedio de oraciones
-- Índice de legibilidad (Flesch-Kincaid)
-- Riqueza léxica (type-token ratio estimado)
-- Frecuencia de voz pasiva vs activa
-- Uso de conectores lógicos (frecuencia)
+1. ARQUITECTURA SINTÁCTICA Y LÉXICA
+- Variabilidad de la longitud de oraciones: ¿Hay ritmo o es monótono?  
+- Densidad de conectores lógicos: ¿La transición entre ideas es orgánica o forzada/repetitiva?  
+- Riqueza de vocabulario: identifica términos inusuales o tecnicismos; comenta si predominan palabras comodín típicas de modelos de lenguaje.
 
-2. CARACTERÍSTICAS CUALITATIVAS:
-- Nivel de formalidad (1-10)
-- Complejidad sintáctica (simple/media/alta)
-- Registro académico (disciplina probable)
-- Tono (objetivo/apasionado/descriptivo)
-- Uso de jerga técnica (frecuencia y apropiación)
+2. HUELLAS DE AUTORÍA (IA vs HUMANO)
+- Indicadores de IA: pulido excesivo, estructuras simétricas, ausencia de sesgos cognitivos, falta de anclaje personal/emocional.  
+- Indicadores humanos: idiosincrasias, errores sutiles de puntuación, giros idiomáticos, inconsistencias narrativas naturales.
 
-3. INDICADORES DE AUTORÍA:
-- Probabilidad de autoría humana vs IA (0-100%)
-- Señales de escritura por IA (si las hay):
-  * Frases excesivamente pulidas
-  * Falta de errores naturales
-  * Patrones repetitivos
-  * Ausencia de voz personal
-- Señales de escritura humana:
-  * Inconsistencias estilísticas naturales
-  * Giros idiomáticos personales
-  * Errores humanos típicos
+3. PRUEBA DE EVIDENCIA
+- Para cada afirmación anterior, extrae una cita textual que la respalde.
 
-4. CONCLUSIÓN:
-- ¿Este texto parece auténticamente académico?
-- ¿Sugiere autoría única o múltiple?
-- ¿Hay indicios de plagio o generación automática?
+4. JUICIO DE AUTENTICIDAD ACADÉMICA
+- ¿El texto presenta una voz autoral única o parece collage de múltiples fuentes?  
+- Evalúa el uso de jerga: ¿es apropiación profunda del concepto o uso superficial de palabras clave?
 
-Presenta el análisis en formato de INFORME PERICIAL
+5. CONCLUSIÓN Y METADATOS DEL ANÁLISIS
+- Grado de confianza (Bajo/Medio/Alto).  
+- Hipótesis final: [Autoría Humana / Generación IA / Escritura Híbrida].  
+- Limitaciones: aspectos del texto que impiden una conclusión definitiva.  
+
+Como complemento:
+- ¿Qué métricas o métodos computacionales podrían validar tu análisis?
 ```
 
 #### Bonus Extra
@@ -394,11 +367,9 @@ Necesito que hagas ARQUEOLOGÍA DIGITAL INVERSA:
 Formato: Informe estructurado con secciones claras y fuentes verificables
 ```
 
-#### Bonus Extra
-**Cazadores de mitos académicos:** Crea una lista colaborativa de "10 mitos académicos más populares" en tu disciplina. Cada estudiante investiga uno usando el prompt y presenta sus hallazgos. Ejemplos: "Solo usamos el 10% del cerebro", "Estilos de aprendizaje VAK", "Efecto Mozart".
 
 #### Pregunta de Reflexión
-¿Cuántas afirmaciones académicas que das por ciertas podrían beneficiarse de este análisis? ¿Cómo cambia esto tu responsabilidad al citar información en tus trabajos?
+¿Cuántas afirmaciones académicas que das por ciertas podrían beneficiarse de este análisis?
 
 ---
 
@@ -450,7 +421,7 @@ ARTÍCULOS:
 ```
 
 #### Bonus Extra
-**Expansión progresiva:** Comienza con unos pocos artículos. Luego añade más a la matriz. Observa cómo cambia la síntesis y si emergen nuevos patrones o contradicciones con más datos.
+**Expansión progresiva:** Comienza con unos pocos artículos. Luego añade más a la matriz. Observa cómo cambia la síntesis y si emergen nuevos patrones o contradicciones con más datos. Este proceso puedes hacerlo en una hoja de cálculo
 
 #### Pregunta de Reflexión
 ¿Qué descubriste al comparar sistemáticamente las fuentes que no habrías notado leyéndolas individualmente? ¿Las contradicciones encontradas sugieren nuevas líneas de investigación?
