@@ -173,7 +173,7 @@ IMPORTANTE: Si el texto es contradictorio o presenta debates, prioriza la Matriz
 **Desarrollar pensamiento crítico avanzado mediante el uso de IA como herramienta de auditoría intelectual que identifica sesgos cognitivos, falacias lógicas y debilidades metodológicas en textos académicos.**
 
 #### Descripción
-Leer un texto académico no es lo mismo que leerlo bien. La mayoría de los sesgos, las falacias y los problemas metodológicos pasan desapercibidos precisamente porque el texto tiene forma de rigor aunque no lo tenga.
+Leer un texto académico no es lo mismo que leerlo bien. La mayoría de los sesgos, las falacias y los problemas metodológicos pasan desapercibidos precisamente porque el texto tenga "pinta" de riguroso aunque no lo sea.
 
 Este ejercicio te entrena para ver lo que está debajo: si una conclusión se sostiene realmente en los datos, si la muestra es suficiente, si el autor está presentando como universal algo que solo ocurrió en un contexto muy concreto, o si hay una correlación disfrazada de causa. La IA actúa aquí como un auditor que señala dónde mirar, pero la lectura crítica la haces tú.
 
@@ -315,7 +315,7 @@ Como complemento:
 **Desarrollar habilidades avanzadas de fact-checking mediante búsqueda inversa: partir de una conclusión o afirmación popular para rastrear su fuente primaria, validar su precisión y detectar distorsiones en su propagación.**
 
 #### Descripción
-"Solo usamos el 10% del cerebro." "El 93% de la comunicación es no verbal." Todo el mundo lo ha oído. Casi nadie ha comprobado de dónde viene.
+"Solo usamos el 10% del cerebro." "El 93% de la comunicación es no verbal." Todo el mundo lo ha oído pero casi nadie ha comprobado de dónde viene.
 
 Este ejercicio convierte a la IA en un arqueólogo digital: parte de afirmaciones que circulan como verdades establecidas y excava hacia atrás hasta encontrar —o no encontrar— el estudio original. ¿Quién lo hizo? ¿Cuándo? ¿Con qué muestra? ¿Qué decía realmente? Muchas veces lo que encuentras no es el dato que se repite, sino algo bastante más matizado que se fue distorsionando cada vez que alguien lo citó de memoria.
 
@@ -436,7 +436,7 @@ ARTÍCULOS:
 **Aprender a diseñar estrategias de búsqueda bibliográfica rigurosas y efectivas mediante la identificación de términos clave, uso de tesauros especializados, construcción de ecuaciones booleanas y selección estratégica de fuentes de información académica.**
 
 #### Descripción
-Buscar bibliografía no es lo mismo que buscar bien. La mayoría de estudiantes escriben unas palabras en un buscador, cogen los primeros resultados y dan el tema por resuelto. El problema es que así se pierden estudios importantes y se cuela material de poca calidad.
+Buscar bibliografía no es lo mismo que encontrar buena información. La mayoría de estudiantes escriben unas palabras en un buscador, cogen los primeros resultados y dan el tema por resuelto. El problema es que así se pierden estudios importantes y se cuela material de poca calidad.
 
 Este ejercicio te enseña a hacerlo de otra manera: eligiendo las palabras exactas, combinándolas con criterio y sabiendo en qué base de datos buscar según tu disciplina. La IA te guía en ese proceso paso a paso, desde cero.
 
