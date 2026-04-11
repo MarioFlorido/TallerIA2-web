@@ -20,7 +20,7 @@
   --shadow-md: 0 4px 12px rgba(0,0,0,.09), 0 1px 3px rgba(0,0,0,.05);
   --shadow-lg: 0 12px 32px rgba(0,0,0,.13), 0 4px 8px rgba(0,0,0,.06);
 
-  /* Colores más vibrantes y saturados */
+  /* Colores vibrantes y saturados */
   --phase-1: #ea580c;
   --phase-1-bg: #fff7ed;
   --phase-1-border: #fb923c;
@@ -63,7 +63,6 @@ body{font-family:var(--font-body);background:var(--bg);color:var(--text);line-he
   background:linear-gradient(135deg, #1e40af 0%, #7c3aed 100%);
 }
 
-/* Network SVG container */
 .hero-net{position:absolute;inset:0;overflow:hidden;z-index:0;pointer-events:none}
 .hero-net svg{width:100%;height:100%;display:block}
 
@@ -115,7 +114,7 @@ body{font-family:var(--font-body);background:var(--bg);color:var(--text);line-he
 /* ── LAYOUT ── */
 .container{max-width:1080px;margin:0 auto;padding:0 28px}
 
-/* ── PHASE WRAP — fondos vibrantes por fase ── */
+/* ── PHASE WRAP — fondos vibrantes ── */
 .phase-wrap{padding-bottom:64px;position:relative}
 .phase-wrap::before{
   content:'';position:absolute;inset:0;opacity:.08;
@@ -153,13 +152,11 @@ body{font-family:var(--font-body);background:var(--bg);color:var(--text);line-he
 .activity{background:#ffffff;border:2px solid;border-radius:var(--radius-lg);margin-bottom:32px;overflow:hidden;transition:box-shadow .3s ease,transform .3s ease;box-shadow:var(--shadow-md)}
 .activity:hover{transform:translateY(-4px);box-shadow:var(--shadow-lg)}
 
-/* Bordes coloridos por fase */
 .activity[data-phase="1"]{border-color:var(--phase-1-vibrant)}
 .activity[data-phase="2"]{border-color:var(--phase-2-vibrant)}
 .activity[data-phase="3"]{border-color:var(--phase-3-vibrant)}
 .activity[data-phase="4"]{border-color:var(--phase-4-vibrant)}
 
-/* Fixed colored stripe at bottom of image */
 .activity-img{width:100%;height:260px;overflow:hidden;position:relative;background:var(--bg);display:flex;align-items:center;justify-content:center}
 .activity[data-phase="1"] .activity-img{border-bottom:4px solid var(--phase-1-vibrant)}
 .activity[data-phase="2"] .activity-img{border-bottom:4px solid var(--phase-2-vibrant)}
@@ -278,10 +275,8 @@ footer .sep{margin:0 12px;opacity:.35}
 <body>
 
 <section class="hero" id="hero">
-  <!-- Geometric network pattern -->
   <div class="hero-net" aria-hidden="true">
     <svg viewBox="0 0 1440 900" preserveAspectRatio="xMidYMid slice" xmlns="http://www.w3.org/2000/svg">
-      <!-- Edges / lines -->
       <g stroke="#ffffff" stroke-width="1" fill="none">
         <line x1="144" y1="180" x2="432" y2="315" stroke-opacity=".1"/>
         <line x1="144" y1="180" x2="288" y2="405" stroke-opacity=".09"/>
@@ -314,9 +309,7 @@ footer .sep{margin:0 12px;opacity:.35}
         <line x1="720"  y1="180" x2="936"  y2="135" stroke-opacity=".1"/>
         <line x1="1152" y1="585" x2="1368" y2="360" stroke-opacity=".09"/>
       </g>
-      <!-- Nodes -->
       <g fill="#ffffff">
-        <!-- small nodes -->
         <circle cx="144"  cy="180"  r="3" fill-opacity=".18"/>
         <circle cx="360"  cy="540"  r="3" fill-opacity=".18"/>
         <circle cx="576"  cy="135"  r="3" fill-opacity=".15"/>
@@ -331,15 +324,12 @@ footer .sep{margin:0 12px;opacity:.35}
         <circle cx="756"  cy="810"  r="3" fill-opacity=".13"/>
         <circle cx="936"  cy="135"  r="3" fill-opacity=".15"/>
         <circle cx="1368" cy="360"  r="3" fill-opacity=".15"/>
-        <!-- medium nodes -->
         <circle cx="720"  cy="180"  r="4.5" fill-opacity=".22"/>
         <circle cx="648"  cy="495"  r="4.5" fill-opacity=".22"/>
         <circle cx="1296" cy="225"  r="4.5" fill-opacity=".2"/>
         <circle cx="1152" cy="585"  r="4.5" fill-opacity=".2"/>
-        <!-- accent nodes -->
         <circle cx="864"  cy="405"  r="6" fill-opacity=".28"/>
         <circle cx="1008" cy="270"  r="6" fill-opacity=".28"/>
-        <!-- glow rings on accent nodes -->
         <circle cx="864"  cy="405"  r="11" fill-opacity="0" stroke="#ffffff" stroke-opacity=".07" stroke-width="1"/>
         <circle cx="1008" cy="270"  r="11" fill-opacity="0" stroke="#ffffff" stroke-opacity=".07" stroke-width="1"/>
       </g>
@@ -399,24 +389,29 @@ function parseAndRender(md) {
   for(const line of lines){
     let m=line.match(/^# FASE (\d+):\s*(.+)/i);
     if(m){flush();mode='normal';phase={num:m[1],title:m[2].trim(),subtitle:'',activities:[]};phases.push(phase);act=null;sec=null;continue}
-    if(line.match(/^# (GUÍA DE USO ÉTICO|ÉTICA)/i)){flush();mode='ethics';ethicsBuf='';act=null;sec=null;continue}
-    if(line.match(/^# (PRINCIPIO FUNDAMENTAL|AVISO)/i)){flush();mode='warning';warnBuf='';act=null;sec=null;continue}
+    if(line.match(/^# (ÉTICA|GUÍA DE USO ÉTICO)/i)){flush();mode='ethics';ethicsBuf='';act=null;sec=null;continue}
+    if(line.match(/^# (AVISO|PRINCIPIO FUNDAMENTAL)/i)){flush();mode='warning';warnBuf='';act=null;sec=null;continue}
     if(mode==='ethics'||mode==='warning'){buf.push(line);continue}
 
     m=line.match(/^## (.+)/);
     if(m&&phase&&!act){phase.subtitle=m[1].trim();continue}
     if(line.trim()==='---')continue;
 
-    m=line.match(/^## (\d+)\.\s*(.+)/);
+    m=line.match(/^### (\d+)\.\s*(.+)/);
     if(m){flush();act={num:m[1],title:m[2].trim(),tag:'',image:'',sections:[]};if(phase)phase.activities.push(act);sec=null;continue}
 
-    m=line.match(/^### (.+)/);
+    m=line.match(/^>\s*\*\*Tag:\*\*\s*(.+)/);
+    if(m&&act){act.tag=m[1].trim();continue}
+    m=line.match(/^>\s*\*\*Imagen:\*\*\s*(.+)/);
+    if(m&&act){act.image=m[1].trim();continue}
+
+    m=line.match(/^#### (.+)/);
     if(m&&act){
       flush();const t=m[1].trim();
       if(t==='Objetivo Educacional')sec={type:'objetivo',title:t};
       else if(t==='Descripción Breve'||t==='Descripción')sec={type:'descripcion',title:t};
       else if(t.startsWith('Info:'))sec={type:'info',title:t.slice(5).trim()};
-      else if(t==='Info')sec={type:'info',title:''};
+      else if(t.startsWith('Info'))sec={type:'info',title:t.replace(/^Info\s*/,'')};
       else if(t==='Prompt Principal')sec={type:'prompt',title:t};
       else if(t==='Bonus Extra'||t.startsWith('Terminología'))sec={type:'bonus',title:t};
       else if(t.startsWith('Pregunta de Reflexión'))sec={type:'reflexion',title:t};
