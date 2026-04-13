@@ -277,8 +277,11 @@ button{
 <script>
 const STORAGE_KEY="progress";
 const SECTION_ORDER = [
+  // BLOQUE 1: Fundamentos
   'Objetivo Educacional',
   'Descripción',
+  
+  // BLOQUE 2: Material e instrucciones (varios tipos)
   'Generar un texto previo',
   'Temas especialmente complejos',
   'Ejemplos para experimentar',
@@ -287,7 +290,13 @@ const SECTION_ORDER = [
   'Afirmaciones pseudocientíficas',
   'Ejemplos',
   'Info',
+  'Temas para experimentar',
+  'Temas para la comunicación',
+  
+  // BLOQUE 3: El prompt principal
   'Prompt Principal',
+  
+  // BLOQUE 4: Material complementario
   'Pregunta de Reflexión',
   'Bonus Extra',
   'Terminología empleada',
@@ -427,15 +436,14 @@ function openPanel(a,el){
 
   document.getElementById("overlay").classList.add("open");
 
-  // Separar subsecciones: aquí la descripción sí entra en el panel
-  const descSection=a.sections.find(s=>s.title.includes('Descripción'));
-  const otherSections=a.sections.filter(s=>!s.title.includes('Descripción'));
+  // Filtrar secciones: excluir "Tag" si existe (ya está en tarjeta)
+  const panelSections=a.sections.filter(s=>s.title!=='Tag');
 
   document.getElementById("panel").innerHTML=`
     <div class="close" onclick="closePanel()">✕</div>
     <h2>${a.title}</h2>
     
-    ${otherSections
+    ${panelSections
       .map(s=>`
       <div class="panel-section">
         <h4>${s.title}</h4>
