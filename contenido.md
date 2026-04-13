@@ -1,11 +1,8 @@
 # FASE 1: FUNDAMENTOS
 ## Entender cómo funciona la IA
 
----
-
 ### 1. Hackear Prompts
 > **Tag:** Ingeniería inversa
-> **Imagen:** img/01-hackear-prompts.jpg
 
 #### Objetivo Educacional
 **Desarrollar habilidades sobre cómo funcionan los prompts mediante ingeniería inversa: analizar una respuesta de IA para deducir qué prompt la generó y cómo optimizarla.**
@@ -17,7 +14,7 @@ Es una forma de aprender ingeniería de prompts desde dentro. Al reconstruir el 
 
 Quien sabe desmontar un prompt sabe construir uno mejor.
 
-#### Info: Generar un texto previo con esta instrucción u otra parecida para experimentar
+#### Generar un texto previo con esta instrucción u otra parecida para experimentar
 *Redacta un texto de no más de cuatro párrafos sobre la teoría del constructivismo y sus fundamentos: el aprendizaje por descubrimiento, la asimilación, la acomodación y el equilibrio. Cita a Piaget, Bruner y Vygotsky, y menciona cómo ha evolucionado la teoría en los últimos años. Evita el formato esquemático y adopta un tono académico para una audiencia de expertos en pedagogía.*
 
 #### Prompt Principal
@@ -49,11 +46,8 @@ Necesito que hagas INGENIERÍA INVERSA:
 #### Bonus Extra
 **Desafío:** Genera un texto con alguna errata. Por ejemplo, en el ejercicio anterior, incluye un autor nuevo como Mickey Mouse. Verás que la IA lo incluye en el texto. Indícale a la IA que reconstruya el prompt original indicando por qué lo ha incluido.
 
----
-
 ### 2. Método Socrático
 > **Tag:** Aprendizaje por preguntas
-> **Imagen:** img/02-metodo-socratico.jpg
 
 #### Objetivo Educacional
 **Transformar la relación con la IA: en lugar de usarla para obtener respuestas directas, entrenarla para que actúe como tutor que guía el pensamiento mediante preguntas estratégicas, fomentando el razonamiento autónomo.**
@@ -65,7 +59,7 @@ Es incómodo al principio. Estás acostumbrado a recibir información, no a cons
 
 El resultado no es solo entender mejor un concepto. Es aprender a cuestionar lo que das por sentado, a considerar otras perspectivas y a sostener tus propios argumentos. Una habilidad que, una vez desarrollada, se queda.
 
-#### Info: Preguntas para experimentar el método socrático
+#### Ejemplos para experimentar el método socrático
 - *"¿Debe el médico respetar siempre la decisión del paciente, incluso cuando va en contra del tratamiento recomendado?"*
 - *"¿Las empresas deberían priorizar el beneficio económico por encima de su responsabilidad social?"*
 - *"¿Por qué las desigualdades sociales tienden a reproducirse a lo largo de generaciones?"*
@@ -82,7 +76,6 @@ INSTRUCCIONES GENERALES
 3. Usa preguntas para dividir problemas, explorar supuestos y fomentar razonamiento autónomo.
 4. Si la respuesta es confusa o incorrecta, haz preguntas del tipo:
       "¿Estás seguro?", "¿Qué pasaría si…?", "¿Ocurre siempre así?"...
-5.
 
 FLUJO DE INTERACCIÓN
 
@@ -101,7 +94,6 @@ Haz lo siguiente:
 Cuando observes que el estudiante ya tiene los elementos necesarios, formula una pregunta de síntesis:
 "Con todo lo que has reflexionado, ¿cómo responderías ahora tu propia pregunta?"
 
-
 REGLAS CRÍTICAS: Nunca muestres todas las preguntas a la vez. Solo una por turno. Prohibido usar listas de viñetas o múltiples preguntas en un mismo mensaje. Mantén un tono paciente, curioso y profesional. Si el estudiante se desvía del tema, reconduce la conversación sutilmente hacia el objetivo de aprendizaje. No prolongues en exceso el diálogo con preguntas vacias, redundantes...
 ```
 
@@ -113,11 +105,8 @@ REGLAS CRÍTICAS: Nunca muestres todas las preguntas a la vez. Solo una por turn
 # FASE 2: ANÁLISIS
 ## Desarrollar pensamiento crítico
 
----
-
 ### 3. Transformar visualmente
 > **Tag:** Texto a visualización
-> **Imagen:** img/03-transformar-visual.jpg
 
 #### Objetivo Educacional
 **Aprender a transformar textos académicos densos en múltiples formatos visuales de conocimiento, facilitando la comprensión y comunicación de información compleja.**
@@ -127,9 +116,8 @@ Un texto denso no siempre se entiende mejor leyéndolo más veces. A veces lo qu
 
 La IA puede convertir cualquier texto complejo en un mapa conceptual, una línea de tiempo, una tabla comparativa o un diagrama de flujo. En minutos, y con tantas iteraciones como quieras. Pero lo más valioso no es la velocidad: es que para pedir la visualización correcta, primero tienes que preguntarte qué tipo de relación describe el texto. ¿Es una secuencia? ¿Una jerarquía? ¿Una comparación? Esa pregunta, aparentemente técnica, es en realidad una pregunta de comprensión. Y responderla bien significa que ya has entendido algo importante del contenido.
 
-La visualización es el resultado. El aprendizaje ocurre antes.
 
-#### Info: Temas especialmente complejos para trabajar con la IA
+#### Temas especialmente complejos para trabajar con la IA
 Buscar textos sobre: *Teoría de la Relatividad, Programación Neurolingüística, Principio de incertidumbre de Heisenberg, Síndrome de Cushing, Interacción estructura-agencia, Filosofía del lenguaje y de la mente...*
 
 #### Prompt Principal
@@ -167,7 +155,6 @@ IMPORTANTE: Si el texto es contradictorio o presenta debates, prioriza la Matriz
 
 ### 4. Auditoría de textos
 > **Tag:** Detección de sesgos y falacias
-> **Imagen:** img/04-auditoria-textos.jpg
 
 #### Objetivo Educacional
 **Desarrollar pensamiento crítico avanzado mediante el uso de IA como herramienta de auditoría intelectual que identifica sesgos cognitivos, falacias lógicas y debilidades metodológicas en textos académicos.**
@@ -179,7 +166,7 @@ Este ejercicio te entrena para ver lo que está debajo: si una conclusión se so
 
 Con el tiempo, ese filtro se vuelve automático. Y se aplica a cualquier texto, de cualquier disciplina, en cualquier situación profesional.
 
-#### Info: Ejemplos de papers con "anomalías"
+#### Ejemplos de papers con "anomalías"
 - [Incidencia de la pandemia COVID en los delitos de odio en España](https://dialnet.unirioja.es/descarga/articulo/8400381.pdf)
 - [Estudio de la obesidad y del sobrepeso como factores de riesgo de la prevalencia y severidad del asma en niños de Valencia](https://scielo.isciii.es/pdf/nh/v20n6/original4.pdf)
 - [El enfoque de género en la intervención socioeducativa con mujeres un estudio en el medio penitenciario español](https://repositorio.ual.es/bitstream/handle/10835/10431/3474-15303-1-PB.pdf?sequence=1&isAllowed=y)
@@ -220,30 +207,28 @@ Formato: Tabla con columnas [Tipo de problema | Cita textual | Explicación | Su
 
 #### Terminología empleada:
 
-### Sesgos cognitivos
+##### Sesgos cognitivos
 
 - **Sesgo de confirmación** — Buscar solo lo que confirma lo que ya crees, ignorando lo que lo contradice. *Ejemplo: un investigador que solo cita estudios favorables a su hipótesis.*
 - **Sesgo de disponibilidad** — Sobrevalorar lo que te viene fácilmente a la mente. *Ejemplo: creer que los accidentes aéreos son más frecuentes que los de tráfico porque generan más noticias.*
 - **Sesgo de anclaje** — Dejarse influir demasiado por el primer dato que recibes. *Ejemplo: valorar un estudio como "bueno" porque el primero que leíste del mismo autor era excelente.*
 
-### Falacias Lógicas
+##### Falacias Lógicas
 
 - **Ad hominem** — Atacar a quien dice algo en lugar de lo que dice. *Ejemplo: "Este estudio no es fiable porque su autor tiene intereses comerciales."*
 - **Falsa causa** — Asumir que si B ocurre después de A, A lo ha causado. *Ejemplo: "Desde que se legalizó el cannabis, aumentó el consumo de alcohol. El cannabis lleva al alcohol."*
 - **Generalización apresurada** — Sacar conclusiones amplias de pocos casos. *Ejemplo: entrevistar a tres estudiantes y concluir cómo estudia "la juventud española".*
 - **Pendiente resbaladiza** — Suponer que un primer paso lleva inevitablemente a consecuencias extremas. *Ejemplo: "Si permitimos el uso de IA en clase, nadie volverá a pensar por sí mismo."*
 
-### Debilidades metodológicas
+##### Debilidades metodológicas
 
 - **Problemas con la muestra** — Muestra demasiado pequeña, sesgada o no representativa. *Ejemplo: estudiar hábitos de lectura encuestando solo a usuarios de bibliotecas universitarias.*
 - **Confusión correlación-causalidad** — Dos variables se mueven juntas, pero eso no significa que una cause la otra. *Ejemplo: los países con más chocolatinas per cápita tienen más premios Nobel... pero el chocolate no da premios.*
 - **Variables no controladas** — Factores externos que influyen en el resultado y no se han tenido en cuenta. *Ejemplo: un estudio sobre rendimiento académico que no controla el nivel socioeconómico de los participantes.*
 
----
 
 ### 5. Detección de ADN textual
 > **Tag:** Análisis estilométrico
-> **Imagen:** img/05-adn-textual.jpg
 
 #### Objetivo Educacional
 **Desarrollar capacidad analítica forense sobre textos mediante estilometría computacional, identificando patrones de autoría, autenticidad académica e indicadores de generación por IA.**
@@ -255,7 +240,7 @@ En este ejercicio usas la IA para analizar textos e identificar esos rasgos: si 
 
 Porque al final no se trata solo de detección. Se trata de entender qué hace que un texto suene auténtico, y usar eso para escribir mejor.
 
-#### Info: Un trabajo creado por un investigador y otro por una IA
+#### Un trabajo creado por un investigador y otro por una IA
 - [TFG. Análisis del Sesgo Algorítmico en Sistemas de IA](https://github.com/MarioFlorido/TallerIA2/raw/main/TFG.Analisis_del_sesgo_Algoritmico_en_Sistemas_de_IA.pdf)
 - [TFG. Arquitectura para el Alzheimer. Residencias o viviendas adaptables](https://github.com/MarioFlorido/TallerIA2/raw/main/TFG.Arquitectura_para_el_Alzheimer.pdf)
 
@@ -297,19 +282,13 @@ Como complemento:
 #### Bonus Extra
 **Experimento de Turing:** Escribe tú mismo un párrafo de 200 palabras sobre un tema académico. Pídele a la IA que genere otro párrafo similar. Pásalos por el detector. ¿Puede la IA identificar cuál escribiste tú? ¿Qué revelan las diferencias sobre tu estilo?
 
-#### Pregunta de Reflexión
-¿Qué implicaciones éticas tiene poder detectar textos generados por IA? ¿Cómo afecta esto a la autenticidad académica y la evaluación del aprendizaje?
-
 ---
 
 # FASE 3: INVESTIGACIÓN
 ## Validar y comparar información
 
----
-
 ### 6. Arqueología digital
 > **Tag:** Rastreo el origen de afirmaciones
-> **Imagen:** img/06-arqueologia-digital.jpg
 
 #### Objetivo Educacional
 **Desarrollar habilidades avanzadas de fact-checking mediante búsqueda inversa: partir de una conclusión o afirmación popular para rastrear su fuente primaria, validar su precisión y detectar distorsiones en su propagación.**
@@ -321,7 +300,7 @@ Este ejercicio convierte a la IA en un arqueólogo digital: parte de afirmacione
 
 El hábito que desarrollas es el más valioso: no dar por válida ninguna afirmación sin preguntarte de dónde viene.
 
-#### Info: Afirmaciones pseudocientíficas para investigar
+#### Afirmaciones pseudocientíficas para investigar
 - *Sólo usamos el 10% de nuestro cerebro.*
 - *El 93% de la comunicación es no verbal.*
 - *La música de Mozart aumenta la inteligencia.*
@@ -367,15 +346,11 @@ Necesito que hagas ARQUEOLOGÍA DIGITAL INVERSA:
 Formato: Informe estructurado con secciones claras y fuentes verificables
 ```
 
-
 #### Pregunta de Reflexión
 ¿Cuántas afirmaciones académicas que das por ciertas podrían beneficiarse de este análisis?
 
----
-
 ### 7. Matrices de fuentes
 > **Tag:** Análisis comparativo de fuentes
-> **Imagen:** img/07-matrices-fuentes.jpg
 
 #### Objetivo Educacional
 **Aprender a realizar análisis comparativos exhaustivos de literatura científica mediante matrices que serían imposibles de construir manualmente en poco tiempo, identificando consensos, contradicciones y lagunas de investigación.**
@@ -387,7 +362,7 @@ La matriz de fuentes resuelve eso: obliga a confrontar los estudios criterio por
 
 Lo más interesante suele aparecer en las contradicciones. Ahí es donde están las preguntas que todavía nadie ha respondido bien.
 
-#### Info: Ejemplos
+#### Ejemplos
 [Referencias académicas (por tema) sobre Inteligencia Artificial y sus implicaciones](https://hackmd.io/@maflope/SJDJQ_2gWl)
 
 #### Prompt Principal
@@ -426,11 +401,8 @@ ARTÍCULOS:
 #### Pregunta de Reflexión
 ¿Qué descubriste al comparar sistemáticamente las fuentes que no habrías notado leyéndolas individualmente? ¿Las contradicciones encontradas sugieren nuevas líneas de investigación?
 
----
-
 ### 8. Estratega investigadora asistida
 > **Tag:** Búsqueda académica profesional
-> **Imagen:** img/08-estratega-investigadora.jpg
 
 #### Objetivo Educacional
 **Aprender a diseñar estrategias de búsqueda bibliográfica rigurosas y efectivas mediante la identificación de términos clave, uso de tesauros especializados, construcción de ecuaciones booleanas y selección estratégica de fuentes de información académica.**
@@ -440,7 +412,7 @@ Buscar bibliografía no es lo mismo que encontrar buena información. La mayorí
 
 Este ejercicio te enseña a hacerlo de otra manera: eligiendo las palabras exactas, combinándolas con criterio y sabiendo en qué base de datos buscar según tu disciplina. La IA te guía en ese proceso paso a paso, desde cero.
 
-#### Info: Temas
+#### Temas para experimentar
 - *Estimulación Magnética Transcraneal y neuroplasticidad en pacientes con tumores cerebrales*
 - *Impacto del apoyo social y las redes comunitarias en el afrontamiento psicológico de pacientes con tumores cerebrales*
 - *Análisis sociológico del movimiento cátaro como herejía medieval*
@@ -517,17 +489,14 @@ FORMATO: Entrega estructurada con las ecuaciones listas para copiar y pegar
 # FASE 4: PRODUCCIÓN
 ## Crear contenido académico
 
----
-
 ### 9. Salida de documentos
 > **Tag:** Adaptación por tipo de audiencia
-> **Imagen:** img/09-salida-documentos.jpg
 
 #### Objetivo Educacional
 **Dominar la alternancia de código (code-switching) retórico: transformar el mismo contenido académico para audiencias radicalmente diferentes, manteniendo la esencia pero adaptando registro lingüístico, tono, estructura y vocabulario.**
 
 #### Descripción
-Esta habilidad profesional crítica te permite comunicar efectivamente con cualquier audiencia. No se trata de simplificar o complicar, sino de hacer verdadera adaptación estratégica. Aprenderás a hablar el "idioma" de académicos, ejecutivos, público general, audiencias jóvenes y profesionales técnicos con el mismo mensaje.
+Esta habilidad profesional crítica te permite comunicar efectivamente con cualquier audiencia. No se trata de simplificar o complicar, sino de hacer una verdadera adaptación estratégica. Aprenderás a hablar el "idioma" de académicos, ejecutivos, público general, audiencias jóvenes y profesionales técnicos con el mismo mensaje.
 
 En el mundo profesional y académico, la capacidad de adaptar un mismo contenido a diferentes interlocutores es una de las competencias comunicativas más demandadas y menos trabajadas. Un investigador que solo sabe escribir para revistas científicas, un profesional que no puede explicar su proyecto a un público no especializado o un estudiante que no distingue entre un registro formal e informal pierden oportunidades de impacto y conexión con sus audiencias.
 
@@ -590,7 +559,7 @@ FORMATO: Tabla con columnas [Audiencia | Texto adaptado | Decisiones retóricas]
 ```
 
 #### Bonus Extra
-**El desafío del Orador:** Toma tu tema de TFG/TFM. Crea versiones de 30 segundos, 2 minutos y 10 minutos para tres audiencias diferentes (tu director de tesis, un reclutador de empresa, tu abuela). Practica presentar cada versión cronometrada.
+**El desafío del Orador:** Toma tu tema de TFG/TFM. Crea versiones de 30 segundos, 2 minutos y 10 minutos para tres audiencias diferentes (tu abuela, unos compañeros de clase y director). Practica presentar cada versión cronometrada.
 
 #### Pregunta de Reflexión
 ¿En qué situaciones profesionales o académicas aplicarías inmediatamente esta técnica? ¿Cómo cambia tu percepción sobre "escribir bien" al entender que depende completamente de la audiencia?
@@ -599,7 +568,6 @@ FORMATO: Tabla con columnas [Audiencia | Texto adaptado | Decisiones retóricas]
 
 ### 10. Edición académica
 > **Tag:** Edición multinivel de textos
-> **Imagen:** img/10-edicion-academica.jpg
 
 #### Objetivo Educacional
 **Dominar el proceso de edición profesional mediante un análisis multinivel que mejora estructura, claridad, estilo y corrección lingüística de textos académicos, manteniendo la voz autoral y potenciando la calidad argumentativa.**
@@ -707,11 +675,9 @@ Si un profesor te preguntara cómo usaste IA en este trabajo, ¿podrías explica
 
 ---
 
-# ÉTICA
+# Guía de Uso Ético
 
-## Guía de Uso Ético
-
-### Principio Fundamental
+## Principio Fundamental
 **La IA es tu aliada en el aprendizaje, no tu sustituta.** Estas herramientas están diseñadas para POTENCIAR tu pensamiento crítico, no para reemplazarlo. El objetivo es que desarrolles habilidades que te servirán toda la vida académica o profesional, no solo para completar tareas.
 
 ### USA LA IA PARA:
@@ -730,8 +696,6 @@ Si un profesor te preguntara cómo usaste IA en este trabajo, ¿podrías explica
 -  Generar trabajos completos sin comprensión
 -  Evitar el proceso de aprendizaje
  
----
-
 ## Aviso Importante
 Como habrás deducido parte de este taller se ha realizado con IA:
 - La secuenciación de contenidos. La IA ha asistido a darle una coherencia al itinerario de aprendizaje.
