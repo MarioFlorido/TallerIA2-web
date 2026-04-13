@@ -366,7 +366,10 @@ function parse(md){
     // DETECTAR SECCIÓN ESPECIAL (Guía Ética, etc.)
     m=line.match(/^# (.+)$/);
     if(m && !m[1].includes('FASE')){
-      flush();
+      flush();  // Volcar última sección de actividad
+      flushSpecialContent();  // Volcar contenido especial anterior si existe
+      sec=null;  // Limpiar sec para no mezclar con actividades
+      act=null;  // Salir de modo actividad
       currentSpecial={title:m[1],content:''};
       specialSections.push(currentSpecial);
       phase=null; // Salir de modo "fase"
@@ -384,11 +387,17 @@ function parse(md){
 
     // DETECTAR TAG (busca **Tag:** con los asteriscos literales)
     m=line.match(/\*\*Tag:\*\*\s*(.+)/);
-    if(m && act)act.tag=m[1];
+    if(m && act){
+      act.tag=m[1];
+      continue;  // ← IMPORTANTE: Saltar esta línea (no acumular en buf)
+    }
 
     // DETECTAR IMAGEN (busca **Imagen:** con los asteriscos literales)
     m=line.match(/\*\*Imagen:\*\*\s*(.+)/);
-    if(m && act)act.img=m[1];
+    if(m && act){
+      act.img=m[1];
+      continue;  // ← IMPORTANTE: Saltar esta línea (no acumular en buf)
+    }
 
     // DETECTAR SUBSECCIÓN (h4)
     m=line.match(/^#### (.+)/);
