@@ -3,202 +3,183 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Taller de IA — Técnicas Avanzadas</title>
+
+<title>Taller IA</title>
 
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
 <script src="https://cdnjs.cloudflare.com/ajax/libs/marked/12.0.2/marked.min.js"></script>
 
 <style>
-:root {
-  --bg: #fafafa;
-  --bg-card: #ffffff;
-  --text: #111;
-  --text-muted: #6b7280;
-  --border: #e5e7eb;
-  --accent: #2563eb;
-
-  --radius: 14px;
-
-  --font: 'Inter', system-ui, sans-serif;
-  --mono: 'JetBrains Mono', monospace;
+:root{
+  --bg:#0b0f19;
+  --card:#111827;
+  --glass:rgba(255,255,255,0.04);
+  --border:rgba(255,255,255,0.08);
+  --text:#f9fafb;
+  --muted:#9ca3af;
+  --accent:#6366f1;
+  --radius:16px;
+  --font:'Inter',sans-serif;
+  --mono:'JetBrains Mono',monospace;
 }
 
 *{margin:0;padding:0;box-sizing:border-box}
 
 body{
   font-family:var(--font);
-  background:var(--bg);
+  background:radial-gradient(circle at 20% 20%, #1f2937, #020617 70%);
   color:var(--text);
-  line-height:1.7;
 }
 
 /* HERO */
 .hero{
-  padding:100px 24px 60px;
+  padding:100px 20px 60px;
   text-align:center;
-  background:#fff;
-  border-bottom:1px solid var(--border);
 }
 
 .hero h1{
-  font-size:clamp(2.5rem,5vw,4rem);
-  font-weight:800;
-  letter-spacing:-0.03em;
+  font-size:clamp(2.5rem,6vw,5rem);
+  font-weight:900;
+  background:linear-gradient(90deg,#fff,#a5b4fc);
+  -webkit-background-clip:text;
+  color:transparent;
 }
 
 .hero p{
   margin-top:16px;
-  color:var(--text-muted);
+  color:var(--muted);
 }
 
-/* NAV PHASES */
+/* NAV */
 .hero-phases{
   margin-top:40px;
   display:flex;
-  gap:10px;
-  flex-wrap:wrap;
   justify-content:center;
+  gap:12px;
+  flex-wrap:wrap;
 }
 
 .hero-phase{
-  padding:8px 16px;
+  padding:10px 18px;
   border-radius:999px;
-  background:#f3f4f6;
-  font-size:.85rem;
+  background:var(--glass);
+  border:1px solid var(--border);
+  color:var(--text);
   text-decoration:none;
-  color:#374151;
-  transition:.2s;
+  transition:.3s;
 }
 
 .hero-phase:hover{
-  background:#e5e7eb;
+  background:var(--accent);
 }
 
-/* LAYOUT */
+/* GRID */
 .container{
-  max-width:900px;
-  margin:0 auto;
-  padding:60px 24px;
+  max-width:1200px;
+  margin:auto;
+  padding:40px 20px 80px;
 }
 
 /* PHASE */
-.phase-header{
-  margin-bottom:40px;
-}
-
 .phase-title{
   font-size:2rem;
+  margin-bottom:30px;
   font-weight:700;
-  letter-spacing:-0.02em;
 }
 
-/* ACTIVITY */
-.activity{
-  margin-bottom:60px;
+/* GRID ACTIVIDADES */
+.grid{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(320px,1fr));
+  gap:24px;
 }
 
-.activity-img{
-  width:100%;
-  height:180px;
+/* CARD */
+.card{
+  background:var(--glass);
+  border:1px solid var(--border);
   border-radius:var(--radius);
+  padding:20px;
+  backdrop-filter:blur(12px);
+  transition:.3s;
+  position:relative;
   overflow:hidden;
-  margin-bottom:20px;
 }
 
-.activity-img img{
+.card:hover{
+  transform:translateY(-6px);
+  border-color:rgba(255,255,255,0.2);
+}
+
+/* IMAGE */
+.card img{
   width:100%;
-  height:100%;
+  height:160px;
   object-fit:cover;
+  border-radius:10px;
+  margin-bottom:15px;
 }
 
-.activity-head{
+/* HEADER */
+.card-header{
   display:flex;
-  gap:12px;
+  gap:10px;
   align-items:center;
   margin-bottom:10px;
 }
 
-.activity-num{
-  font-size:1.8rem;
+.num{
+  font-size:1.4rem;
   font-weight:800;
-  color:#9ca3af;
+  color:#818cf8;
 }
 
-.activity h2{
-  font-size:1.5rem;
-  font-weight:700;
+.card h2{
+  font-size:1.2rem;
+  font-weight:600;
 }
 
 /* TEXT */
-.activity-body h3{
-  font-size:.8rem;
-  text-transform:uppercase;
-  letter-spacing:.08em;
-  color:#9ca3af;
-  margin-top:24px;
-  margin-bottom:10px;
+.card p{
+  color:var(--muted);
+  font-size:.9rem;
 }
 
-.activity-body p,
-.activity-body li{
-  color:#4b5563;
-  font-size:.95rem;
-}
-
-/* INFO */
-.info-box{
-  margin:20px 0;
-  padding-left:16px;
-  border-left:3px solid var(--border);
-}
-
-/* PROMPT */
-.prompt-toggle{
-  margin-top:20px;
-  width:100%;
-  text-align:left;
-  padding:14px;
-  background:#111;
-  color:#fff;
-  border:none;
-  border-radius:var(--radius);
+/* BUTTON */
+.btn{
+  margin-top:15px;
+  display:inline-block;
+  padding:8px 14px;
+  background:var(--accent);
+  border-radius:8px;
   cursor:pointer;
-}
-
-.prompt-content{
-  max-height:0;
-  overflow:hidden;
-  transition:max-height .4s ease;
-}
-
-.prompt-content.open{
-  max-height:2000px;
-}
-
-pre{
-  background:#111;
-  color:#e5e7eb;
-  padding:20px;
-  border-radius:var(--radius);
-  margin-top:10px;
-  font-family:var(--mono);
   font-size:.85rem;
 }
 
-/* BONUS / REFLEXION */
-.bonus-section,
-.reflection-section{
-  margin-top:20px;
-  padding-left:16px;
-  border-left:3px solid var(--border);
+/* PANEL */
+.panel{
+  margin-top:15px;
+  background:#020617;
+  border:1px solid var(--border);
+  border-radius:12px;
+  padding:15px;
+  display:none;
+}
+
+.panel.open{display:block}
+
+pre{
+  font-family:var(--mono);
+  font-size:.8rem;
+  color:#e5e7eb;
+  white-space:pre-wrap;
 }
 
 /* FOOTER */
 footer{
-  padding:40px;
   text-align:center;
-  font-size:.8rem;
-  color:#9ca3af;
+  padding:40px;
+  color:var(--muted);
 }
 </style>
 </head>
@@ -206,107 +187,84 @@ footer{
 <body>
 
 <section class="hero">
-  <h1>Taller de Inteligencia Artificial</h1>
-  <p>Técnicas avanzadas de prompting y pensamiento crítico</p>
-  <div class="hero-phases" id="hero-phases"></div>
+  <h1>Taller de IA</h1>
+  <p>Aprende IA de forma activa</p>
+  <div id="hero-phases" class="hero-phases"></div>
 </section>
 
-<div id="content">
-  <div style="padding:60px;text-align:center;color:#999">Cargando…</div>
-</div>
+<div id="content"></div>
 
-<footer>
-  Mario Florido · Taller de IA
-</footer>
+<footer>Mario Florido · Taller IA</footer>
 
 <script>
-const PHASE_NAMES = {'1':'Fundamentos','2':'Análisis','3':'Investigación','4':'Producción'};
-marked.setOptions({ breaks: false, gfm: true });
+const PHASE_NAMES={'1':'Fundamentos','2':'Análisis','3':'Investigación','4':'Producción'};
+marked.setOptions({gfm:true});
 
-async function loadContent() {
-  try {
-    const res = await fetch('contenido.md');
-    if (!res.ok) throw new Error('HTTP ' + res.status);
-    parseAndRender(await res.text());
-  } catch(e) {
-    document.getElementById('content').innerHTML = "Error cargando contenido";
-  }
+async function loadContent(){
+  const res=await fetch('contenido.md');
+  const md=await res.text();
+  parse(md);
 }
 
-function parseAndRender(md) {
-  const lines = md.split('\n');
-  const phases = [];
-  let phase=null, act=null, sec=null, buf=[];
+function parse(md){
+  const lines=md.split('\n');
+  let phases=[],phase=null,act=null;
 
-  function flush() {
-    const t=buf.join('\n').trim(); buf=[];
-    if(!sec||!act||!t)return;
-    act.sections.push({type:sec.type,title:sec.title,content:t});
+  for(let l of lines){
+    let m=l.match(/^# FASE (\d+): (.+)/);
+    if(m){phase={num:m[1],title:m[2],acts:[]};phases.push(phase);continue}
+
+    m=l.match(/^### (\d+)\. (.+)/);
+    if(m){act={num:m[1],title:m[2],img:'',desc:'',prompt:''};phase.acts.push(act);continue}
+
+    m=l.match(/Imagen:\*\* (.+)/);
+    if(m&&act){act.img=m[1];continue}
+
+    if(l.startsWith('#### Descripción')){act.mode='desc';continue}
+    if(l.startsWith('#### Prompt')){act.mode='prompt';continue}
+
+    if(act&&act.mode==='desc'){act.desc+=l+'\n'}
+    if(act&&act.mode==='prompt'){act.prompt+=l+'\n'}
   }
-
-  for(const line of lines){
-    let m=line.match(/^# FASE (\d+):\s*(.+)/i);
-    if(m){flush();phase={num:m[1],title:m[2],activities:[]};phases.push(phase);act=null;continue}
-
-    m=line.match(/^### (\d+)\.\s*(.+)/);
-    if(m){flush();act={num:m[1],title:m[2],image:'',sections:[]};phase.activities.push(act);continue}
-
-    m=line.match(/^>\s*\*\*Imagen:\*\*\s*(.+)/);
-    if(m&&act){act.image=m[1];continue}
-
-    m=line.match(/^#### (.+)/);
-    if(m){flush();sec={type:m[1].toLowerCase(),title:m[1]};continue}
-
-    buf.push(line);
-  }
-  flush();
 
   render(phases);
 }
 
 function render(phases){
-  let html='';
-  let nav='';
+  let html='',nav='';
 
   phases.forEach(p=>{
     nav+=`<a href="#p${p.num}" class="hero-phase">${PHASE_NAMES[p.num]}</a>`;
 
     html+=`<div class="container" id="p${p.num}">
-      <div class="phase-header">
-        <h2 class="phase-title">${p.title}</h2>
-      </div>`;
+      <h2 class="phase-title">${p.title}</h2>
+      <div class="grid">`;
 
-    p.activities.forEach(a=>{
+    p.acts.forEach(a=>{
       html+=`
-      <div class="activity">
+      <div class="card">
 
-        ${a.image?`<div class="activity-img"><img src="${a.image}"></div>`:''}
+        ${a.img?`<img src="${a.img}">`:''}
 
-        <div class="activity-head">
-          <div class="activity-num">${a.num}</div>
+        <div class="card-header">
+          <div class="num">${a.num}</div>
           <h2>${a.title}</h2>
         </div>
 
-        <div class="activity-body">
-          ${a.sections.map(s=>{
-            if(s.type.includes('prompt')){
-              return `
-              <button class="prompt-toggle" onclick="this.nextElementSibling.classList.toggle('open')">
-                Mostrar prompt
-              </button>
-              <div class="prompt-content">
-                <pre>${s.content.replace(/```/g,'')}</pre>
-              </div>`;
-            }
+        <p>${a.desc.slice(0,180)}...</p>
 
-            return `<h3>${s.title}</h3>${marked.parse(s.content)}`;
-          }).join('')}
+        <div class="btn" onclick="this.nextElementSibling.classList.toggle('open')">
+          Ver Prompt
+        </div>
+
+        <div class="panel">
+          <pre>${a.prompt.replace(/```/g,'')}</pre>
         </div>
 
       </div>`;
     });
 
-    html+='</div>';
+    html+='</div></div>';
   });
 
   document.getElementById('content').innerHTML=html;
