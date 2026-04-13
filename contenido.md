@@ -220,20 +220,20 @@ Formato: Tabla con columnas [Tipo de problema | Cita textual | Explicación | Su
 
 #### Terminología empleada:
 
-### SESGOS COGNITIVOS
+### Sesgos cognitivos
 
 - **Sesgo de confirmación** — Buscar solo lo que confirma lo que ya crees, ignorando lo que lo contradice. *Ejemplo: un investigador que solo cita estudios favorables a su hipótesis.*
 - **Sesgo de disponibilidad** — Sobrevalorar lo que te viene fácilmente a la mente. *Ejemplo: creer que los accidentes aéreos son más frecuentes que los de tráfico porque generan más noticias.*
 - **Sesgo de anclaje** — Dejarse influir demasiado por el primer dato que recibes. *Ejemplo: valorar un estudio como "bueno" porque el primero que leíste del mismo autor era excelente.*
 
-### FALACIAS LÓGICAS
+### Falacias Lógicas
 
 - **Ad hominem** — Atacar a quien dice algo en lugar de lo que dice. *Ejemplo: "Este estudio no es fiable porque su autor tiene intereses comerciales."*
 - **Falsa causa** — Asumir que si B ocurre después de A, A lo ha causado. *Ejemplo: "Desde que se legalizó el cannabis, aumentó el consumo de alcohol. El cannabis lleva al alcohol."*
 - **Generalización apresurada** — Sacar conclusiones amplias de pocos casos. *Ejemplo: entrevistar a tres estudiantes y concluir cómo estudia "la juventud española".*
 - **Pendiente resbaladiza** — Suponer que un primer paso lleva inevitablemente a consecuencias extremas. *Ejemplo: "Si permitimos el uso de IA en clase, nadie volverá a pensar por sí mismo."*
 
-### DEBILIDADES METODOLÓGICAS
+### Debilidades metodológicas
 
 - **Problemas con la muestra** — Muestra demasiado pequeña, sesgada o no representativa. *Ejemplo: estudiar hábitos de lectura encuestando solo a usuarios de bibliotecas universitarias.*
 - **Confusión correlación-causalidad** — Dos variables se mueven juntas, pero eso no significa que una cause la otra. *Ejemplo: los países con más chocolatinas per cápita tienen más premios Nobel... pero el chocolate no da premios.*
@@ -732,9 +732,9 @@ Si un profesor te preguntara cómo usaste IA en este trabajo, ¿podrías explica
  
 ---
 
-# AVISO
-
 ## Aviso Importante
-Como habrás deducido parte de este taller que se ha realizado con IA:
+Como habrás deducido parte de este taller se ha realizado con IA:
 - La secuenciación de contenidos. La IA ha asistido a darle una coherencia al itinerario de aprendizaje.
 - Los prompts fueron refinados con ChatGPT y Claude.
+- La idea del layout fue propuesta por ChatGPT.
+- Las imágenes fueron creadas con Gemini... excepto "La escuela de Atenas", que la pintó Rafael!!!!
