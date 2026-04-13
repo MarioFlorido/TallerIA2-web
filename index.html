@@ -373,12 +373,12 @@ function parse(md){
       continue;
     }
 
-    // DETECTAR TAG
-    m=line.match(/Tag:\*\* (.+)/);
+    // DETECTAR TAG (busca **Tag:** con los asteriscos literales)
+    m=line.match(/\*\*Tag:\*\*\s*(.+)/);
     if(m && act)act.tag=m[1];
 
-    // DETECTAR IMAGEN
-    m=line.match(/Imagen:\*\* (.+)/);
+    // DETECTAR IMAGEN (busca **Imagen:** con los asteriscos literales)
+    m=line.match(/\*\*Imagen:\*\*\s*(.+)/);
     if(m && act)act.img=m[1];
 
     // DETECTAR SUBSECCIÓN (h4)
