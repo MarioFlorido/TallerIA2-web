@@ -289,6 +289,58 @@ button:hover{
   padding:12px 24px;
   font-size:1rem;
 }
+
+/* PROMPT COLAPSABLE */
+.prompt-toggle-btn{
+  background:var(--accent);
+  color:white;
+  border:none;
+  padding:10px 16px;
+  border-radius:6px;
+  cursor:pointer;
+  font-weight:600;
+  display:flex;
+  align-items:center;
+  gap:8px;
+  width:100%;
+  transition:.2s;
+}
+
+.prompt-toggle-btn:hover{
+  opacity:.9;
+}
+
+.prompt-toggle-btn .arrow{
+  transition:transform .3s;
+  display:inline-block;
+}
+
+.prompt-toggle-btn.open .arrow{
+  transform:rotate(90deg);
+}
+
+.prompt-code{
+  max-height:0;
+  overflow:hidden;
+  transition:max-height .3s ease;
+}
+
+.prompt-code.open{
+  max-height:2000px;
+}
+
+.prompt-code pre{
+  margin-top:12px;
+}
+
+/* BOTÓN STICKY */
+.sticky-footer{
+  position:sticky;
+  bottom:0;
+  background:linear-gradient(to top, var(--panel) 70%, transparent);
+  padding:20px 0;
+  margin-top:30px;
+}
 </style>
 </head>
 
@@ -340,6 +392,7 @@ async function load(){
 function parse(md){
   const lines=md.split('\n');
   let phases=[],phase=null,act=null,sec=null,buf=[];
+  let ethicsContent='',inEthics=false;
   
   function flush(){
     const t=buf.join('\n').trim();
@@ -349,17 +402,27 @@ function parse(md){
   }
 
   for(const line of lines){
+    // Capturar inicio de sección de Ética
+    if(line.match(/^# (ÉTICA|GUÍA DE USO ÉTICO)/i)){
+      flush();
+      inEthics=true;
+      phase=null;act=null;sec=null;
+      ethicsContent+=line+'\n';
+      continue;
+    }
+    
+    // Si estamos en sección de ética, capturar todo
+    if(inEthics){
+      ethicsContent+=line+'\n';
+      continue;
+    }
+    
     let m=line.match(/^# FASE (\d+):\s*(.+)/i);
     if(m){
       flush();
       phase={num:m[1],title:m[2].trim(),subtitle:'',acts:[]};
       phases.push(phase);
       act=null;sec=null;
-      continue;
-    }
-    
-    if(line.match(/^# (ÉTICA|GUÍA DE USO ÉTICO|AVISO|PRINCIPIO FUNDAMENTAL)/i)){
-      flush();
       continue;
     }
     
@@ -403,7 +466,7 @@ function parse(md){
     buf.push(line);
   }
   flush();
-  render(phases);
+  render(phases, ethicsContent);
 }
 
 function openPanel(a){
@@ -428,7 +491,13 @@ function openPanel(a){
         const promptCode=code?code[1].trim():s.content;
         prompt=`<div class="panel-section">
           <h4>Prompt Principal</h4>
-          <pre>${promptCode.replace(/</g,'&lt;').replace(/>/g,'&gt;')}</pre>
+          <button class="prompt-toggle-btn" onclick="event.stopPropagation();togglePrompt(this)">
+            <span class="arrow">▸</span>
+            <span>Ver Prompt</span>
+          </button>
+          <div class="prompt-code">
+            <pre>${promptCode.replace(/</g,'&lt;').replace(/>/g,'&gt;')}</pre>
+          </div>
         </div>`;
         break;
       case 'bonus':
@@ -450,10 +519,19 @@ function openPanel(a){
     ${prompt}
     ${bonus}
     ${refl}
-    <button class="mark-done" onclick="markDone('${a.id}')">✔ Marcar completado</button>
+    <div class="sticky-footer">
+      <button class="mark-done" onclick="markDone('${a.id}')">✔ Marcar completado</button>
+    </div>
   `;
 
   document.getElementById("panel").classList.add("open");
+}
+
+function togglePrompt(btn){
+  btn.classList.toggle('open');
+  btn.nextElementSibling.classList.toggle('open');
+  btn.querySelector('span:last-child').textContent = 
+    btn.classList.contains('open') ? 'Ocultar Prompt' : 'Ver Prompt';
 }
 
 function closePanel(){
@@ -469,7 +547,7 @@ function markDone(id){
   closePanel();
 }
 
-function render(phases){
+function render(phases, ethicsContent){
   let html='',sidebar='';
 
   phases.forEach(p=>{
@@ -494,6 +572,17 @@ function render(phases){
 
     html+='</div></div>';
   });
+  
+  // Agregar sección de Ética si existe
+  if(ethicsContent){
+    sidebar+=`<a href="#ethics" style="margin-top:20px;color:#f59e0b">Ética y Uso Responsable</a>`;
+    html+=`<div id="ethics" style="margin-top:60px">
+      <h2 class="phase-title" style="color:#f59e0b">Ética y Uso Responsable</h2>
+      <div style="background:var(--card);padding:30px;border-radius:12px;border-left:4px solid #f59e0b">
+        ${marked.parse(ethicsContent)}
+      </div>
+    </div>`;
+  }
 
   document.getElementById("content").innerHTML=html;
   document.getElementById("sidebar").innerHTML=sidebar;
