@@ -3,6 +3,7 @@
 
 ### 1. Hackear Prompts
 > **Tag:** Ingeniería inversa
+> **Imagen:** img/01-hackear-prompts.jpg
 
 #### Objetivo Educacional
 **Desarrollar habilidades sobre cómo funcionan los prompts mediante ingeniería inversa: analizar una respuesta de IA para deducir qué prompt la generó y cómo optimizarla.**
@@ -48,6 +49,7 @@ Necesito que hagas INGENIERÍA INVERSA:
 
 ### 2. Método Socrático
 > **Tag:** Aprendizaje por preguntas
+> **Imagen:** img/02-metodo-socratico.jpg
 
 #### Objetivo Educacional
 **Transformar la relación con la IA: en lugar de usarla para obtener respuestas directas, entrenarla para que actúe como tutor que guía el pensamiento mediante preguntas estratégicas, fomentando el razonamiento autónomo.**
@@ -94,19 +96,20 @@ Haz lo siguiente:
 Cuando observes que el estudiante ya tiene los elementos necesarios, formula una pregunta de síntesis:
 "Con todo lo que has reflexionado, ¿cómo responderías ahora tu propia pregunta?"
 
+
 REGLAS CRÍTICAS: Nunca muestres todas las preguntas a la vez. Solo una por turno. Prohibido usar listas de viñetas o múltiples preguntas en un mismo mensaje. Mantén un tono paciente, curioso y profesional. Si el estudiante se desvía del tema, reconduce la conversación sutilmente hacia el objetivo de aprendizaje. No prolongues en exceso el diálogo con preguntas vacias, redundantes...
 ```
 
 #### Pregunta de Reflexión
 ¿Cómo fue tu experiencia aprendiendo por preguntas en lugar de respuestas? ¿En qué momentos del aprendizaje es más valioso este enfoque vs. obtener información directa?
 
----
 
 # FASE 2: ANÁLISIS
 ## Desarrollar pensamiento crítico
 
 ### 3. Transformar visualmente
 > **Tag:** Texto a visualización
+> **Imagen:** img/03-transformar-visual.jpg
 
 #### Objetivo Educacional
 **Aprender a transformar textos académicos densos en múltiples formatos visuales de conocimiento, facilitando la comprensión y comunicación de información compleja.**
@@ -155,6 +158,7 @@ IMPORTANTE: Si el texto es contradictorio o presenta debates, prioriza la Matriz
 
 ### 4. Auditoría de textos
 > **Tag:** Detección de sesgos y falacias
+> **Imagen:** img/04-auditoria-textos.jpg
 
 #### Objetivo Educacional
 **Desarrollar pensamiento crítico avanzado mediante el uso de IA como herramienta de auditoría intelectual que identifica sesgos cognitivos, falacias lógicas y debilidades metodológicas en textos académicos.**
@@ -226,9 +230,11 @@ Formato: Tabla con columnas [Tipo de problema | Cita textual | Explicación | Su
 - **Confusión correlación-causalidad** — Dos variables se mueven juntas, pero eso no significa que una cause la otra. *Ejemplo: los países con más chocolatinas per cápita tienen más premios Nobel... pero el chocolate no da premios.*
 - **Variables no controladas** — Factores externos que influyen en el resultado y no se han tenido en cuenta. *Ejemplo: un estudio sobre rendimiento académico que no controla el nivel socioeconómico de los participantes.*
 
+---
 
 ### 5. Detección de ADN textual
 > **Tag:** Análisis estilométrico
+> **Imagen:** img/05-adn-textual.jpg
 
 #### Objetivo Educacional
 **Desarrollar capacidad analítica forense sobre textos mediante estilometría computacional, identificando patrones de autoría, autenticidad académica e indicadores de generación por IA.**
@@ -287,8 +293,11 @@ Como complemento:
 # FASE 3: INVESTIGACIÓN
 ## Validar y comparar información
 
+---
+
 ### 6. Arqueología digital
 > **Tag:** Rastreo el origen de afirmaciones
+> **Imagen:** img/06-arqueologia-digital.jpg
 
 #### Objetivo Educacional
 **Desarrollar habilidades avanzadas de fact-checking mediante búsqueda inversa: partir de una conclusión o afirmación popular para rastrear su fuente primaria, validar su precisión y detectar distorsiones en su propagación.**
@@ -346,11 +355,15 @@ Necesito que hagas ARQUEOLOGÍA DIGITAL INVERSA:
 Formato: Informe estructurado con secciones claras y fuentes verificables
 ```
 
+
 #### Pregunta de Reflexión
 ¿Cuántas afirmaciones académicas que das por ciertas podrían beneficiarse de este análisis?
 
+---
+
 ### 7. Matrices de fuentes
 > **Tag:** Análisis comparativo de fuentes
+> **Imagen:** img/07-matrices-fuentes.jpg
 
 #### Objetivo Educacional
 **Aprender a realizar análisis comparativos exhaustivos de literatura científica mediante matrices que serían imposibles de construir manualmente en poco tiempo, identificando consensos, contradicciones y lagunas de investigación.**
@@ -401,8 +414,11 @@ ARTÍCULOS:
 #### Pregunta de Reflexión
 ¿Qué descubriste al comparar sistemáticamente las fuentes que no habrías notado leyéndolas individualmente? ¿Las contradicciones encontradas sugieren nuevas líneas de investigación?
 
+---
+
 ### 8. Estratega investigadora asistida
 > **Tag:** Búsqueda académica profesional
+> **Imagen:** img/08-estratega-investigadora.jpg
 
 #### Objetivo Educacional
 **Aprender a diseñar estrategias de búsqueda bibliográfica rigurosas y efectivas mediante la identificación de términos clave, uso de tesauros especializados, construcción de ecuaciones booleanas y selección estratégica de fuentes de información académica.**
@@ -489,8 +505,10 @@ FORMATO: Entrega estructurada con las ecuaciones listas para copiar y pegar
 # FASE 4: PRODUCCIÓN
 ## Crear contenido académico
 
+
 ### 9. Salida de documentos
 > **Tag:** Adaptación por tipo de audiencia
+> **Imagen:** img/09-salida-documentos.jpg
 
 #### Objetivo Educacional
 **Dominar la alternancia de código (code-switching) retórico: transformar el mismo contenido académico para audiencias radicalmente diferentes, manteniendo la esencia pero adaptando registro lingüístico, tono, estructura y vocabulario.**
@@ -568,6 +586,7 @@ FORMATO: Tabla con columnas [Audiencia | Texto adaptado | Decisiones retóricas]
 
 ### 10. Edición académica
 > **Tag:** Edición multinivel de textos
+> **Imagen:** img/10-edicion-academica.jpg
 
 #### Objetivo Educacional
 **Dominar el proceso de edición profesional mediante un análisis multinivel que mejora estructura, claridad, estilo y corrección lingüística de textos académicos, manteniendo la voz autoral y potenciando la calidad argumentativa.**
@@ -696,6 +715,8 @@ Si un profesor te preguntara cómo usaste IA en este trabajo, ¿podrías explica
 -  Generar trabajos completos sin comprensión
 -  Evitar el proceso de aprendizaje
  
+---
+
 ## Aviso Importante
 Como habrás deducido parte de este taller se ha realizado con IA:
 - La secuenciación de contenidos. La IA ha asistido a darle una coherencia al itinerario de aprendizaje.
