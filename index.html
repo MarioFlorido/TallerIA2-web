@@ -412,6 +412,11 @@ function parse(md){
       continue;
     }
 
+    // IGNORAR LÍNEAS VACÍAS Y SEPARADORES
+    if(line.trim()==='' || line.trim()==='---'){
+      continue;
+    }
+
     // ACUMULAR CONTENIDO
     if(sec && act){
       buf.push(line);
