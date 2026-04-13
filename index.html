@@ -51,12 +51,18 @@ body{
   margin-bottom:10px;
   color:var(--muted);
   text-decoration:none;
+  transition:.2s;
+}
+
+.sidebar a:hover{
+  color:var(--accent);
 }
 
 /* MAIN */
 .main{
   flex:1;
   padding:40px;
+  max-width:1400px;
 }
 
 /* HERO */
@@ -79,6 +85,7 @@ body{
   display:grid;
   grid-template-columns:repeat(auto-fit,minmax(300px,1fr));
   gap:24px;
+  margin-bottom:60px;
 }
 
 /* CARD */
@@ -88,10 +95,33 @@ body{
   border-radius:12px;
   cursor:pointer;
   position:relative;
+  transition:.2s;
+  border:2px solid transparent;
+}
+
+.card:hover{
+  transform:translateY(-2px);
+  border-color:var(--accent);
 }
 
 .card.completed{
-  outline:2px solid #22c55e;
+  border-color:#22c55e;
+}
+
+.card.completed::after{
+  content:'✓';
+  position:absolute;
+  top:10px;
+  right:10px;
+  background:#22c55e;
+  color:white;
+  width:24px;
+  height:24px;
+  border-radius:50%;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  font-size:.9rem;
 }
 
 .card img{
@@ -99,26 +129,35 @@ body{
   height:150px;
   object-fit:cover;
   border-radius:10px;
+  margin-bottom:12px;
+}
+
+.card h3{
+  margin:0 0 8px 0;
+  font-size:1.1rem;
 }
 
 .tag{
   font-size:.7rem;
   color:var(--accent);
-  margin-top:5px;
+  margin-bottom:8px;
+  display:inline-block;
 }
 
 .card p{
   color:var(--muted);
   font-size:.9rem;
+  line-height:1.6;
 }
 
-/* PANEL */
+/* OVERLAY & PANEL */
 .overlay{
   position:fixed;
   inset:0;
   backdrop-filter:blur(8px);
   background:rgba(0,0,0,0.4);
   display:none;
+  z-index:100;
 }
 
 .overlay.open{display:block}
@@ -135,6 +174,11 @@ body{
   transition:.3s;
   padding:40px;
   overflow:auto;
+  z-index:101;
+}
+
+@media(max-width:768px){
+  .panel{width:90%}
 }
 
 .panel.open{transform:translateX(0)}
@@ -144,6 +188,75 @@ body{
   top:20px;
   right:20px;
   cursor:pointer;
+  font-size:1.5rem;
+  background:rgba(0,0,0,.1);
+  width:32px;
+  height:32px;
+  border-radius:50%;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+}
+
+.close:hover{
+  background:rgba(0,0,0,.2);
+}
+
+.panel h2{
+  margin-top:0;
+  font-size:2rem;
+}
+
+.panel-section{
+  margin-top:30px;
+}
+
+.panel-section h4{
+  font-size:.85rem;
+  text-transform:uppercase;
+  letter-spacing:.05em;
+  color:#6b7280;
+  margin-bottom:12px;
+}
+
+.panel-section pre{
+  background:#1f2937;
+  color:#f9fafb;
+  padding:20px;
+  border-radius:8px;
+  overflow-x:auto;
+  font-family:'JetBrains Mono',monospace;
+  font-size:.85rem;
+  line-height:1.6;
+}
+
+.info-box{
+  background:#f3f4f6;
+  border-left:3px solid var(--accent);
+  padding:16px;
+  border-radius:6px;
+  margin:12px 0;
+}
+
+.info-box h4{
+  margin-top:0;
+  color:#374151;
+}
+
+.bonus-box{
+  background:#fef3c7;
+  border-left:3px solid #f59e0b;
+  padding:16px;
+  border-radius:6px;
+  margin:12px 0;
+}
+
+.reflection-box{
+  background:#d1fae5;
+  border-left:3px solid #10b981;
+  padding:16px;
+  border-radius:6px;
+  margin:12px 0;
 }
 
 /* BUTTONS */
@@ -151,12 +264,30 @@ body{
   position:fixed;
   top:20px;
   right:20px;
+  z-index:50;
 }
 
 button{
   margin-left:10px;
-  padding:6px 10px;
+  padding:8px 16px;
   cursor:pointer;
+  background:var(--accent);
+  color:white;
+  border:none;
+  border-radius:6px;
+  font-weight:600;
+  transition:.2s;
+}
+
+button:hover{
+  opacity:.9;
+}
+
+.mark-done{
+  background:#22c55e;
+  margin-top:30px;
+  padding:12px 24px;
+  font-size:1rem;
 }
 </style>
 </head>
@@ -183,6 +314,7 @@ button{
 
 <script>
 const STORAGE_KEY="progress";
+marked.setOptions({ breaks: false, gfm: true });
 
 function toggleTheme(){
   document.body.classList.toggle("light");
@@ -207,50 +339,118 @@ async function load(){
 
 function parse(md){
   const lines=md.split('\n');
-
-  let phases=[],phase=null,act=null,section=null;
-
-  for(let l of lines){
-
-    let m=l.match(/^# FASE (\d+): (.+)/);
-    if(m){phase={num:m[1],title:m[2],acts:[]};phases.push(phase);continue}
-
-    m=l.match(/^### (\d+)\. (.+)/);
-    if(m){act={id:m[1],title:m[2],img:'',tag:'',sections:[]};phase.acts.push(act);continue}
-
-    m=l.match(/Tag:\*\* (.+)/);
-    if(m){act.tag=m[1];continue}
-
-    m=l.match(/Imagen:\*\* (.+)/);
-    if(m){act.img=m[1];continue}
-
-    m=l.match(/^#### (.+)/);
-    if(m){section={title:m[1],content:''};act.sections.push(section);continue}
-
-    if(section){section.content+=l+'\n'}
+  let phases=[],phase=null,act=null,sec=null,buf=[];
+  
+  function flush(){
+    const t=buf.join('\n').trim();
+    buf=[];
+    if(!sec||!act||!t)return;
+    act.sections.push({type:sec.type,title:sec.title,content:t});
   }
 
+  for(const line of lines){
+    let m=line.match(/^# FASE (\d+):\s*(.+)/i);
+    if(m){
+      flush();
+      phase={num:m[1],title:m[2].trim(),subtitle:'',acts:[]};
+      phases.push(phase);
+      act=null;sec=null;
+      continue;
+    }
+    
+    if(line.match(/^# (ÉTICA|GUÍA DE USO ÉTICO|AVISO|PRINCIPIO FUNDAMENTAL)/i)){
+      flush();
+      continue;
+    }
+    
+    m=line.match(/^## (.+)/);
+    if(m&&phase&&!act){
+      phase.subtitle=m[1].trim();
+      continue;
+    }
+    
+    if(line.trim()==='---')continue;
+
+    m=line.match(/^### (\d+)\.\s*(.+)/);
+    if(m){
+      flush();
+      act={id:m[1],title:m[2].trim(),tag:'',img:'',sections:[]};
+      if(phase)phase.acts.push(act);
+      sec=null;
+      continue;
+    }
+
+    m=line.match(/^>\s*\*\*Tag:\*\*\s*(.+)/);
+    if(m&&act){act.tag=m[1].trim();continue}
+    
+    m=line.match(/^>\s*\*\*Imagen:\*\*\s*(.+)/);
+    if(m&&act){act.img=m[1].trim();continue}
+
+    m=line.match(/^#### (.+)/);
+    if(m&&act){
+      flush();
+      const t=m[1].trim();
+      if(t==='Objetivo Educacional')sec={type:'objetivo',title:t};
+      else if(t==='Descripción Breve'||t==='Descripción')sec={type:'descripcion',title:t};
+      else if(t.startsWith('Info:'))sec={type:'info',title:t.slice(5).trim()};
+      else if(t.startsWith('Info'))sec={type:'info',title:t.replace(/^Info\s*/,'')};
+      else if(t==='Prompt Principal')sec={type:'prompt',title:t};
+      else if(t==='Bonus Extra'||t.startsWith('Terminología'))sec={type:'bonus',title:t};
+      else if(t.startsWith('Pregunta de Reflexión'))sec={type:'reflexion',title:t};
+      else sec={type:'generic',title:t};
+      continue;
+    }
+    buf.push(line);
+  }
+  flush();
   render(phases);
 }
 
 function openPanel(a){
   document.getElementById("overlay").classList.add("open");
+  
+  let obj='',desc='',infos='',prompt='',bonus='',refl='';
+  
+  a.sections.forEach(s=>{
+    const html=marked.parse(s.content);
+    switch(s.type){
+      case 'objetivo':
+        obj=`<div class="panel-section"><h4>Objetivo Educacional</h4>${html}</div>`;
+        break;
+      case 'descripcion':
+        desc=`<div class="panel-section"><h4>Descripción</h4>${html}</div>`;
+        break;
+      case 'info':
+        infos+=`<div class="info-box"><h4>${s.title||'Información'}</h4>${html}</div>`;
+        break;
+      case 'prompt':
+        const code=s.content.match(/```[\s\S]*?\n([\s\S]*?)```/);
+        const promptCode=code?code[1].trim():s.content;
+        prompt=`<div class="panel-section">
+          <h4>Prompt Principal</h4>
+          <pre>${promptCode.replace(/</g,'&lt;').replace(/>/g,'&gt;')}</pre>
+        </div>`;
+        break;
+      case 'bonus':
+        bonus+=`<div class="bonus-box"><h4>${s.title}</h4>${html}</div>`;
+        break;
+      case 'reflexion':
+        refl=`<div class="reflection-box"><h4>Pregunta de Reflexión</h4>${html}</div>`;
+        break;
+    }
+  });
 
   document.getElementById("panel").innerHTML=`
     <div class="close" onclick="closePanel()">✕</div>
     <h2>${a.title}</h2>
-
-    ${a.sections
-      .filter(s=>!s.title.includes('Descripción'))
-      .map(s=>`
-      <div style="margin-top:20px">
-        <h4>${s.title}</h4>
-        ${s.title.includes('Prompt')
-          ? `<pre>${s.content.replace(/```/g,'')}</pre>`
-          : marked.parse(s.content)}
-      </div>`).join('')}
-
-    <button onclick="markDone('${a.id}')">✔ Marcar completado</button>
+    ${a.tag?`<div class="tag">${a.tag}</div>`:''}
+    ${obj}
+    ${desc}
+    ${infos}
+    ${prompt}
+    ${bonus}
+    ${refl}
+    <button class="mark-done" onclick="markDone('${a.id}')">✔ Marcar completado</button>
   `;
 
   document.getElementById("panel").classList.add("open");
@@ -266,10 +466,10 @@ function markDone(id){
   document.querySelectorAll(`[data-id="${id}"]`).forEach(el=>{
     el.classList.add("completed");
   });
+  closePanel();
 }
 
 function render(phases){
-
   let html='',sidebar='';
 
   phases.forEach(p=>{
@@ -280,18 +480,15 @@ function render(phases){
       <div class="grid">`;
 
     p.acts.forEach(a=>{
-      let desc=a.sections.find(s=>s.title.includes('Descripción'));
+      const desc=a.sections.find(s=>s.type==='descripcion');
+      const descHtml=desc?marked.parse(desc.content):'';
 
       html+=`
       <div class="card ${isDone(a.id)?'completed':''}" data-id="${a.id}" onclick='openPanel(${JSON.stringify(a).replace(/'/g,"&apos;")})'>
-
-        ${a.img?`<img src="${a.img}">`:''}
-
+        ${a.img?`<img src="${a.img}" alt="${a.title}">`:''}
         <h3>${a.title}</h3>
-        <div class="tag">${a.tag||''}</div>
-
-        ${desc?marked.parse(desc.content):''}
-
+        ${a.tag?`<div class="tag">${a.tag}</div>`:''}
+        ${descHtml}
       </div>`;
     });
 
@@ -301,6 +498,11 @@ function render(phases){
   document.getElementById("content").innerHTML=html;
   document.getElementById("sidebar").innerHTML=sidebar;
 }
+
+// Cerrar panel con ESC
+document.addEventListener('keydown', e => {
+  if(e.key === 'Escape') closePanel();
+});
 
 load();
 </script>
