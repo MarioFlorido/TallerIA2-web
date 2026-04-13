@@ -12,71 +12,69 @@
 <style>
 :root{
   --bg:#0b0f19;
+  --panel:#ffffff;
   --card:#111827;
-  --border:rgba(255,255,255,0.08);
   --text:#f9fafb;
   --muted:#9ca3af;
   --accent:#6366f1;
-  --radius:16px;
 }
 
-*{margin:0;padding:0;box-sizing:border-box}
+.light{
+  --bg:#f4f4f5;
+  --panel:#ffffff;
+  --card:#ffffff;
+  --text:#111;
+  --muted:#6b7280;
+}
 
 body{
+  margin:0;
   font-family:'Inter',sans-serif;
-  background:radial-gradient(circle at 20% 20%, #111827, #020617 70%);
+  background:var(--bg);
   color:var(--text);
+  display:flex;
+}
+
+/* SIDEBAR */
+.sidebar{
+  width:220px;
+  height:100vh;
+  position:sticky;
+  top:0;
+  background:rgba(0,0,0,0.2);
+  padding:20px;
+  backdrop-filter:blur(10px);
+}
+
+.sidebar a{
+  display:block;
+  margin-bottom:10px;
+  color:var(--muted);
+  text-decoration:none;
+}
+
+/* MAIN */
+.main{
+  flex:1;
+  padding:40px;
 }
 
 /* HERO */
-.hero{
-  padding:100px 20px 60px;
-  text-align:center;
-}
-
 .hero h1{
-  font-size:clamp(3rem,6vw,5rem);
+  font-size:4rem;
   font-weight:900;
-  background:linear-gradient(90deg,#fff,#818cf8);
-  -webkit-background-clip:text;
-  color:transparent;
 }
 
-.hero p{
-  margin-top:15px;
-  color:var(--muted);
-}
+.hero p{color:var(--muted)}
 
-/* NAV */
-.hero-phases{
-  margin-top:30px;
-  display:flex;
-  gap:10px;
-  justify-content:center;
-  flex-wrap:wrap;
-}
-
-.hero-phase{
-  padding:8px 16px;
-  border-radius:999px;
-  background:rgba(255,255,255,0.05);
-  border:1px solid var(--border);
-  text-decoration:none;
-  color:#fff;
+/* PHASE */
+.phase-title{
+  font-size:2.4rem;
+  color:var(--accent);
+  margin-top:40px;
 }
 
 /* GRID */
-.container{
-  max-width:1200px;
-  margin:auto;
-  padding:40px 20px;
-}
-
-.phase-title{
-  font-size:2rem;
-  margin-bottom:20px;
-}
-
 .grid{
   display:grid;
   grid-template-columns:repeat(auto-fit,minmax(300px,1fr));
@@ -85,145 +83,121 @@ body{
 
 /* CARD */
 .card{
-  background:rgba(255,255,255,0.04);
-  border:1px solid var(--border);
-  border-radius:var(--radius);
+  background:var(--card);
   padding:20px;
+  border-radius:12px;
   cursor:pointer;
-  transition:.3s;
+  position:relative;
 }
 
-.card:hover{
-  transform:translateY(-5px);
+.card.completed{
+  outline:2px solid #22c55e;
 }
 
 .card img{
   width:100%;
-  height:160px;
+  height:150px;
   object-fit:cover;
-  border-radius:12px;
-  margin-bottom:12px;
+  border-radius:10px;
 }
 
-.card-header{
-  display:flex;
-  gap:10px;
-  align-items:center;
-}
-
-.num{
-  font-weight:800;
-  color:#818cf8;
-}
-
-.card h3{
-  font-size:1.2rem;
+.tag{
+  font-size:.7rem;
+  color:var(--accent);
+  margin-top:5px;
 }
 
 .card p{
-  margin-top:10px;
   color:var(--muted);
   font-size:.9rem;
 }
 
 /* PANEL */
+.overlay{
+  position:fixed;
+  inset:0;
+  backdrop-filter:blur(8px);
+  background:rgba(0,0,0,0.4);
+  display:none;
+}
+
+.overlay.open{display:block}
+
 .panel{
   position:fixed;
-  top:0;
   right:0;
+  top:0;
   width:50%;
   height:100%;
-  background:#fff;
+  background:var(--panel);
   color:#111;
-  overflow:auto;
-  padding:40px;
   transform:translateX(100%);
   transition:.3s;
-  z-index:1000;
+  padding:40px;
+  overflow:auto;
 }
 
-.panel.open{
-  transform:translateX(0);
-}
+.panel.open{transform:translateX(0)}
 
-.panel-close{
+.close{
   position:absolute;
   top:20px;
   right:20px;
   cursor:pointer;
-  font-size:1.2rem;
 }
 
-/* PANEL CONTENT */
-.panel h2{
-  font-size:1.8rem;
-  margin-bottom:10px;
+/* BUTTONS */
+.controls{
+  position:fixed;
+  top:20px;
+  right:20px;
 }
 
-.section{
-  margin-top:20px;
-}
-
-.section h4{
-  font-size:.75rem;
-  text-transform:uppercase;
-  color:#6b7280;
-  margin-bottom:8px;
-}
-
-.section p,
-.section li{
-  font-size:.95rem;
-  line-height:1.6;
-}
-
-/* PROMPT */
-pre{
-  background:#111;
-  color:#e5e7eb;
-  padding:16px;
-  border-radius:10px;
-  font-family:'JetBrains Mono';
-  font-size:.8rem;
-  white-space:pre-wrap;
-}
-
-/* ETHICS */
-.ethics{
-  max-width:900px;
-  margin:80px auto;
-  padding:40px;
-  background:#fff;
-  color:#111;
-  border-radius:16px;
-}
-
-/* FOOTER */
-footer{
-  text-align:center;
-  padding:40px;
-  color:var(--muted);
+button{
+  margin-left:10px;
+  padding:6px 10px;
+  cursor:pointer;
 }
 </style>
 </head>
 
 <body>
 
-<section class="hero">
-  <h1>Taller IA</h1>
-  <p>Aprendizaje activo con inteligencia artificial</p>
-  <div id="hero-phases" class="hero-phases"></div>
-</section>
+<div class="sidebar" id="sidebar"></div>
 
-<div id="content"></div>
+<div class="main">
+  <div class="controls">
+    <button onclick="toggleTheme()">🌙/☀️</button>
+  </div>
 
+  <section class="hero">
+    <h1>Taller IA</h1>
+    <p>Aprendizaje activo con inteligencia artificial</p>
+  </section>
+
+  <div id="content"></div>
+</div>
+
+<div id="overlay" class="overlay" onclick="closePanel()"></div>
 <div id="panel" class="panel"></div>
 
-<footer>Mario Florido · Taller IA</footer>
-
 <script>
-const PHASE_NAMES={'1':'Fundamentos','2':'Análisis','3':'Investigación','4':'Producción'};
-marked.setOptions({gfm:true});
+const STORAGE_KEY="progress";
+
+function toggleTheme(){
+  document.body.classList.toggle("light");
+}
+
+function saveProgress(id){
+  let data=JSON.parse(localStorage.getItem(STORAGE_KEY)||"{}");
+  data[id]=true;
+  localStorage.setItem(STORAGE_KEY,JSON.stringify(data));
+}
+
+function isDone(id){
+  let data=JSON.parse(localStorage.getItem(STORAGE_KEY)||"{}");
+  return data[id];
+}
 
 async function load(){
   const res=await fetch('contenido.md');
@@ -235,24 +209,20 @@ function parse(md){
   const lines=md.split('\n');
 
   let phases=[],phase=null,act=null,section=null;
-  let ethics='',warning='',mode='normal';
 
   for(let l of lines){
-
-    if(l.match(/^# ÉTICA/i)){mode='ethics';continue}
-    if(l.match(/^# AVISO/i)){mode='warning';continue}
-
-    if(mode==='ethics'){ethics+=l+'\n';continue}
-    if(mode==='warning'){warning+=l+'\n';continue}
 
     let m=l.match(/^# FASE (\d+): (.+)/);
     if(m){phase={num:m[1],title:m[2],acts:[]};phases.push(phase);continue}
 
     m=l.match(/^### (\d+)\. (.+)/);
-    if(m){act={num:m[1],title:m[2],img:'',sections:[]};phase.acts.push(act);continue}
+    if(m){act={id:m[1],title:m[2],img:'',tag:'',sections:[]};phase.acts.push(act);continue}
+
+    m=l.match(/Tag:\*\* (.+)/);
+    if(m){act.tag=m[1];continue}
 
     m=l.match(/Imagen:\*\* (.+)/);
-    if(m&&act){act.img=m[1];continue}
+    if(m){act.img=m[1];continue}
 
     m=l.match(/^#### (.+)/);
     if(m){section={title:m[1],content:''};act.sections.push(section);continue}
@@ -260,56 +230,67 @@ function parse(md){
     if(section){section.content+=l+'\n'}
   }
 
-  render(phases,ethics,warning);
+  render(phases);
 }
 
 function openPanel(a){
-  const panel=document.getElementById('panel');
+  document.getElementById("overlay").classList.add("open");
 
-  panel.innerHTML=`
-    <div class="panel-close" onclick="closePanel()">✕</div>
+  document.getElementById("panel").innerHTML=`
+    <div class="close" onclick="closePanel()">✕</div>
     <h2>${a.title}</h2>
-    ${a.sections.map(s=>`
-      <div class="section">
+
+    ${a.sections
+      .filter(s=>!s.title.includes('Descripción'))
+      .map(s=>`
+      <div style="margin-top:20px">
         <h4>${s.title}</h4>
         ${s.title.includes('Prompt')
           ? `<pre>${s.content.replace(/```/g,'')}</pre>`
           : marked.parse(s.content)}
-      </div>
-    `).join('')}
+      </div>`).join('')}
+
+    <button onclick="markDone('${a.id}')">✔ Marcar completado</button>
   `;
 
-  panel.classList.add('open');
+  document.getElementById("panel").classList.add("open");
 }
 
 function closePanel(){
-  document.getElementById('panel').classList.remove('open');
+  document.getElementById("panel").classList.remove("open");
+  document.getElementById("overlay").classList.remove("open");
 }
 
-function render(phases,ethics,warning){
+function markDone(id){
+  saveProgress(id);
+  document.querySelectorAll(`[data-id="${id}"]`).forEach(el=>{
+    el.classList.add("completed");
+  });
+}
 
-  let html='',nav='';
+function render(phases){
+
+  let html='',sidebar='';
 
   phases.forEach(p=>{
-    nav+=`<a href="#p${p.num}" class="hero-phase">${PHASE_NAMES[p.num]}</a>`;
+    sidebar+=`<a href="#p${p.num}">${p.title}</a>`;
 
-    html+=`<div class="container" id="p${p.num}">
+    html+=`<div id="p${p.num}">
       <h2 class="phase-title">${p.title}</h2>
       <div class="grid">`;
 
     p.acts.forEach(a=>{
-      let desc = a.sections.find(s=>s.title.includes('Descripción'));
+      let desc=a.sections.find(s=>s.title.includes('Descripción'));
+
       html+=`
-      <div class="card" onclick='openPanel(${JSON.stringify(a).replace(/'/g,"&apos;")})'>
+      <div class="card ${isDone(a.id)?'completed':''}" data-id="${a.id}" onclick='openPanel(${JSON.stringify(a).replace(/'/g,"&apos;")})'>
 
         ${a.img?`<img src="${a.img}">`:''}
 
-        <div class="card-header">
-          <div class="num">${a.num}</div>
-          <h3>${a.title}</h3>
-        </div>
+        <h3>${a.title}</h3>
+        <div class="tag">${a.tag||''}</div>
 
-        ${desc?`<p>${marked.parse(desc.content).replace(/<[^>]+>/g,'').slice(0,200)}...</p>`:''}
+        ${desc?marked.parse(desc.content):''}
 
       </div>`;
     });
@@ -317,16 +298,8 @@ function render(phases,ethics,warning){
     html+='</div></div>';
   });
 
-  if(ethics){
-    html+=`<div class="ethics">${marked.parse(ethics)}</div>`;
-  }
-
-  if(warning){
-    html+=`<div class="ethics">${marked.parse(warning)}</div>`;
-  }
-
-  document.getElementById('content').innerHTML=html;
-  document.getElementById('hero-phases').innerHTML=nav;
+  document.getElementById("content").innerHTML=html;
+  document.getElementById("sidebar").innerHTML=sidebar;
 }
 
 load();
