@@ -11,42 +11,40 @@
 
 <style>
 :root{
-  --bg:#0b0f19;
-  --card:#111827;
-  --glass:rgba(255,255,255,0.04);
+  --bg:#06080f;
+  --panel:#0b1220;
+  --card:rgba(255,255,255,0.04);
   --border:rgba(255,255,255,0.08);
-  --text:#f9fafb;
-  --muted:#9ca3af;
+  --text:#f8fafc;
+  --muted:#94a3b8;
   --accent:#6366f1;
-  --radius:16px;
-  --font:'Inter',sans-serif;
-  --mono:'JetBrains Mono',monospace;
+  --radius:18px;
 }
 
 *{margin:0;padding:0;box-sizing:border-box}
 
 body{
-  font-family:var(--font);
-  background:radial-gradient(circle at 20% 20%, #1f2937, #020617 70%);
+  font-family:'Inter',sans-serif;
+  background:radial-gradient(circle at 20% 20%, #111827, #020617 70%);
   color:var(--text);
 }
 
 /* HERO */
 .hero{
-  padding:100px 20px 60px;
+  padding:120px 20px 60px;
   text-align:center;
 }
 
 .hero h1{
-  font-size:clamp(2.5rem,6vw,5rem);
+  font-size:clamp(3rem,6vw,5rem);
   font-weight:900;
-  background:linear-gradient(90deg,#fff,#a5b4fc);
+  background:linear-gradient(90deg,#fff,#818cf8);
   -webkit-background-clip:text;
   color:transparent;
 }
 
 .hero p{
-  margin-top:16px;
+  margin-top:15px;
   color:var(--muted);
 }
 
@@ -54,18 +52,17 @@ body{
 .hero-phases{
   margin-top:40px;
   display:flex;
-  justify-content:center;
-  gap:12px;
+  gap:10px;
   flex-wrap:wrap;
+  justify-content:center;
 }
 
 .hero-phase{
   padding:10px 18px;
   border-radius:999px;
-  background:var(--glass);
+  background:var(--card);
   border:1px solid var(--border);
-  color:var(--text);
-  text-decoration:none;
+  cursor:pointer;
   transition:.3s;
 }
 
@@ -73,7 +70,7 @@ body{
   background:var(--accent);
 }
 
-/* GRID */
+/* LAYOUT */
 .container{
   max-width:1200px;
   margin:auto;
@@ -83,11 +80,10 @@ body{
 /* PHASE */
 .phase-title{
   font-size:2rem;
-  margin-bottom:30px;
-  font-weight:700;
+  margin-bottom:25px;
 }
 
-/* GRID ACTIVIDADES */
+/* GRID */
 .grid{
   display:grid;
   grid-template-columns:repeat(auto-fit,minmax(320px,1fr));
@@ -96,14 +92,13 @@ body{
 
 /* CARD */
 .card{
-  background:var(--glass);
+  background:var(--card);
   border:1px solid var(--border);
   border-radius:var(--radius);
   padding:20px;
-  backdrop-filter:blur(12px);
+  backdrop-filter:blur(10px);
+  cursor:pointer;
   transition:.3s;
-  position:relative;
-  overflow:hidden;
 }
 
 .card:hover{
@@ -111,67 +106,70 @@ body{
   border-color:rgba(255,255,255,0.2);
 }
 
-/* IMAGE */
 .card img{
   width:100%;
   height:160px;
   object-fit:cover;
-  border-radius:10px;
+  border-radius:12px;
   margin-bottom:15px;
 }
 
-/* HEADER */
 .card-header{
   display:flex;
   gap:10px;
   align-items:center;
-  margin-bottom:10px;
 }
 
 .num{
-  font-size:1.4rem;
   font-weight:800;
   color:#818cf8;
 }
 
-.card h2{
+.card h3{
   font-size:1.2rem;
-  font-weight:600;
 }
 
-/* TEXT */
-.card p{
-  color:var(--muted);
-  font-size:.9rem;
-}
-
-/* BUTTON */
-.btn{
+/* EXPAND PANEL */
+.detail{
   margin-top:15px;
-  display:inline-block;
-  padding:8px 14px;
-  background:var(--accent);
-  border-radius:8px;
-  cursor:pointer;
-  font-size:.85rem;
-}
-
-/* PANEL */
-.panel{
-  margin-top:15px;
-  background:#020617;
-  border:1px solid var(--border);
-  border-radius:12px;
-  padding:15px;
   display:none;
+  animation:fade .3s ease;
 }
 
-.panel.open{display:block}
+.detail.open{display:block}
 
+@keyframes fade{
+  from{opacity:0;transform:translateY(10px)}
+  to{opacity:1}
+}
+
+/* SECTIONS */
+.section{
+  margin-top:18px;
+  padding:16px;
+  background:var(--panel);
+  border-radius:12px;
+  border:1px solid var(--border);
+}
+
+.section h4{
+  font-size:.75rem;
+  text-transform:uppercase;
+  letter-spacing:.08em;
+  color:var(--muted);
+  margin-bottom:10px;
+}
+
+.section p,
+.section li{
+  font-size:.9rem;
+  color:#cbd5f5;
+}
+
+/* PROMPT */
 pre{
-  font-family:var(--mono);
+  font-family:'JetBrains Mono',monospace;
   font-size:.8rem;
-  color:#e5e7eb;
   white-space:pre-wrap;
 }
 
@@ -187,8 +185,8 @@ footer{
 <body>
 
 <section class="hero">
-  <h1>Taller de IA</h1>
-  <p>Aprende IA de forma activa</p>
+  <h1>Taller IA</h1>
+  <p>Aprendizaje activo con inteligencia artificial</p>
   <div id="hero-phases" class="hero-phases"></div>
 </section>
 
@@ -200,7 +198,7 @@ footer{
 const PHASE_NAMES={'1':'Fundamentos','2':'Análisis','3':'Investigación','4':'Producción'};
 marked.setOptions({gfm:true});
 
-async function loadContent(){
+async function load(){
   const res=await fetch('contenido.md');
   const md=await res.text();
   parse(md);
@@ -208,29 +206,31 @@ async function loadContent(){
 
 function parse(md){
   const lines=md.split('\n');
-  let phases=[],phase=null,act=null;
+
+  let phases=[],phase=null,act=null,section=null;
 
   for(let l of lines){
+
     let m=l.match(/^# FASE (\d+): (.+)/);
     if(m){phase={num:m[1],title:m[2],acts:[]};phases.push(phase);continue}
 
     m=l.match(/^### (\d+)\. (.+)/);
-    if(m){act={num:m[1],title:m[2],img:'',desc:'',prompt:''};phase.acts.push(act);continue}
+    if(m){act={num:m[1],title:m[2],img:'',sections:[]};phase.acts.push(act);continue}
 
     m=l.match(/Imagen:\*\* (.+)/);
     if(m&&act){act.img=m[1];continue}
 
-    if(l.startsWith('#### Descripción')){act.mode='desc';continue}
-    if(l.startsWith('#### Prompt')){act.mode='prompt';continue}
+    m=l.match(/^#### (.+)/);
+    if(m){section={title:m[1],content:''};act.sections.push(section);continue}
 
-    if(act&&act.mode==='desc'){act.desc+=l+'\n'}
-    if(act&&act.mode==='prompt'){act.prompt+=l+'\n'}
+    if(section){section.content+=l+'\n'}
   }
 
   render(phases);
 }
 
 function render(phases){
+
   let html='',nav='';
 
   phases.forEach(p=>{
@@ -242,23 +242,26 @@ function render(phases){
 
     p.acts.forEach(a=>{
       html+=`
-      <div class="card">
+      <div class="card" onclick="this.querySelector('.detail').classList.toggle('open')">
 
         ${a.img?`<img src="${a.img}">`:''}
 
         <div class="card-header">
           <div class="num">${a.num}</div>
-          <h2>${a.title}</h2>
+          <h3>${a.title}</h3>
         </div>
 
-        <p>${a.desc.slice(0,180)}...</p>
+        <div class="detail">
 
-        <div class="btn" onclick="this.nextElementSibling.classList.toggle('open')">
-          Ver Prompt
-        </div>
+          ${a.sections.map(s=>`
+            <div class="section">
+              <h4>${s.title}</h4>
+              ${s.title.includes('Prompt') 
+                ? `<pre>${s.content.replace(/```/g,'')}</pre>`
+                : marked.parse(s.content)}
+            </div>
+          `).join('')}
 
-        <div class="panel">
-          <pre>${a.prompt.replace(/```/g,'')}</pre>
         </div>
 
       </div>`;
@@ -271,7 +274,7 @@ function render(phases){
   document.getElementById('hero-phases').innerHTML=nav;
 }
 
-loadContent();
+load();
 </script>
 
 </body>
