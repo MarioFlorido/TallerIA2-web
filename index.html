@@ -77,6 +77,7 @@ body{
 
 /* CARD */
 .card{
+  position:relative;
   background:var(--card);
   padding:22px;
   border-radius:14px;
@@ -154,6 +155,7 @@ body{
 
 @media(max-width:768px){
   .panel{width:95%}
+  .main{padding:24px}
 }
 
 .close{
@@ -276,32 +278,18 @@ button{
 
 <script>
 const STORAGE_KEY="progress";
+
+/*
+ * Orden de secciones dentro del panel de cada actividad.
+ * Se usa coincidencia parcial: basta con que el título de la sección
+ * CONTENGA alguna de estas cadenas (o viceversa).
+ */
 const SECTION_ORDER = [
-  // BLOQUE 1: Fundamentos
   'Objetivo Educacional',
   'Descripción',
-  
-  // BLOQUE 2: Material e instrucciones (varios tipos)
-  'Generar un texto previo',
-  'Temas especialmente complejos',
-  'Ejemplos para experimentar',
-  'Ejemplos de papers',
-  'Un trabajo creado',
-  'Afirmaciones pseudocientíficas',
-  'Ejemplos',
-  'Info',
-  'Temas para experimentar',
-  'Temas para la comunicación',
-  
-  // BLOQUE 3: El prompt principal
+  'Info',            // cubre todos los "Info: ..." variados
   'Prompt Principal',
-  
-  // BLOQUE 4: Material complementario
-  'Pregunta de Reflexión',
-  'Bonus Extra',
-  'Terminología empleada',
-  'Desafío',
-  'Pregunta de Reflexión Extra'
+  'Para profundizar'
 ];
 
 let lastScroll=0;
@@ -332,22 +320,27 @@ function parse(md){
   let phases=[],phase=null,act=null,sec=null,buf=[];
   let specialSections=[],currentSpecial=null;
 
+  /* ── helpers ────────────────────────────── */
+
   function flush(){
     const t=buf.join('\n').trim();
     buf=[];
-    if(!sec||!act||!t)return;
-    act.sections.push({type:sec.type,title:sec.title,content:t});
+    if(!sec||!act||!t) return;
+    act.sections.push({type:sec.type, title:sec.title, content:t});
   }
 
   function flushSpecialContent(){
     const t=buf.join('\n').trim();
     buf=[];
-    if(!currentSpecial||!t)return;
+    if(!currentSpecial||!t) return;
     currentSpecial.content+='\n'+t;
   }
 
+  /* ── línea a línea ─────────────────────── */
+
   for(const line of lines){
-    // DETECTAR FASE NORMAL
+
+    // ── FASE ──
     let m=line.match(/^# FASE (\d+): (.+)/);
     if(m){
       flush();
@@ -356,27 +349,28 @@ function parse(md){
       continue;
     }
 
-    // DETECTAR SUBTÍTULO DE FASE (línea después de # FASE)
+    // ── Subtítulo de fase (## justo después de # FASE) ──
     if(phase && !phase.acts.length && line.match(/^## /)){
       m=line.match(/^## (.+)/);
       phase.subtitle=m[1];
       continue;
     }
 
-    // DETECTAR SECCIÓN ESPECIAL (Guía Ética, etc.)
+    // ── Sección especial (# sin FASE) ──
     m=line.match(/^# (.+)$/);
     if(m && !m[1].includes('FASE')){
-      flush();  // Volcar última sección de actividad
-      flushSpecialContent();  // Volcar contenido especial anterior si existe
-      sec=null;  // Limpiar sec para no mezclar con actividades
-      act=null;  // Salir de modo actividad
+      // Volcar lo que haya pendiente según el modo actual
+      if(currentSpecial) flushSpecialContent();
+      else flush();
+      sec=null;
+      act=null;
       currentSpecial={title:m[1],content:''};
       specialSections.push(currentSpecial);
-      phase=null; // Salir de modo "fase"
+      phase=null;
       continue;
     }
 
-    // DETECTAR ACTIVIDAD DENTRO DE FASE
+    // ── Actividad (### N. Título) ──
     m=line.match(/^### (\d+)\. (.+)/);
     if(m){
       flush();
@@ -385,21 +379,14 @@ function parse(md){
       continue;
     }
 
-    // DETECTAR TAG (busca **Tag:** con los asteriscos literales)
+    // ── Tag / Imagen (dentro de blockquote) ──
     m=line.match(/\*\*Tag:\*\*\s*(.+)/);
-    if(m && act){
-      act.tag=m[1];
-      continue;  // ← IMPORTANTE: Saltar esta línea (no acumular en buf)
-    }
+    if(m && act){ act.tag=m[1]; continue; }
 
-    // DETECTAR IMAGEN (busca **Imagen:** con los asteriscos literales)
     m=line.match(/\*\*Imagen:\*\*\s*(.+)/);
-    if(m && act){
-      act.img=m[1];
-      continue;  // ← IMPORTANTE: Saltar esta línea (no acumular en buf)
-    }
+    if(m && act){ act.img=m[1]; continue; }
 
-    // DETECTAR SUBSECCIÓN (h4)
+    // ── Subsección h4 ──
     m=line.match(/^#### (.+)/);
     if(m){
       if(act){
@@ -412,35 +399,53 @@ function parse(md){
       continue;
     }
 
-    // IGNORAR LÍNEAS VACÍAS Y SEPARADORES
-    if(line.trim()==='' || line.trim()==='---'){
+    // ── Separador temático ──
+    if(line.trim()==='---') continue;
+
+    // ── Línea vacía: preservar para saltos de párrafo ──
+    if(line.trim()===''){
+      // Solo acumular si estamos dentro de contenido
+      if((sec && act) || currentSpecial){
+        buf.push('');
+      }
       continue;
     }
 
-    // ACUMULAR CONTENIDO
+    // ── Acumular contenido ──
     if(sec && act){
       buf.push(line);
     } else if(currentSpecial){
       buf.push(line);
     }
   }
-  
-  flush();
-  flushSpecialContent();
 
-  // ORDENAR SUBSECCIONES
+  // Volcar lo último pendiente (orden correcto según modo)
+  if(currentSpecial){
+    flushSpecialContent();
+  } else {
+    flush();
+  }
+
+  /* ── Ordenar subsecciones de cada actividad ── */
+  function sectionSortIndex(title){
+    for(let i=0;i<SECTION_ORDER.length;i++){
+      if(title.includes(SECTION_ORDER[i]) || SECTION_ORDER[i].includes(title)){
+        return i;
+      }
+    }
+    return 999;
+  }
+
   phases.forEach(p=>{
     p.acts.forEach(a=>{
-      a.sections.sort((x,y)=>{
-        const ix=SECTION_ORDER.indexOf(x.title);
-        const iy=SECTION_ORDER.indexOf(y.title);
-        return (ix===-1?999:ix)-(iy===-1?999:iy);
-      });
+      a.sections.sort((x,y)=> sectionSortIndex(x.title) - sectionSortIndex(y.title));
     });
   });
 
   render(phases,specialSections);
 }
+
+/* ── Abrir panel lateral ────────────────── */
 
 function openPanel(a,el){
   lastScroll=window.scrollY;
@@ -450,7 +455,6 @@ function openPanel(a,el){
 
   document.getElementById("overlay").classList.add("open");
 
-  // Filtrar secciones: excluir "Tag" si existe (ya está en tarjeta)
   const panelSections=a.sections.filter(s=>s.title!=='Tag');
 
   document.getElementById("panel").innerHTML=`
@@ -484,10 +488,12 @@ function markDone(id){
   closePanel();
 }
 
+/* ── Render ──────────────────────────────── */
+
 function render(phases,specialSections){
   let html='';
 
-  // RENDERIZAR FASES CON ACTIVIDADES
+  // Fases con tarjetas
   phases.forEach(p=>{
     html+=`
     <h2 class="phase-title">FASE ${p.num}: ${p.title}</h2>
@@ -510,7 +516,7 @@ function render(phases,specialSections){
     html+='</div>';
   });
 
-  // RENDERIZAR SECCIONES ESPECIALES (Guía Ética)
+  // Secciones especiales (Guía ética, etc.) — bloque en la página principal
   specialSections.forEach(spec=>{
     html+=`
     <div class="special-section">
