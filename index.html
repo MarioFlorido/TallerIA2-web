@@ -245,9 +245,7 @@ function parse(md){
     buf=[];
     if(!sec||!act||!t) return;
 
-    // eliminar descripción del panel
-    if(sec.title.includes('Descripción')) return;
-
+    // almacenar TODAS las secciones (incluida Descripción)
     act.sections.push({title:sec.title,content:t});
   }
 
@@ -315,7 +313,9 @@ function openPanel(a){
   document.getElementById("panel").innerHTML=`
     <div class="close" onclick="closePanel()">✕</div>
     <h2>${a.title}</h2>
-    ${a.sections.map(s=>`
+    ${a.sections
+      .filter(s=>!s.title.includes('Descripción'))
+      .map(s=>`
       <div class="panel-section">
         <h4>${s.title}</h4>
         ${s.title.includes('Prompt')
