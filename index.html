@@ -70,7 +70,6 @@ body{
   cursor:pointer;
   transition:.25s;
   border:1px solid var(--border);
-  position:relative;
 }
 
 .card:hover{
@@ -105,12 +104,6 @@ body{
   margin-top:10px;
   color:var(--muted);
   font-size:.95rem;
-}
-
-.progress-select{
-  position:absolute;
-  top:12px;
-  right:12px;
 }
 
 .overlay{
@@ -149,7 +142,7 @@ body{
 }
 
 .panel-section h4{
-  font-size:1rem;
+  font-size:1.05rem;
   font-weight:700;
   color:var(--accent);
   margin-bottom:10px;
@@ -165,7 +158,7 @@ body{
   color:#f9fafb;
   padding:18px;
   border-radius:10px;
-  font-family:'JetBrains Mono';
+  font-family:'JetBrains Mono', monospace;
   font-size:.85rem;
   overflow-x:auto;
 }
@@ -174,6 +167,16 @@ body{
   position:absolute;
   top:20px;
   right:20px;
+  cursor:pointer;
+}
+
+button.done-btn{
+  margin-top:40px;
+  padding:10px 16px;
+  background:var(--accent);
+  border:none;
+  border-radius:6px;
+  color:white;
   cursor:pointer;
 }
 
@@ -211,25 +214,19 @@ body{
 <script>
 const STORAGE_KEY="progress";
 
-const SECTION_ORDER=[
-  'Objetivo Educacional',
-  'Descripción',
-  'Info',
-  'Prompt Principal',
-  'Para profundizar'
-];
+const SECTION_ORDER_MAP = {
+  'Objetivo Educacional':1,
+  'Info':2,
+  'Prompt Principal':3,
+  'Para profundizar':4
+};
 
 let lastScroll=0;
 
-function saveProgress(id,value){
+function saveProgress(id){
   let data=JSON.parse(localStorage.getItem(STORAGE_KEY)||"{}");
-  data[id]=value;
+  data[id]=true;
   localStorage.setItem(STORAGE_KEY,JSON.stringify(data));
-}
-
-function getProgress(id){
-  let data=JSON.parse(localStorage.getItem(STORAGE_KEY)||"{}");
-  return data[id]||"";
 }
 
 async function load(){
@@ -247,6 +244,10 @@ function parse(md){
     const t=buf.join('\n').trim();
     buf=[];
     if(!sec||!act||!t) return;
+
+    // eliminar descripción del panel
+    if(sec.title.includes('Descripción')) return;
+
     act.sections.push({title:sec.title,content:t});
   }
 
@@ -297,13 +298,15 @@ function parse(md){
   if(currentSpecial)flushSpecialContent();else flush();
 
   phases.forEach(p=>p.acts.forEach(a=>{
-    a.sections.sort((x,y)=>SECTION_ORDER.indexOf(x.title)-SECTION_ORDER.indexOf(y.title));
+    a.sections.sort((x,y)=>{
+      return (SECTION_ORDER_MAP[x.title]||99) - (SECTION_ORDER_MAP[y.title]||99);
+    });
   }));
 
   render(phases,specialSections);
 }
 
-function openPanel(a,el){
+function openPanel(a){
   lastScroll=window.scrollY;
   document.body.style.overflow='hidden';
 
@@ -319,6 +322,7 @@ function openPanel(a,el){
           ? `<pre>${s.content.replace(/```/g,'')}</pre>`
           : marked.parse(s.content)}
       </div>`).join('')}
+    <button class="done-btn" onclick="markDone('${a.id}')">✔ Marcar completado</button>
   `;
 
   document.getElementById("panel").classList.add("open");
@@ -329,6 +333,10 @@ function closePanel(){
   document.getElementById("panel").classList.remove("open");
   document.getElementById("overlay").classList.remove("open");
   window.scrollTo({top:lastScroll});
+}
+
+function markDone(id){
+  saveProgress(id);
 }
 
 function render(phases,specialSections){
@@ -342,12 +350,8 @@ function render(phases,specialSections){
     p.acts.forEach(a=>{
       const desc=a.sections.find(s=>s.title.includes('Descripción'));
 
-      html+=`<div class="card" onclick='openPanel(${JSON.stringify(a).replace(/'/g,"&apos;")},this)'>
+      html+=`<div class="card" onclick='openPanel(${JSON.stringify(a).replace(/'/g,"&apos;")})'>
         ${a.img?`<img src="${a.img}">`:''}
-        <select class="progress-select" onchange="saveProgress('${a.id}',this.value)">
-          <option value="">○</option>
-          <option value="done" ${getProgress(a.id)==='done'?'selected':''}>✔</option>
-        </select>
         <div class="tag">${a.tag||''}</div>
         <h3>${a.title}</h3>
         ${desc?marked.parse(desc.content):''}
