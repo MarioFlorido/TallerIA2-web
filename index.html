@@ -3,7 +3,6 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
 <title>Taller IA</title>
 
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
@@ -12,7 +11,7 @@
 <style>
 :root{
   --bg:#0a0d14;
-  --panel:#111827;
+  --panel:#ffffff;
   --card:#0f172a;
   --text:#f8fafc;
   --muted:#94a3b8;
@@ -34,67 +33,42 @@ body{
   margin:auto;
 }
 
-/* HERO REDISEÑADO */
-.hero{
-  margin-bottom:60px;
-}
-
 .hero h1{
   font-size:clamp(3.5rem,6vw,5rem);
   font-weight:900;
-  letter-spacing:-0.04em;
-  line-height:1.05;
 }
 
 .hero p{
-  margin-top:16px;
-  font-size:1.25rem;
+  margin-top:10px;
+  font-size:1.2rem;
   color:var(--muted);
-  max-width:600px;
 }
 
-.hero::after{
-  content:"";
-  display:block;
-  width:80px;
-  height:4px;
-  background:var(--accent);
-  margin-top:24px;
-  border-radius:2px;
-}
-
-/* FASE */
 .phase-title{
   font-size:2.4rem;
   margin-top:80px;
-  margin-bottom:8px;
   font-weight:800;
 }
 
-.phase-title span{
-  color:var(--accent);
-}
+.phase-title span{color:var(--accent)}
 
 .phase-subtitle{
   color:var(--muted);
   margin-bottom:28px;
-  font-size:1.05rem;
 }
 
-/* GRID */
 .grid{
   display:grid;
   grid-template-columns:repeat(auto-fit,minmax(300px,1fr));
   gap:26px;
 }
 
-/* CARD */
 .card{
   background:var(--card);
   padding:20px;
   border-radius:16px;
   cursor:pointer;
-  transition:.25s ease;
+  transition:.25s;
   border:1px solid var(--border);
   position:relative;
 }
@@ -102,7 +76,6 @@ body{
 .card:hover{
   transform:translateY(-4px);
   border-color:var(--accent);
-  box-shadow:0 10px 30px rgba(0,0,0,0.4);
 }
 
 .card img{
@@ -113,10 +86,8 @@ body{
 }
 
 .card h3{
-  font-size:1.6rem;
-  margin-top:14px;
-  margin-bottom:6px;
-  font-weight:700;
+  font-size:1.5rem;
+  margin-top:12px;
 }
 
 .tag{
@@ -128,37 +99,24 @@ body{
   background:var(--accent-soft);
   color:var(--accent);
   margin-top:10px;
-  letter-spacing:.03em;
 }
 
 .card p{
-  display:none; /* eliminamos descripción duplicada */
+  margin-top:10px;
+  color:var(--muted);
+  font-size:.95rem;
 }
 
-.card.completed{
-  border-color:#22c55e;
-}
-
-.card.completed::after{
-  content:'✓';
+.progress-select{
   position:absolute;
   top:12px;
   right:12px;
-  background:#22c55e;
-  width:24px;
-  height:24px;
-  border-radius:50%;
-  display:flex;
-  align-items:center;
-  justify-content:center;
-  font-size:.8rem;
 }
 
-/* PANEL */
 .overlay{
   position:fixed;
   inset:0;
-  backdrop-filter:blur(12px);
+  backdrop-filter:blur(10px);
   background:rgba(0,0,0,0.5);
   display:none;
 }
@@ -170,47 +128,46 @@ body{
   right:0;
   top:0;
   width:50%;
-  height:100%;
+  height:100vh;
   background:var(--panel);
+  color:#111;
   transform:translateX(100%);
-  transition:.35s ease;
+  transition:.35s;
   padding:50px;
-  overflow:auto;
+  overflow-y:auto;
 }
 
 .panel.open{transform:translateX(0)}
 
 .panel h2{
-  font-size:2.6rem;
+  font-size:2.4rem;
   font-weight:800;
-  margin-bottom:20px;
 }
 
 .panel-section{
-  margin-top:36px;
+  margin-top:32px;
 }
 
 .panel-section h4{
-  font-size:.75rem;
-  text-transform:uppercase;
-  letter-spacing:.08em;
+  font-size:1rem;
+  font-weight:700;
   color:var(--accent);
-  margin-bottom:12px;
+  margin-bottom:10px;
 }
 
 .panel-section p{
   line-height:1.7;
-  color:#d1d5db;
+  color:#333;
 }
 
 .panel-section pre{
   background:#020617;
+  color:#f9fafb;
   padding:18px;
   border-radius:10px;
   font-family:'JetBrains Mono';
   font-size:.85rem;
   overflow-x:auto;
-  border:1px solid var(--border);
 }
 
 .close{
@@ -218,33 +175,15 @@ body{
   top:20px;
   right:20px;
   cursor:pointer;
-  font-size:1.4rem;
 }
 
-/* GUÍA ÉTICA (MINIMIZADA) */
 .special-section{
   margin-top:60px;
-  padding:24px;
-  background:rgba(255,255,255,0.02);
+  padding:20px;
+  background:rgba(255,255,255,0.03);
   border-radius:12px;
   border:1px solid var(--border);
   max-width:800px;
-}
-
-.special-section h2{
-  font-size:1.4rem;
-  margin-bottom:12px;
-}
-
-.special-section h3{
-  font-size:1rem;
-  margin-top:18px;
-}
-
-.special-section p,
-.special-section li{
-  font-size:.95rem;
-  color:var(--muted);
 }
 
 @media(max-width:768px){
@@ -258,8 +197,8 @@ body{
 <div class="main">
 
 <section class="hero">
-  <h1>Aprender con IA<br>no es usarla.<br>Es entenderla.</h1>
-  <p>Un sistema de entrenamiento para desarrollar pensamiento crítico, análisis y producción académica asistida.</p>
+  <h1>Taller IA</h1>
+  <p>Aprendizaje activo con inteligencia artificial</p>
 </section>
 
 <div id="content"></div>
@@ -272,7 +211,7 @@ body{
 <script>
 const STORAGE_KEY="progress";
 
-const SECTION_ORDER = [
+const SECTION_ORDER=[
   'Objetivo Educacional',
   'Descripción',
   'Info',
@@ -282,15 +221,15 @@ const SECTION_ORDER = [
 
 let lastScroll=0;
 
-function saveProgress(id){
+function saveProgress(id,value){
   let data=JSON.parse(localStorage.getItem(STORAGE_KEY)||"{}");
-  data[id]=true;
+  data[id]=value;
   localStorage.setItem(STORAGE_KEY,JSON.stringify(data));
 }
 
-function isDone(id){
+function getProgress(id){
   let data=JSON.parse(localStorage.getItem(STORAGE_KEY)||"{}");
-  return data[id];
+  return data[id]||"";
 }
 
 async function load(){
@@ -308,11 +247,7 @@ function parse(md){
     const t=buf.join('\n').trim();
     buf=[];
     if(!sec||!act||!t) return;
-
-    // eliminar descripción del panel
-    if(sec.title.includes('Descripción')) return;
-
-    act.sections.push({type:sec.type, title:sec.title, content:t});
+    act.sections.push({title:sec.title,content:t});
   }
 
   function flushSpecialContent(){
@@ -323,82 +258,60 @@ function parse(md){
   }
 
   for(const line of lines){
-
     let m=line.match(/^# FASE (\d+): (.+)/);
-    if(m){ flush(); phase={num:m[1],title:m[2],subtitle:'',acts:[]}; phases.push(phase); continue; }
+    if(m){flush();phase={num:m[1],title:m[2],subtitle:'',acts:[]};phases.push(phase);continue}
 
     if(phase && !phase.acts.length && line.match(/^## /)){
       m=line.match(/^## (.+)/);
-      phase.subtitle=m[1];
-      continue;
-    }
+      phase.subtitle=m[1];continue}
 
     m=line.match(/^# (.+)$/);
     if(m && !m[1].includes('FASE')){
-      if(currentSpecial) flushSpecialContent(); else flush();
-      sec=null; act=null;
+      if(currentSpecial)flushSpecialContent();else flush();
+      sec=null;act=null;
       currentSpecial={title:m[1],content:''};
       specialSections.push(currentSpecial);
-      phase=null;
-      continue;
-    }
+      phase=null;continue}
 
     m=line.match(/^### (\d+)\. (.+)/);
-    if(m){ flush(); act={id:m[1],title:m[2],tag:'',img:'',sections:[]}; if(phase)phase.acts.push(act); continue; }
+    if(m){flush();act={id:m[1],title:m[2],tag:'',img:'',sections:[]};if(phase)phase.acts.push(act);continue}
 
     m=line.match(/\*\*Tag:\*\*\s*(.+)/);
-    if(m && act){ act.tag=m[1]; continue; }
+    if(m && act){act.tag=m[1];continue}
 
     m=line.match(/\*\*Imagen:\*\*\s*(.+)/);
-    if(m && act){ act.img=m[1]; continue; }
+    if(m && act){act.img=m[1];continue}
 
     m=line.match(/^#### (.+)/);
-    if(m){
-      if(act){ flush(); sec={title:m[1],type:m[1]}; }
-      else if(currentSpecial){ flushSpecialContent(); currentSpecial.content+='\n### '+m[1]+'\n'; }
+    if(m){if(act){flush();sec={title:m[1]}}else if(currentSpecial){flushSpecialContent();currentSpecial.content+='\n### '+m[1]+'\n'}continue}
+
+    if(line.trim()===''){
+      if((sec&&act)||currentSpecial)buf.push('');
       continue;
     }
 
-    if(line.trim()==='---') continue;
-
-    if(line.trim()===''){ if((sec && act)||currentSpecial){ buf.push(''); } continue; }
-
-    if(sec && act){ buf.push(line); }
-    else if(currentSpecial){ buf.push(line); }
+    if(sec&&act)buf.push(line);
+    else if(currentSpecial)buf.push(line);
   }
 
-  if(currentSpecial) flushSpecialContent(); else flush();
+  if(currentSpecial)flushSpecialContent();else flush();
 
-  function sectionSortIndex(title){
-    for(let i=0;i<SECTION_ORDER.length;i++){
-      if(title.includes(SECTION_ORDER[i]) || SECTION_ORDER[i].includes(title)){
-        return i;
-      }
-    }
-    return 999;
-  }
-
-  phases.forEach(p=>{
-    p.acts.forEach(a=>{
-      a.sections.sort((x,y)=> sectionSortIndex(x.title) - sectionSortIndex(y.title));
-    });
-  });
+  phases.forEach(p=>p.acts.forEach(a=>{
+    a.sections.sort((x,y)=>SECTION_ORDER.indexOf(x.title)-SECTION_ORDER.indexOf(y.title));
+  }));
 
   render(phases,specialSections);
 }
 
 function openPanel(a,el){
   lastScroll=window.scrollY;
-
-  document.querySelectorAll('.card').forEach(c=>c.classList.remove('active'));
-  el.classList.add('active');
+  document.body.style.overflow='hidden';
 
   document.getElementById("overlay").classList.add("open");
 
   document.getElementById("panel").innerHTML=`
     <div class="close" onclick="closePanel()">✕</div>
     <h2>${a.title}</h2>
-    
     ${a.sections.map(s=>`
       <div class="panel-section">
         <h4>${s.title}</h4>
@@ -406,41 +319,38 @@ function openPanel(a,el){
           ? `<pre>${s.content.replace(/```/g,'')}</pre>`
           : marked.parse(s.content)}
       </div>`).join('')}
-
-    <button onclick="markDone('${a.id}')">✔ Marcar completado</button>
   `;
 
   document.getElementById("panel").classList.add("open");
 }
 
 function closePanel(){
+  document.body.style.overflow='auto';
   document.getElementById("panel").classList.remove("open");
   document.getElementById("overlay").classList.remove("open");
   window.scrollTo({top:lastScroll});
-}
-
-function markDone(id){
-  saveProgress(id);
-  document.querySelector(`[data-id="${id}"]`).classList.add("completed");
-  closePanel();
 }
 
 function render(phases,specialSections){
   let html='';
 
   phases.forEach(p=>{
-    html+=`
-    <h2 class="phase-title"><span>FASE ${p.num}:</span> ${p.title}</h2>
-    ${p.subtitle?`<p class="phase-subtitle">${p.subtitle}</p>`:''}
-    <div class="grid">
-    `;
+    html+=`<h2 class="phase-title"><span>FASE ${p.num}:</span> ${p.title}</h2>`;
+    html+=p.subtitle?`<p class="phase-subtitle">${p.subtitle}</p>`:'';
+    html+='<div class="grid">';
 
     p.acts.forEach(a=>{
-      html+=`
-      <div class="card ${isDone(a.id)?'completed':''}" data-id="${a.id}" onclick='openPanel(${JSON.stringify(a).replace(/'/g,"&apos;")},this)'>
+      const desc=a.sections.find(s=>s.title.includes('Descripción'));
+
+      html+=`<div class="card" onclick='openPanel(${JSON.stringify(a).replace(/'/g,"&apos;")},this)'>
         ${a.img?`<img src="${a.img}">`:''}
+        <select class="progress-select" onchange="saveProgress('${a.id}',this.value)">
+          <option value="">○</option>
+          <option value="done" ${getProgress(a.id)==='done'?'selected':''}>✔</option>
+        </select>
         <div class="tag">${a.tag||''}</div>
         <h3>${a.title}</h3>
+        ${desc?marked.parse(desc.content):''}
       </div>`;
     });
 
@@ -448,12 +358,7 @@ function render(phases,specialSections){
   });
 
   specialSections.forEach(spec=>{
-    html+=`
-    <div class="special-section">
-      <h2>${spec.title}</h2>
-      ${marked.parse(spec.content)}
-    </div>
-    `;
+    html+=`<div class="special-section"><h2>${spec.title}</h2>${marked.parse(spec.content)}</div>`;
   });
 
   document.getElementById("content").innerHTML=html;
