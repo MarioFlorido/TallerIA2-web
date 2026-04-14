@@ -227,11 +227,52 @@ button.done-btn.completed{
 
 .special-section{
   margin-top:60px;
-  padding:20px;
-  background:rgba(255,255,255,0.03);
   border-radius:12px;
   border:1px solid var(--border);
   max-width:800px;
+  overflow:hidden;
+}
+
+.special-toggle{
+  width:100%;
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  padding:20px 24px;
+  background:rgba(255,255,255,0.03);
+  border:none;
+  color:var(--text);
+  font-family:'Inter',sans-serif;
+  font-size:1.4rem;
+  font-weight:800;
+  cursor:pointer;
+  transition:.2s;
+}
+
+.special-toggle:hover{
+  background:rgba(255,255,255,0.06);
+}
+
+.special-toggle .chevron{
+  transition:transform .3s;
+  font-size:1.2rem;
+  color:var(--muted);
+}
+
+.special-section.open .chevron{
+  transform:rotate(180deg);
+}
+
+.special-body{
+  max-height:0;
+  overflow:hidden;
+  transition:max-height .4s ease;
+  padding:0 24px;
+}
+
+.special-section.open .special-body{
+  max-height:2000px;
+  padding:0 24px 24px;
 }
 
 @media(max-width:768px){
@@ -433,11 +474,21 @@ function render(phases,specialSections){
     html+='</div>';
   });
 
-  specialSections.forEach(spec=>{
-    html+=`<div class="special-section"><h2>${spec.title}</h2>${marked.parse(spec.content)}</div>`;
+  specialSections.forEach((spec,i)=>{
+    html+=`<div class="special-section" id="special-${i}">
+      <button class="special-toggle" onclick="toggleSpecial(${i})">
+        ${spec.title}
+        <span class="chevron">▼</span>
+      </button>
+      <div class="special-body">${marked.parse(spec.content)}</div>
+    </div>`;
   });
 
   document.getElementById("content").innerHTML=html;
+}
+
+function toggleSpecial(i){
+  document.getElementById('special-'+i).classList.toggle('open');
 }
 
 load();
