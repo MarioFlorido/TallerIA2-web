@@ -15,7 +15,7 @@ Es una forma de aprender ingeniería de prompts desde dentro. Al reconstruir el 
 
 Quien sabe desmontar un prompt sabe construir uno mejor.
 
-#### Info: Generar un texto previo con esta instrucción u otra parecida para experimentar
+#### Info. Generar un texto previo con esta instrucción u otra parecida para experimentar
 *Redacta un texto de no más de cuatro párrafos sobre la teoría del constructivismo y sus fundamentos: el aprendizaje por descubrimiento, la asimilación, la acomodación y el equilibrio. Cita a Piaget, Bruner y Vygotsky, y menciona cómo ha evolucionado la teoría en los últimos años. Evita el formato esquemático y adopta un tono académico para una audiencia de expertos en pedagogía.*
 
 #### Prompt Principal
@@ -62,7 +62,7 @@ Es incómodo al principio. Estás acostumbrado a recibir información, no a cons
 
 El resultado no es solo entender mejor un concepto. Es aprender a cuestionar lo que das por sentado, a considerar otras perspectivas y a sostener tus propios argumentos. Una habilidad que, una vez desarrollada, se queda.
 
-#### Info: Ejemplos para experimentar el método socrático
+#### Info. Ejemplos para experimentar el método socrático
 - *"¿Debe el médico respetar siempre la decisión del paciente, incluso cuando va en contra del tratamiento recomendado?"*
 - *"¿Las empresas deberían priorizar el beneficio económico por encima de su responsabilidad social?"*
 - *"¿Por qué las desigualdades sociales tienden a reproducirse a lo largo de generaciones?"*
@@ -121,7 +121,7 @@ Un texto denso no siempre se entiende mejor leyéndolo más veces. A veces lo qu
 La IA puede convertir cualquier texto complejo en un mapa conceptual, una línea de tiempo, una tabla comparativa o un diagrama de flujo. En minutos, y con tantas iteraciones como quieras. Pero lo más valioso no es la velocidad: es que para pedir la visualización correcta, primero tienes que preguntarte qué tipo de relación describe el texto. ¿Es una secuencia? ¿Una jerarquía? ¿Una comparación? Esa pregunta, aparentemente técnica, es en realidad una pregunta de comprensión. Y responderla bien significa que ya has entendido algo importante del contenido.
 
 
-#### Info: Temas especialmente complejos para trabajar con la IA
+#### Info. Temas especialmente complejos para trabajar con la IA
 Buscar textos sobre: *Teoría de la Relatividad, Programación Neurolingüística, Principio de incertidumbre de Heisenberg, Síndrome de Cushing, Interacción estructura-agencia, Filosofía del lenguaje y de la mente...*
 
 #### Prompt Principal
@@ -170,7 +170,7 @@ Este ejercicio te entrena para ver lo que está debajo: si una conclusión se so
 
 Con el tiempo, ese filtro se vuelve automático. Y se aplica a cualquier texto, de cualquier disciplina, en cualquier situación profesional.
 
-#### Info: Ejemplos de papers con "anomalías"
+#### Info. Ejemplos de papers con "anomalías"
 - [Incidencia de la pandemia COVID en los delitos de odio en España](https://dialnet.unirioja.es/descarga/articulo/8400381.pdf)
 - [Estudio de la obesidad y del sobrepeso como factores de riesgo de la prevalencia y severidad del asma en niños de Valencia](https://scielo.isciii.es/pdf/nh/v20n6/original4.pdf)
 - [El enfoque de género en la intervención socioeducativa con mujeres un estudio en el medio penitenciario español](https://repositorio.ual.es/bitstream/handle/10835/10431/3474-15303-1-PB.pdf?sequence=1&isAllowed=y)
@@ -243,7 +243,7 @@ En este ejercicio usas la IA para analizar textos e identificar esos rasgos: si 
 
 Porque al final no se trata solo de detección. Se trata de entender qué hace que un texto suene auténtico, y usar eso para escribir mejor.
 
-#### Info: Un trabajo creado por un investigador y otro por una IA
+#### Info. Un trabajo creado por un investigador y otro por una IA
 - [TFG. Análisis del Sesgo Algorítmico en Sistemas de IA](https://github.com/MarioFlorido/TallerIA2/raw/main/TFG.Analisis_del_sesgo_Algoritmico_en_Sistemas_de_IA.pdf)
 - [TFG. Arquitectura para el Alzheimer. Residencias o viviendas adaptables](https://github.com/MarioFlorido/TallerIA2/raw/main/TFG.Arquitectura_para_el_Alzheimer.pdf)
 
@@ -305,7 +305,7 @@ Este ejercicio convierte a la IA en un arqueólogo digital: parte de afirmacione
 
 El hábito que desarrollas es el más valioso: no dar por válida ninguna afirmación sin preguntarte de dónde viene.
 
-#### Info: Afirmaciones pseudocientíficas para investigar
+#### Info. Afirmaciones pseudocientíficas para investigar
 - *Sólo usamos el 10% de nuestro cerebro.*
 - *El 93% de la comunicación es no verbal.*
 - *La música de Mozart aumenta la inteligencia.*
@@ -370,7 +370,7 @@ La matriz de fuentes resuelve eso: obliga a confrontar los estudios criterio por
 
 Lo más interesante suele aparecer en las contradicciones. Ahí es donde están las preguntas que todavía nadie ha respondido bien.
 
-#### Info: Ejemplos
+#### Info. Ejemplos
 [Referencias académicas (por tema) sobre Inteligencia Artificial y sus implicaciones](https://hackmd.io/@maflope/SJDJQ_2gWl)
 
 #### Prompt Principal
@@ -424,7 +424,7 @@ Buscar bibliografía no es lo mismo que encontrar buena información. La mayorí
 
 Este ejercicio te enseña a hacerlo de otra manera: eligiendo las palabras exactas, combinándolas con criterio y sabiendo en qué base de datos buscar según tu disciplina. La IA te guía en ese proceso paso a paso, desde cero.
 
-#### Info: Temas para experimentar
+#### Info. Temas para experimentar
 - *Estimulación Magnética Transcraneal y neuroplasticidad en pacientes con tumores cerebrales*
 - *Impacto del apoyo social y las redes comunitarias en el afrontamiento psicológico de pacientes con tumores cerebrales*
 - *Análisis sociológico del movimiento cátaro como herejía medieval*
@@ -513,7 +513,7 @@ Esta habilidad profesional crítica te permite comunicar efectivamente con cualq
 
 En el mundo profesional y académico, la capacidad de adaptar un mismo contenido a diferentes interlocutores es una de las competencias comunicativas más demandadas y menos trabajadas. Un investigador que solo sabe escribir para revistas científicas, un profesional que no puede explicar su proyecto a un público no especializado o un estudiante que no distingue entre un registro formal e informal pierden oportunidades de impacto y conexión con sus audiencias.
 
-#### Info: Ejemplos de temas para la comunicación
+#### Info. Ejemplos de temas para la comunicación
 - *Importancia de la ciberseguridad*
 - *Cambio climático y negacionismo*
 - *Inteligencia artificial y brecha digital*
@@ -590,7 +590,7 @@ La IA no escribe por ti en este ejercicio: lee lo que has escrito y te da retroa
 
 El texto sigue siendo tuyo. Pero cada revisión te enseña algo que la próxima vez aplicarás solo, sin necesitar que nadie te lo señale.
 
-#### Info: Texto de ejemplo
+#### Info. Texto de ejemplo
 [Preprint sobre un artículo sobre la resistencia digital](https://raw.githubusercontent.com/MarioFlorido/TallerIA2/49e3f31768a3a9e694f4b68c45076bcb77ea2c1b/Articulo_Resistencia_Digital_Cooperativismo.docx)
 
 #### Prompt Principal
