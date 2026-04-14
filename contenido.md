@@ -1,7 +1,7 @@
 # FASE 1: FUNDAMENTOS
 ## Entender cómo funciona la IA
 
-### 1. Hackear Prompts
+### 1. HACKEAR PROMPTS
 > **Tag:** Ingeniería inversa
 > **Imagen:** img/01-hackear-prompts.jpg
 
@@ -48,7 +48,7 @@ Necesito que hagas INGENIERÍA INVERSA:
 ##### Desafío:
 Genera un texto con alguna errata. Por ejemplo, en el ejercicio anterior, incluye un autor nuevo como Mickey Mouse. Verás que la IA lo incluye en el texto. Indícale a la IA que reconstruya el prompt original indicando por qué lo ha incluido.
 
-### 2. Método Socrático
+### 2. MÉTODO SOCRÁTICO
 > **Tag:** Aprendizaje por preguntas
 > **Imagen:** img/02-metodo-socratico.jpg
 
@@ -108,7 +108,7 @@ REGLAS CRÍTICAS: Nunca muestres todas las preguntas a la vez. Solo una por turn
 # FASE 2: ANÁLISIS
 ## Desarrollar pensamiento crítico
 
-### 3. Transformar visualmente
+### 3. TRANSFORMAR VISUALMENTE
 > **Tag:** Texto a visualización
 > **Imagen:** img/03-transformar-visual.jpg
 
@@ -156,7 +156,7 @@ IMPORTANTE: Si el texto es contradictorio o presenta debates, prioriza la Matriz
 **Mermaid:** Es una sencilla codificación, con un lenguaje muy sencillo, que posibilita crear grafos, diagramas... algunas IA pueden interpretarlo o pueden generar el código para su visualización. Internet está repleto de visualizadores, tanto gratuitos como de pago y Microsoft dispone de plugins para su integración en Word, PowerPoint...
 
 
-### 4. Auditoría de textos
+### 4. AUDITORÍA DE TEXTOS
 > **Tag:** Detección de sesgos y falacias
 > **Imagen:** img/04-auditoria-textos.jpg
 
@@ -229,7 +229,7 @@ Formato: Tabla con columnas [Tipo de problema | Cita textual | Explicación | Su
 - **Variables no controladas** — Factores externos que influyen en el resultado y no se han tenido en cuenta. *Ejemplo: un estudio sobre rendimiento académico que no controla el nivel socioeconómico de los participantes.*
 
 
-### 5. Detección de ADN textual
+### 5. DETECCIÓN DEL ADN TEXTUAL
 > **Tag:** Análisis estilométrico
 > **Imagen:** img/05-adn-textual.jpg
 
@@ -283,7 +283,7 @@ Como complemento:
 ```
 
 #### Para profundizar
-##### Test de Turing casero:#####
+##### Test de Turing casero:
 Escribe tú mismo un párrafo de 200 palabras sobre un tema académico. Pídele a la IA que genere otro párrafo similar. Pásalos por el detector. ¿Puede la IA identificar cuál escribiste tú? ¿Qué revelan las diferencias sobre tu estilo?
 
 
@@ -291,7 +291,7 @@ Escribe tú mismo un párrafo de 200 palabras sobre un tema académico. Pídele 
 ## Validar y comparar información
 
 
-### 6. Arqueología digital
+### 6. ARQUEOLOGÍA DIGITAL
 > **Tag:** Rastreo el origen de afirmaciones
 > **Imagen:** img/06-arqueologia-digital.jpg
 
@@ -299,7 +299,7 @@ Escribe tú mismo un párrafo de 200 palabras sobre un tema académico. Pídele 
 **Desarrollar habilidades avanzadas de fact-checking mediante búsqueda inversa: partir de una conclusión o afirmación popular para rastrear su fuente primaria, validar su precisión y detectar distorsiones en su propagación.**
 
 #### Descripción
-"Solo usamos el 10% del cerebro." "El 93% de la comunicación es no verbal." Todo el mundo lo ha oído pero casi nadie ha comprobado de dónde viene.
+*Solo usamos el 10% del cerebro*, *el 93% de la comunicación es no verbal*... Todo el mundo ha oído afirmaciones de este tipo pero casi nadie ha comprobado de dónde viene.
 
 Este ejercicio convierte a la IA en un arqueólogo digital: parte de afirmaciones que circulan como verdades establecidas y excava hacia atrás hasta encontrar —o no encontrar— el estudio original. ¿Quién lo hizo? ¿Cuándo? ¿Con qué muestra? ¿Qué decía realmente? Muchas veces lo que encuentras no es el dato que se repite, sino algo bastante más matizado que se fue distorsionando cada vez que alguien lo citó de memoria.
 
@@ -356,7 +356,7 @@ Formato: Informe estructurado con secciones claras y fuentes verificables
 ¿Cuántas afirmaciones académicas que das por ciertas podrían beneficiarse de este análisis?
 
 
-### 7. Matrices de fuentes
+### 7. MATRICES DE FUENTES
 > **Tag:** Análisis comparativo de fuentes
 > **Imagen:** img/07-matrices-fuentes.jpg
 
@@ -412,7 +412,7 @@ Comienza con unos pocos artículos. Luego añade más a la matriz. Observa cómo
 
 ---
 
-### 8. Estratega investigadora asistida
+### 8. ESTRATEGIA INVESTIGADORA ASISTIDA
 > **Tag:** Búsqueda académica profesional
 > **Imagen:** img/08-estratega-investigadora.jpg
 
@@ -490,19 +490,18 @@ AYÚDAME PASO A PASO:
 FORMATO: Entrega estructurada con las ecuaciones listas para copiar y pegar
 ```
 #### Para profundizar 
-##### **Test de efectividad:** 
+##### Test de efectividad:
 Ejecuta las 3 ecuaciones en alguna base de datos académica. Compara: ¿Cuántos resultados da cada una? ¿Cuál ofrece el mejor balance? Documenta los 5 primeros resultados de cada búsqueda y evalúa su relevancia. Luego, ajusta las ecuaciones basándote en los resultados reales.
 
 ##### Pregunta de Reflexión
 ¿Cómo cambia tu proceso de búsqueda al usar estrategias sistemáticas vs. búsquedas improvisadas? ¿Qué diferencia notas en la calidad y relevancia de las fuentes encontradas?
 
----
 
 # FASE 4: PRODUCCIÓN
 ## Crear contenido académico
 
 
-### 9. Salida de documentos
+### 9. SALIDA DE DOCUMENTOS
 > **Tag:** Adaptación por tipo de audiencia
 > **Imagen:** img/09-salida-documentos.jpg
 
@@ -514,7 +513,7 @@ Esta habilidad profesional crítica te permite comunicar efectivamente con cualq
 
 En el mundo profesional y académico, la capacidad de adaptar un mismo contenido a diferentes interlocutores es una de las competencias comunicativas más demandadas y menos trabajadas. Un investigador que solo sabe escribir para revistas científicas, un profesional que no puede explicar su proyecto a un público no especializado o un estudiante que no distingue entre un registro formal e informal pierden oportunidades de impacto y conexión con sus audiencias.
 
-#### Info: Temas para la comunicación
+#### Info: Ejemplos de temas para la comunicación
 - *Importancia de la ciberseguridad*
 - *Cambio climático y negacionismo*
 - *Inteligencia artificial y brecha digital*
@@ -577,7 +576,7 @@ FORMATO: Tabla con columnas [Audiencia | Texto adaptado | Decisiones retóricas]
 Toma tu tema de TFG/TFM. Crea versiones de 30 segundos, 2 minutos y 10 minutos para tres audiencias diferentes (tu abuela, unos compañeros de clase y director). Practica presentar cada versión cronometrada.
 
 
-### 10. Edición académica
+### 10. EDICIÓN ACADÉMICA
 > **Tag:** Edición multinivel de textos
 > **Imagen:** img/10-edicion-academica.jpg
 
@@ -686,31 +685,30 @@ Pide a la IA que genere un "checklist de calidad académica" específico para tu
 
 ----
 
-# Guía de Uso Ético
+# Guía de uso ético
 
 ## Principio Fundamental
 **La IA es tu aliada en el aprendizaje, no tu sustituta.** Estas herramientas están diseñadas para POTENCIAR tu pensamiento crítico, no para reemplazarlo. El objetivo es que desarrolles habilidades que te servirán toda la vida académica o profesional, no solo para completar tareas.
 
 ### Usa la IA para:
--  Verificar información antes de citarla
--  Mejorar tu comunicación académica
--  Desarrollar habilidades metacognitivas
--  Aprender más profundamente
--  Analizar críticamente textos
--  Expandir tu capacidad de razonamiento
+-  Verificar información antes de citarla.
+-  Mejorar tu comunicación académica.
+-  Desarrollar habilidades metacognitivas.
+-  Aprender más profundamente.
+-  Analizar críticamente textos.
+-  Expandir tu capacidad de razonamiento.
 
 ### No la uses para:
--  Hacer trampa en trabajos
--  Evitar pensar críticamente
--  Plagiar o copiar sin atribución
--  Reemplazar tu voz autoral
--  Generar trabajos completos sin comprensión
--  Evitar el proceso de aprendizaje
+-  Evitar pensar críticamente.
+-  Plagiar o copiar sin atribución.
+-  Reemplazar tu voz autoral.
+-  Generar trabajos completos sin comprensión.
+-  Evitar el proceso de aprendizaje.
  
 
-## Aviso
+## AVISO
 Como habrás deducido parte de este taller se ha realizado con IA:
 - La secuenciación de contenidos. La IA ha asistido a darle una coherencia al itinerario de aprendizaje.
 - Los prompts fueron refinados con ChatGPT y Claude.
 - La idea del layout fue propuesta por ChatGPT.
-- Las imágenes fueron creadas con Gemini... excepto "La escuela de Atenas", que la pintó Rafael!!!!
+- Las imágenes fueron creadas con Gemini... excepto "La Escuela de Atenas", que la pintó Rafael!!!!
