@@ -241,15 +241,6 @@ body{
   margin-top:12px;
 }
 
-/* --- BOTÓN STICKY --- */
-.sticky-footer{
-  position:sticky;
-  bottom:0;
-  background:linear-gradient(to top, var(--panel) 80%, transparent);
-  padding:20px 0 0;
-  margin-top:40px;
-}
-
 .close{
   position:absolute;
   top:20px;
@@ -270,9 +261,17 @@ body{
   background:rgba(0,0,0,.1);
 }
 
+/* --- BOTÓN AL FINAL DEL PANEL --- */
+.panel-footer{
+  margin-top:40px;
+  padding-top:20px;
+  display:flex;
+  justify-content:center;
+}
+
 button.done-btn{
-  width:100%;
-  padding:10px 16px;
+  max-width:300px;
+  padding:10px 24px;
   background:transparent;
   border:2px solid #22c55e;
   border-radius:8px;
@@ -572,7 +571,7 @@ function openPanel(a){
     <div class="close" onclick="closePanel()">✕</div>
     <h2>${a.title}</h2>
     ${sectionsHtml}
-    <div class="sticky-footer">
+    <div class="panel-footer">
       <button class="done-btn${done?' completed':''}" id="doneBtn" onclick="toggleDone('${a.id}')">
         ${done?'✓ Completada':'Marcar completada'}
       </button>
