@@ -10,14 +10,14 @@
 
 <style>
 :root{
-  --bg:#f8fafc;
-  --panel:#ffffff;
-  --card:#ffffff;
-  --text:#0f172a;
-  --muted:#64748b;
-  --accent:#7c3aed;
+  --bg:#f8fafc;              /* fondo general claro */
+  --panel:#ffffff;           /* panel blanco */
+  --card:#ffffff;            /* tarjetas blancas */
+  --text:#0f172a;            /* texto principal oscuro */
+  --muted:#64748b;           /* texto secundario */
+  --accent:#7c3aed;          /* lo mantienes igual */
   --accent-soft:rgba(124,58,237,0.08);
-  --border:rgba(0,0,0,0.08);
+  --border:rgba(0,0,0,0.08); /* bordes suaves en claro */
 }
 
 body{
@@ -32,6 +32,7 @@ body{
   max-width:1300px;
   margin:auto;
 }
+ 
 
 .hero h1{
   font-size:clamp(3.5rem,6vw,5rem);
@@ -41,11 +42,16 @@ body{
 }
 
 @keyframes fadeUp{
-  from{opacity:0;transform:translateY(10px);}
-  to{opacity:1;transform:translateY(0);}
+  from{
+    opacity:0;
+    transform:translateY(10px);
+  }
+  to{
+    opacity:1;
+    transform:translateY(0);
+  }
 }
-
-.hero h1::after{
+  .hero h1::after{
   content:'';
   display:block;
   width:80px;
@@ -62,8 +68,7 @@ body{
   max-width:720px;
   line-height:1.6;
 }
-
-.hero-badge{
+  .hero-badge{
   display:inline-block;
   margin-top:20px;
   font-size:.85rem;
@@ -123,7 +128,7 @@ body{
 
 .tag{
   display:inline-block;
-  font-size:1rem;
+  font-size: 1rem;
   font-weight:700;
   padding:6px 10px;
   border-radius:999px;
@@ -136,9 +141,36 @@ body{
   margin-top:10px;
   color:var(--muted);
   font-size:.95rem;
-  line-height:1.2;
+  line-height: 1.2;
 }
 
+/* --- Card completada --- */
+.card.done{
+  border-color:rgba(34,197,94,0.6);
+  background:linear-gradient(135deg, var(--card), rgba(34,197,94,0.06));
+}
+
+.card.done .done-label{
+  display:flex;
+}
+
+.done-label{
+  display:none;
+  align-items:center;
+  gap:6px;
+  margin-top:14px;
+  font-size:.8rem;
+  font-weight:600;
+  color:#22c55e;
+}
+
+.done-label svg{
+  width:18px;
+  height:18px;
+  flex-shrink:0;
+}
+
+/* --- Panel lateral --- */
 .overlay{
   position:fixed;
   inset:0;
@@ -185,6 +217,11 @@ body{
   margin-bottom:10px;
 }
 
+.panel-section p{
+  line-height:1.7;
+  color:#333;
+}
+
 .panel-section pre{
   background:#020617;
   color:#f9fafb;
@@ -193,37 +230,16 @@ body{
   font-family:'JetBrains Mono', monospace;
   font-size:.85rem;
   line-height:1.6;
-  white-space:pre-wrap;
-  word-break:break-word;
+  white-space: pre-wrap;
+  word-break: break-word;
+  overflow-wrap: anywhere;
   overflow-x:hidden;
   position:relative;
   border-left:3px solid var(--accent);
+  
 }
 
-/* WRAPPER + BOTÓN COPIAR */
-.code-wrapper{
-  position:relative;
-}
-
-.code-copy{
-  position:absolute;
-  top:10px;
-  right:10px;
-  font-size:.75rem;
-  background:rgba(255,255,255,0.08);
-  color:#fff;
-  border:1px solid rgba(255,255,255,0.15);
-  padding:4px 8px;
-  border-radius:6px;
-  cursor:pointer;
-  opacity:0;
-  transition:.2s;
-}
-
-.code-wrapper:hover .code-copy{
-  opacity:1;
-}
-
+/* --- PROMPT COLAPSABLE --- */
 .prompt-toggle-btn{
   width:100%;
   background:var(--muted);
@@ -237,6 +253,21 @@ body{
   display:flex;
   align-items:center;
   gap:10px;
+  transition:.2s;
+  font-family:'Inter',sans-serif;
+}
+
+.prompt-toggle-btn:hover{
+  opacity:.9;
+}
+
+.prompt-toggle-btn .arrow{
+  transition:transform .3s;
+  font-size:1.1rem;
+}
+
+.prompt-toggle-btn.open .arrow{
+  transform:rotate(90deg);
 }
 
 .prompt-code{
@@ -247,6 +278,10 @@ body{
 
 .prompt-code.open{
   max-height:3000px;
+}
+
+.prompt-code pre{
+  margin-top:12px;
 }
 
 .close{
@@ -262,6 +297,180 @@ body{
   justify-content:center;
   border-radius:50%;
   background:rgba(0,0,0,.05);
+  transition:.2s;
+}
+
+.close:hover{
+  background:rgba(0,0,0,.1);
+}
+
+/* --- BOTÓN AL FINAL DEL PANEL --- */
+.panel-footer{
+  margin-top:40px;
+  padding-top:20px;
+  display:flex;
+  justify-content:center;
+}
+
+button.done-btn{
+  max-width:300px;
+  padding:10px 24px;
+  background:transparent;
+  border:2px solid #22c55e;
+  border-radius:8px;
+  color:#22c55e;
+  cursor:pointer;
+  font-size:.9rem;
+  font-weight:600;
+  transition:.2s;
+  font-family:'Inter',sans-serif;
+}
+
+button.done-btn:hover{
+  background:rgba(34,197,94,0.1);
+}
+
+button.done-btn.completed{
+  background:#22c55e;
+  color:white;
+}
+
+/* --- SECCIÓN ESPECIAL (ÉTICA) DESTACADA --- */
+.special-section{
+  margin-top:80px;
+  border-radius:16px;
+  border:1px solid var(--accent);
+  max-width:100%;
+  overflow:hidden;
+  background:rgba(124,58,237,0.05);
+}
+
+.special-toggle{
+  width:100%;
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  padding:20px 24px;
+  background:rgba(124,58,237,0.08);
+  border:none;
+  color:var(--text);
+  font-family:'Inter',sans-serif;
+  font-size:1.4rem;
+  font-weight:800;
+  cursor:pointer;
+  transition:.2s;
+}
+
+.special-toggle:hover{
+  background:rgba(124,58,237,0.12);
+}
+
+.special-toggle .chevron{
+  transition:transform .3s;
+  font-size:1.4rem;
+  color:var(--accent);
+}
+
+.special-section.open .chevron{
+  transform:rotate(180deg);
+}
+
+.special-body{
+  max-height:0;
+  overflow:hidden;
+  transition:max-height .4s ease;
+  padding:0 28px;
+  color:var(--text);
+}
+
+.special-section.open .special-body{
+  max-height:2000px;
+  padding:0 28px 28px;
+}
+
+.special-body h2{
+  color:var(--accent);
+  font-size:1.4rem;
+  margin-top:24px;
+}
+
+.special-body h3{
+  color:var(--text);
+  font-size:1.1rem;
+  margin-top:20px;
+}
+
+.special-body ul{
+  color:var(--muted);
+  line-height:1.8;
+}
+
+.special-body p{
+  color:var(--muted);
+  line-height:1.5;
+}
+
+/* --- ESTILOS PARA TABLAS --- */
+.special-body table{
+  width:80%;
+  border-collapse:collapse;
+  margin:24px auto;
+  background:rgba(0,0,0,0.05);
+  border-radius:8px;
+  overflow:hidden;
+}
+
+.special-body table th{
+  background:rgba(124,58,237,0.1);
+  color:var(--accent);
+  font-weight:700;
+  text-align:left;
+  padding:16px 20px;
+  font-size:1.05rem;
+  border-bottom:2px solid var(--accent);
+}
+
+.special-body table td{
+  padding:8px 20px;
+  color:var(--muted);
+  line-height:1.3;
+  border-bottom:1px solid rgba(255,255,255,0.05);
+}
+
+.special-body table tr:last-child td{
+  border-bottom:none;
+}
+
+.special-body table tr:hover{
+  background:rgba(124,58,237,0.05);
+}
+
+/* --- FOOTER --- */
+.footer{
+  margin-top:100px;
+  padding:40px 28px;
+  border-top:1px solid var(--border);
+  text-align:center;
+}
+
+.footer p{
+  color:var(--muted);
+  line-height:1.8;
+  margin:0;
+  font-size:.95rem;
+}
+
+.footer p a{
+  color:var(--accent);
+  text-decoration:none;
+}
+
+.footer p a:hover{
+  opacity:.8;
+}
+
+@media(max-width:768px){
+  .panel{width:95%}
 }
 </style>
 </head>
@@ -269,12 +478,21 @@ body{
 <body>
 
 <div class="main">
+
 <section class="hero">
   <h1>Taller avanzado de IA</h1>
   <p><strong>Aprendizaje activo</strong> con inteligencia artificial</p>
+  <div class="hero-badge">Metodología · Pensamiento crítico · IA aplicada</div>
 </section>
 
 <div id="content"></div>
+
+<footer class="footer">
+  <p>Taller avanzado de inteligencia artificial</p>
+  <p><a href="mailto:mario.florido@ua.es">mario.florido@ua.es</a></p>
+  <p>Universidad de Alicante • 2025</p>
+</footer>
+
 </div>
 
 <div id="overlay" class="overlay" onclick="closePanel()"></div>
@@ -283,6 +501,16 @@ body{
 <script>
 const STORAGE_KEY="progress";
 
+function getSectionOrder(title){
+  if(title==='Objetivo Educacional') return 1;
+  if(title.startsWith('Info')) return 2;
+  if(title==='Prompt Principal') return 3;
+  if(title==='Para profundizar') return 4;
+  return 99;
+}
+
+let lastScroll=0;
+
 function getProgress(){
   return JSON.parse(localStorage.getItem(STORAGE_KEY)||"{}");
 }
@@ -290,6 +518,12 @@ function getProgress(){
 function saveProgress(id){
   let data=getProgress();
   data[id]=true;
+  localStorage.setItem(STORAGE_KEY,JSON.stringify(data));
+}
+
+function removeProgress(id){
+  let data=getProgress();
+  delete data[id];
   localStorage.setItem(STORAGE_KEY,JSON.stringify(data));
 }
 
@@ -306,6 +540,7 @@ async function load(){
 function parse(md){
   const lines=md.split('\n');
   let phases=[],phase=null,act=null,sec=null,buf=[];
+  let specialSections=[],currentSpecial=null;
 
   function flush(){
     const t=buf.join('\n').trim();
@@ -314,80 +549,202 @@ function parse(md){
     act.sections.push({title:sec.title,content:t});
   }
 
-  for(const line of lines){
-    let m=line.match(/^# FASE (\d+): (.+)/);
-    if(m){phase={num:m[1],title:m[2],acts:[]};phases.push(phase);continue}
-
-    m=line.match(/^### (\d+)\. (.+)/);
-    if(m){act={id:m[1],title:m[2],sections:[]};if(phase)phase.acts.push(act);continue}
-
-    m=line.match(/^#### (.+)/);
-    if(m){if(act){flush();sec={title:m[1]}}continue}
-
-    if(line.trim()===''){continue;}
-
-    if(sec&&act)buf.push(line);
+  function flushSpecialContent(){
+    const t=buf.join('\n').trim();
+    buf=[];
+    if(!currentSpecial||!t) return;
+    currentSpecial.content+='\n'+t;
   }
 
-  flush();
-  render(phases);
+  for(const line of lines){
+    let m=line.match(/^# FASE (\d+): (.+)/);
+    if(m){flush();phase={num:m[1],title:m[2],subtitle:'',acts:[]};phases.push(phase);continue}
+
+    if(phase && !phase.acts.length && line.match(/^## /)){
+      m=line.match(/^## (.+)/);
+      phase.subtitle=m[1];continue}
+
+    m=line.match(/^# (.+)$/);
+    if(m && !m[1].includes('FASE')){
+      if(currentSpecial)flushSpecialContent();else flush();
+      sec=null;act=null;
+      currentSpecial={title:m[1],content:''};
+      specialSections.push(currentSpecial);
+      phase=null;continue}
+
+    m=line.match(/^### (\d+)\. (.+)/);
+    if(m){flush();act={id:m[1],title:m[2],tag:'',img:'',sections:[]};if(phase)phase.acts.push(act);continue}
+
+    m=line.match(/\*\*Tag:\*\*\s*(.+)/);
+    if(m && act){act.tag=m[1];continue}
+
+    m=line.match(/\*\*Imagen:\*\*\s*(.+)/);
+    if(m && act){act.img=m[1];continue}
+
+    m=line.match(/^#### (.+)/);
+    if(m){if(act){flush();sec={title:m[1]}}else if(currentSpecial){flushSpecialContent();currentSpecial.content+='\n### '+m[1]+'\n'}continue}
+
+    if(line.trim()===''){
+      if((sec&&act)||currentSpecial)buf.push('');
+      continue;
+    }
+
+    if(sec&&act)buf.push(line);
+    else if(currentSpecial)buf.push(line);
+  }
+
+  if(currentSpecial)flushSpecialContent();else flush();
+
+  phases.forEach(p=>p.acts.forEach(a=>{
+    a.sections.sort((x,y)=>{
+      return getSectionOrder(x.title) - getSectionOrder(y.title);
+    });
+  }));
+
+  render(phases,specialSections);
 }
 
-function copyCode(btn){
-  const pre = btn.parentElement.querySelector('pre');
-  navigator.clipboard.writeText(pre.innerText).then(()=>{
-    const old = btn.textContent;
-    btn.textContent='Copiado';
-    setTimeout(()=>btn.textContent=old,1200);
-  });
+function togglePrompt(btn){
+  btn.classList.toggle('open');
+  btn.nextElementSibling.classList.toggle('open');
+  const text = btn.querySelector('.prompt-text');
+  text.textContent = btn.classList.contains('open') ? 'Ocultar Prompt' : 'Ver Prompt';
 }
 
-function render(phases){
+function openPanel(a){
+  lastScroll=window.scrollY;
+  document.body.style.overflow='hidden';
+
+  const done=isDone(a.id);
+
+  document.getElementById("overlay").classList.add("open");
+
+  let sectionsHtml = '';
+  a.sections
+    .filter(s=>!s.title.includes('Descripción'))
+    .forEach(s=>{
+      if(s.title.includes('Prompt')){
+        // Prompt colapsable
+        const promptContent = s.content.replace(/```/g,'');
+        sectionsHtml += `
+        <div class="panel-section">
+          <h4>${s.title}</h4>
+          <button class="prompt-toggle-btn" onclick="event.stopPropagation();togglePrompt(this)">
+            <span class="arrow">▸</span>
+            <span class="prompt-text">Ver Prompt</span>
+          </button>
+          <div class="prompt-code">
+            <pre>${promptContent}</pre>
+          </div>
+        </div>`;
+      } else {
+        sectionsHtml += `
+        <div class="panel-section">
+          <h4>${s.title}</h4>
+          ${marked.parse(s.content)}
+        </div>`;
+      }
+    });
+
+  document.getElementById("panel").innerHTML=`
+    <div class="close" onclick="closePanel()">✕</div>
+    <h2>${a.title}</h2>
+    ${sectionsHtml}
+    <div class="panel-footer">
+      <button class="done-btn${done?' completed':''}" id="doneBtn" onclick="toggleDone('${a.id}')">
+        ${done?'✓ Completada':'Marcar completada'}
+      </button>
+    </div>
+  `;
+
+  document.getElementById("panel").classList.add("open");
+}
+
+function closePanel(){
+  document.body.style.overflow='auto';
+  document.getElementById("panel").classList.remove("open");
+  document.getElementById("overlay").classList.remove("open");
+  window.scrollTo({top:lastScroll});
+}
+
+function toggleDone(id){
+  const currentlyDone = isDone(id);
+  
+  if(currentlyDone){
+    // Desmarcar
+    removeProgress(id);
+    
+    const btn=document.getElementById('doneBtn');
+    if(btn){
+      btn.classList.remove('completed');
+      btn.textContent='Marcar completada';
+    }
+    
+    const card=document.querySelector(`.card[data-id="${id}"]`);
+    if(card) card.classList.remove('done');
+  } else {
+    // Marcar
+    saveProgress(id);
+    
+    const btn=document.getElementById('doneBtn');
+    if(btn){
+      btn.classList.add('completed');
+      btn.textContent='✓ Completada';
+    }
+    
+    const card=document.querySelector(`.card[data-id="${id}"]`);
+    if(card) card.classList.add('done');
+  }
+}
+
+function render(phases,specialSections){
   let html='';
 
   phases.forEach(p=>{
-    html+=`<h2>${p.title}</h2><div class="grid">`;
+    html+=`<h2 class="phase-title"><span>FASE ${p.num}:</span> ${p.title}</h2>`;
+    html+=p.subtitle?`<p class="phase-subtitle">${p.subtitle}</p>`:'';
+    html+='<div class="grid">';
 
     p.acts.forEach(a=>{
-      html+=`<div class="card" onclick="openPanel('${a.id}')">
+      const desc=a.sections.find(s=>s.title.includes('Descripción'));
+      const done=isDone(a.id);
+
+      html+=`<div class="card${done?' done':''}" data-id="${a.id}" onclick='openPanel(${JSON.stringify(a).replace(/'/g,"&apos;")})'>
+        ${a.img?`<img src="${a.img}">`:''}
+        <div class="tag">${a.tag||''}</div>
         <h3>${a.title}</h3>
+        ${desc?marked.parse(desc.content):''}
+        <div class="done-label">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg>
+          Actividad completada
+        </div>
       </div>`;
     });
 
     html+='</div>';
   });
 
+  specialSections.forEach((spec,i)=>{
+    html+=`<div class="special-section" id="special-${i}">
+      <button class="special-toggle" onclick="toggleSpecial(${i})">
+        ${spec.title}
+        <span class="chevron">▼</span>
+      </button>
+      <div class="special-body">${marked.parse(spec.content)}</div>
+    </div>`;
+  });
+
   document.getElementById("content").innerHTML=html;
 }
 
-function openPanel(id){
-  document.getElementById("panel").classList.add("open");
-  document.getElementById("overlay").classList.add("open");
-
-  document.getElementById("panel").innerHTML=`
-    <div class="close" onclick="closePanel()">✕</div>
-    <h2>Actividad ${id}</h2>
-
-    <div class="panel-section">
-      <h4>Prompt</h4>
-      <button class="prompt-toggle-btn" onclick="this.nextElementSibling.classList.toggle('open')">
-        Ver Prompt
-      </button>
-
-      <div class="prompt-code">
-        <div class="code-wrapper">
-          <button class="code-copy" onclick="copyCode(this)">Copiar</button>
-          <pre>Ejemplo de prompt aquí...</pre>
-        </div>
-      </div>
-    </div>
-  `;
+function toggleSpecial(i){
+  document.getElementById('special-'+i).classList.toggle('open');
 }
 
-function closePanel(){
-  document.getElementById("panel").classList.remove("open");
-  document.getElementById("overlay").classList.remove("open");
-}
+// Cerrar panel con ESC
+document.addEventListener('keydown', e => {
+  if(e.key === 'Escape') closePanel();
+});
 
 load();
 </script>
