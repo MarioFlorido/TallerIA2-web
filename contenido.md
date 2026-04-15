@@ -694,13 +694,13 @@ Pide a la IA que genere un "checklist de calidad académica" específico para tu
 |---|---|
 | Verificar información antes de citarla.  | Evitar pensar críticamente.  |
 | Mejorar tu comunicación académica.  | Plagiar o copiar sin atribución.  |
-| Aprender más profundamente.  | Reemplazar tu voz autoral.  |
+| Aprender más profundamente.  | Reemplazar tu autoría.  |
 | Analizar críticamente textos.  | Generar trabajos completos sin comprensión.  |
 | Expandir tu capacidad de razonamiento.  | Evitar el proceso de aprendizaje.  |
 
 ## AVISO
-Como habrás deducido parte de este taller se ha realizado con IA:
-- La secuenciación de contenidos. La IA ha asistido a darle una coherencia al itinerario de aprendizaje.
+Como habrás deducido, parte de este taller se ha realizado con IA:
+- La secuenciación de contenidos. La IA ha asistido para darle mayor coherencia al itinerario de aprendizaje.
 - Los prompts fueron refinados con ChatGPT y Claude.
 - La idea del layout fue propuesta por ChatGPT.
-- Las imágenes fueron creadas con Gemini... excepto "La Escuela de Atenas", que la pintó Rafael!!!!
+- Las imágenes fueron creadas con Gemini, excepto "La Escuela de Atenas", pintada por Rafael... al que nunca podra superar una IA!
