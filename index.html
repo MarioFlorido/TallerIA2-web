@@ -304,6 +304,35 @@ body{
   background:rgba(0,0,0,.1);
 }
 
+/* --- BOtÓN COPIA DEL PROMPT --- */
+
+.code-wrapper{
+  position:relative;
+}
+
+.code-copy{
+  position:absolute;
+  top:10px;
+  right:10px;
+  font-size:.75rem;
+  background:rgba(255,255,255,0.08);
+  color:#fff;
+  border:1px solid rgba(255,255,255,0.15);
+  padding:4px 8px;
+  border-radius:6px;
+  cursor:pointer;
+  transition:.2s;
+  opacity:0;
+}
+
+.code-wrapper:hover .code-copy{
+  opacity:1;
+}
+
+.code-copy:hover{
+  background:rgba(255,255,255,0.15);
+} 
+
 /* --- BOTÓN AL FINAL DEL PANEL --- */
 .panel-footer{
   margin-top:40px;
@@ -625,18 +654,24 @@ function openPanel(a){
     .forEach(s=>{
       if(s.title.includes('Prompt')){
         // Prompt colapsable
-        const promptContent = s.content.replace(/```/g,'');
-        sectionsHtml += `
-        <div class="panel-section">
-          <h4>${s.title}</h4>
-          <button class="prompt-toggle-btn" onclick="event.stopPropagation();togglePrompt(this)">
-            <span class="arrow">▸</span>
-            <span class="prompt-text">Ver Prompt</span>
-          </button>
-          <div class="prompt-code">
-            <pre>${promptContent}</pre>
-          </div>
-        </div>`;
+const promptContent = s.content.replace(/```/g,'');
+
+sectionsHtml += `
+<div class="panel-section">
+  <h4>${s.title}</h4>
+
+  <button class="prompt-toggle-btn" onclick="event.stopPropagation();togglePrompt(this)">
+    <span class="arrow">▸</span>
+    <span class="prompt-text">Ver Prompt</span>
+  </button>
+
+  <div class="prompt-code">
+    <div class="code-wrapper">
+      <button class="code-copy" onclick="copyCode(this)">Copiar</button>
+      <pre>${promptContent}</pre>
+    </div>
+  </div>
+</div>`;
       } else {
         sectionsHtml += `
         <div class="panel-section">
@@ -739,6 +774,19 @@ function render(phases,specialSections){
 
 function toggleSpecial(i){
   document.getElementById('special-'+i).classList.toggle('open');
+}
+  function copyCode(btn){
+  const pre = btn.parentElement.querySelector('pre');
+  const text = pre.innerText;
+
+  navigator.clipboard.writeText(text).then(() => {
+    const original = btn.textContent;
+    btn.textContent = 'Copiado';
+
+    setTimeout(() => {
+      btn.textContent = original;
+    }, 1200);
+  });
 }
 
 // Cerrar panel con ESC
