@@ -690,21 +690,13 @@ Pide a la IA que genere un "checklist de calidad académica" específico para tu
 ## Principio Fundamental
 **La IA es tu aliada en el aprendizaje, no tu sustituta.** Estas herramientas están diseñadas para POTENCIAR tu pensamiento crítico, no para reemplazarlo. El objetivo es que desarrolles habilidades que te servirán toda la vida académica o profesional, no solo para completar tareas.
 
-### Usa la IA para:
--  Verificar información antes de citarla.
--  Mejorar tu comunicación académica.
--  Desarrollar habilidades metacognitivas.
--  Aprender más profundamente.
--  Analizar críticamente textos.
--  Expandir tu capacidad de razonamiento.
-
-### No la uses para:
--  Evitar pensar críticamente.
--  Plagiar o copiar sin atribución.
--  Reemplazar tu voz autoral.
--  Generar trabajos completos sin comprensión.
--  Evitar el proceso de aprendizaje.
- 
+| Usa la IA para:  | No la uses para:  |
+|---|---|
+| Verificar información antes de citarla.  | Evitar pensar críticamente.  |
+| Mejorar tu comunicación académica.  | Plagiar o copiar sin atribución.  |
+| Aprender más profundamente.  | Reemplazar tu voz autoral.  |
+| Analizar críticamente textos.  | Generar trabajos completos sin comprensión.  |
+| Expandir tu capacidad de razonamiento.  | Evitar el proceso de aprendizaje.  |
 
 ## AVISO
 Como habrás deducido parte de este taller se ha realizado con IA:
