@@ -297,7 +297,7 @@ button.done-btn.completed{
   margin-top:80px;
   border-radius:16px;
   border:2px solid var(--accent);
-  max-width:800px;
+  max-width:100%;
   overflow:hidden;
   background:rgba(124,58,237,0.05);
 }
@@ -365,6 +365,41 @@ button.done-btn.completed{
 .special-body p{
   color:var(--muted);
   line-height:1.8;
+}
+
+/* --- ESTILOS PARA TABLAS --- */
+.special-body table{
+  width:100%;
+  border-collapse:collapse;
+  margin:24px 0;
+  background:rgba(0,0,0,0.15);
+  border-radius:8px;
+  overflow:hidden;
+}
+
+.special-body table th{
+  background:rgba(124,58,237,0.15);
+  color:var(--accent);
+  font-weight:700;
+  text-align:left;
+  padding:16px 20px;
+  font-size:1.05rem;
+  border-bottom:2px solid var(--accent);
+}
+
+.special-body table td{
+  padding:14px 20px;
+  color:var(--muted);
+  line-height:1.7;
+  border-bottom:1px solid rgba(255,255,255,0.05);
+}
+
+.special-body table tr:last-child td{
+  border-bottom:none;
+}
+
+.special-body table tr:hover{
+  background:rgba(124,58,237,0.05);
 }
 
 /* --- FOOTER --- */
