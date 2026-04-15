@@ -139,25 +139,6 @@ body{
   line-height:1.2;
 }
 
-.card.done{
-  border-color:rgba(34,197,94,0.6);
-  background:linear-gradient(135deg, var(--card), rgba(34,197,94,0.06));
-}
-
-.done-label{
-  display:none;
-  align-items:center;
-  gap:6px;
-  margin-top:14px;
-  font-size:.8rem;
-  font-weight:600;
-  color:#22c55e;
-}
-
-.card.done .done-label{
-  display:flex;
-}
-
 .overlay{
   position:fixed;
   inset:0;
@@ -188,6 +169,11 @@ body{
 
 .panel.open{transform:translateX(0)}
 
+.panel h2{
+  font-size:2.4rem;
+  font-weight:800;
+}
+
 .panel-section{
   margin-top:32px;
 }
@@ -207,15 +193,37 @@ body{
   font-family:'JetBrains Mono', monospace;
   font-size:.85rem;
   line-height:1.6;
-  white-space: pre-wrap;
-  word-break: break-word;
-  overflow-wrap: anywhere;
+  white-space:pre-wrap;
+  word-break:break-word;
   overflow-x:hidden;
   position:relative;
   border-left:3px solid var(--accent);
 }
 
-/* PROMPT */
+/* WRAPPER + BOTÓN COPIAR */
+.code-wrapper{
+  position:relative;
+}
+
+.code-copy{
+  position:absolute;
+  top:10px;
+  right:10px;
+  font-size:.75rem;
+  background:rgba(255,255,255,0.08);
+  color:#fff;
+  border:1px solid rgba(255,255,255,0.15);
+  padding:4px 8px;
+  border-radius:6px;
+  cursor:pointer;
+  opacity:0;
+  transition:.2s;
+}
+
+.code-wrapper:hover .code-copy{
+  opacity:1;
+}
+
 .prompt-toggle-btn{
   width:100%;
   background:var(--muted);
@@ -241,49 +249,19 @@ body{
   max-height:3000px;
 }
 
-/* COPY BUTTON */
-.code-wrapper{
-  position:relative;
-}
-
-.code-copy{
-  position:absolute;
-  top:10px;
-  right:10px;
-  font-size:.75rem;
-  background:rgba(255,255,255,0.08);
-  color:#fff;
-  border:1px solid rgba(255,255,255,0.15);
-  padding:4px 8px;
-  border-radius:6px;
-  cursor:pointer;
-  opacity:0;
-  transition:.2s;
-}
-
-.code-wrapper:hover .code-copy{
-  opacity:1;
-}
-
 .close{
   position:absolute;
   top:20px;
   right:20px;
   cursor:pointer;
-}
-
-.panel-footer{
-  margin-top:40px;
+  font-size:1.5rem;
+  width:32px;
+  height:32px;
   display:flex;
+  align-items:center;
   justify-content:center;
-}
-
-button.done-btn{
-  padding:10px 24px;
-  border:2px solid #22c55e;
-  background:transparent;
-  color:#22c55e;
-  border-radius:8px;
+  border-radius:50%;
+  background:rgba(0,0,0,.05);
 }
 </style>
 </head>
@@ -291,50 +269,127 @@ button.done-btn{
 <body>
 
 <div class="main">
-
 <section class="hero">
   <h1>Taller avanzado de IA</h1>
   <p><strong>Aprendizaje activo</strong> con inteligencia artificial</p>
-  <div class="hero-badge">Metodología · Pensamiento crítico · IA aplicada</div>
 </section>
 
 <div id="content"></div>
-
 </div>
 
 <div id="overlay" class="overlay" onclick="closePanel()"></div>
 <div id="panel" class="panel"></div>
 
 <script>
+const STORAGE_KEY="progress";
+
+function getProgress(){
+  return JSON.parse(localStorage.getItem(STORAGE_KEY)||"{}");
+}
+
+function saveProgress(id){
+  let data=getProgress();
+  data[id]=true;
+  localStorage.setItem(STORAGE_KEY,JSON.stringify(data));
+}
+
+function isDone(id){
+  return !!getProgress()[id];
+}
+
+async function load(){
+  const res=await fetch('contenido.md');
+  const md=await res.text();
+  parse(md);
+}
+
+function parse(md){
+  const lines=md.split('\n');
+  let phases=[],phase=null,act=null,sec=null,buf=[];
+
+  function flush(){
+    const t=buf.join('\n').trim();
+    buf=[];
+    if(!sec||!act||!t) return;
+    act.sections.push({title:sec.title,content:t});
+  }
+
+  for(const line of lines){
+    let m=line.match(/^# FASE (\d+): (.+)/);
+    if(m){phase={num:m[1],title:m[2],acts:[]};phases.push(phase);continue}
+
+    m=line.match(/^### (\d+)\. (.+)/);
+    if(m){act={id:m[1],title:m[2],sections:[]};if(phase)phase.acts.push(act);continue}
+
+    m=line.match(/^#### (.+)/);
+    if(m){if(act){flush();sec={title:m[1]}}continue}
+
+    if(line.trim()===''){continue;}
+
+    if(sec&&act)buf.push(line);
+  }
+
+  flush();
+  render(phases);
+}
+
 function copyCode(btn){
   const pre = btn.parentElement.querySelector('pre');
-  if(!pre) return;
-
-  const text = pre.textContent || pre.innerText || "";
-
-  if(navigator.clipboard && window.isSecureContext){
-    navigator.clipboard.writeText(text).then(() => {
-      const old = btn.textContent;
-      btn.textContent = "Copiado";
-      setTimeout(() => btn.textContent = old, 1200);
-    }).catch(fallbackCopy);
-  } else {
-    fallbackCopy();
-  }
-
-  function fallbackCopy(){
-    const ta = document.createElement("textarea");
-    ta.value = text;
-    document.body.appendChild(ta);
-    ta.select();
-    document.execCommand("copy");
-    ta.remove();
-
+  navigator.clipboard.writeText(pre.innerText).then(()=>{
     const old = btn.textContent;
-    btn.textContent = "Copiado";
-    setTimeout(() => btn.textContent = old, 1200);
-  }
+    btn.textContent='Copiado';
+    setTimeout(()=>btn.textContent=old,1200);
+  });
 }
+
+function render(phases){
+  let html='';
+
+  phases.forEach(p=>{
+    html+=`<h2>${p.title}</h2><div class="grid">`;
+
+    p.acts.forEach(a=>{
+      html+=`<div class="card" onclick="openPanel('${a.id}')">
+        <h3>${a.title}</h3>
+      </div>`;
+    });
+
+    html+='</div>';
+  });
+
+  document.getElementById("content").innerHTML=html;
+}
+
+function openPanel(id){
+  document.getElementById("panel").classList.add("open");
+  document.getElementById("overlay").classList.add("open");
+
+  document.getElementById("panel").innerHTML=`
+    <div class="close" onclick="closePanel()">✕</div>
+    <h2>Actividad ${id}</h2>
+
+    <div class="panel-section">
+      <h4>Prompt</h4>
+      <button class="prompt-toggle-btn" onclick="this.nextElementSibling.classList.toggle('open')">
+        Ver Prompt
+      </button>
+
+      <div class="prompt-code">
+        <div class="code-wrapper">
+          <button class="code-copy" onclick="copyCode(this)">Copiar</button>
+          <pre>Ejemplo de prompt aquí...</pre>
+        </div>
+      </div>
+    </div>
+  `;
+}
+
+function closePanel(){
+  document.getElementById("panel").classList.remove("open");
+  document.getElementById("overlay").classList.remove("open");
+}
+
+load();
 </script>
 
 </body>
