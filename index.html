@@ -144,10 +144,6 @@ body{
   background:linear-gradient(135deg, var(--card), rgba(34,197,94,0.06));
 }
 
-.card.done .done-label{
-  display:flex;
-}
-
 .done-label{
   display:none;
   align-items:center;
@@ -158,10 +154,8 @@ body{
   color:#22c55e;
 }
 
-.done-label svg{
-  width:18px;
-  height:18px;
-  flex-shrink:0;
+.card.done .done-label{
+  display:flex;
 }
 
 .overlay{
@@ -194,11 +188,6 @@ body{
 
 .panel.open{transform:translateX(0)}
 
-.panel h2{
-  font-size:2.4rem;
-  font-weight:800;
-}
-
 .panel-section{
   margin-top:32px;
 }
@@ -208,11 +197,6 @@ body{
   font-weight:700;
   color:var(--accent);
   margin-bottom:10px;
-}
-
-.panel-section p{
-  line-height:1.7;
-  color:#333;
 }
 
 .panel-section pre{
@@ -257,7 +241,7 @@ body{
   max-height:3000px;
 }
 
-/* BOTÓN COPIAR */
+/* COPY BUTTON */
 .code-wrapper{
   position:relative;
 }
@@ -286,14 +270,6 @@ body{
   top:20px;
   right:20px;
   cursor:pointer;
-  font-size:1.5rem;
-  width:32px;
-  height:32px;
-  display:flex;
-  align-items:center;
-  justify-content:center;
-  border-radius:50%;
-  background:rgba(0,0,0,.05);
 }
 
 .panel-footer{
@@ -303,15 +279,12 @@ body{
 }
 
 button.done-btn{
-  max-width:300px;
   padding:10px 24px;
   border:2px solid #22c55e;
   background:transparent;
-  border-radius:8px;
   color:#22c55e;
-  cursor:pointer;
+  border-radius:8px;
 }
-
 </style>
 </head>
 
@@ -333,43 +306,35 @@ button.done-btn{
 <div id="panel" class="panel"></div>
 
 <script>
-const STORAGE_KEY="progress";
-
-function getProgress(){
-  return JSON.parse(localStorage.getItem(STORAGE_KEY)||"{}");
-}
-
-function isDone(id){
-  return !!getProgress()[id];
-}
-
 function copyCode(btn){
   const pre = btn.parentElement.querySelector('pre');
-  const text = pre.textContent.trim();
+  if(!pre) return;
+
+  const text = pre.textContent || pre.innerText || "";
 
   if(navigator.clipboard && window.isSecureContext){
-    navigator.clipboard.writeText(text).then(()=>{
-      btn.textContent="Copiado";
-      setTimeout(()=>btn.textContent="Copiar",1200);
-    });
+    navigator.clipboard.writeText(text).then(() => {
+      const old = btn.textContent;
+      btn.textContent = "Copiado";
+      setTimeout(() => btn.textContent = old, 1200);
+    }).catch(fallbackCopy);
   } else {
-    const ta=document.createElement("textarea");
-    ta.value=text;
+    fallbackCopy();
+  }
+
+  function fallbackCopy(){
+    const ta = document.createElement("textarea");
+    ta.value = text;
     document.body.appendChild(ta);
     ta.select();
     document.execCommand("copy");
     ta.remove();
 
-    btn.textContent="Copiado";
-    setTimeout(()=>btn.textContent="Copiar",1200);
+    const old = btn.textContent;
+    btn.textContent = "Copiado";
+    setTimeout(() => btn.textContent = old, 1200);
   }
 }
-
-function togglePrompt(btn){
-  btn.classList.toggle('open');
-  btn.nextElementSibling.classList.toggle('open');
-}
-
 </script>
 
 </body>
