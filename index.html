@@ -10,14 +10,14 @@
 
 <style>
 :root{
-  --bg:#0a0d14;
-  --panel:#ffffff;
-  --card:#0f172a;
-  --text:#f8fafc;
-  --muted:#94a3b8;
-  --accent:#7c3aed;
-  --accent-soft:rgba(124,58,237,0.12);
-  --border:rgba(255,255,255,0.06);
+  --bg:#f8fafc;              /* fondo general claro */
+  --panel:#ffffff;           /* panel blanco */
+  --card:#ffffff;            /* tarjetas blancas */
+  --text:#0f172a;            /* texto principal oscuro */
+  --muted:#64748b;           /* texto secundario */
+  --accent:#7c3aed;          /* lo mantienes igual */
+  --accent-soft:rgba(124,58,237,0.08);
+  --border:rgba(0,0,0,0.08); /* bordes suaves en claro */
 }
 
 body{
@@ -64,6 +64,7 @@ body{
 }
 
 .card{
+  color:var(--text);
   background:var(--card);
   padding:20px;
   border-radius:16px;
