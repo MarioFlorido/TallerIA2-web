@@ -164,7 +164,7 @@ IMPORTANTE: Si el texto es contradictorio o presenta debates, prioriza la Matriz
 **Desarrollar pensamiento crítico avanzado mediante el uso de IA como herramienta de auditoría intelectual que identifica sesgos cognitivos, falacias lógicas y debilidades metodológicas en textos académicos.**
 
 #### Descripción
-Leer un texto académico no es lo mismo que leerlo bien. La mayoría de los sesgos, las falacias y los problemas metodológicos pasan desapercibidos precisamente porque el texto tenga "pinta" de riguroso aunque no lo sea.
+Leer un texto académico no es lo mismo que leerlo bien. La mayoría de los sesgos, las falacias y los problemas metodológicos pasan desapercibidos precisamente porque el texto tiene "pinta" de riguroso aunque no lo sea.
 
 Este ejercicio te entrena para ver lo que está debajo: si una conclusión se sostiene realmente en los datos, si la muestra es suficiente, si el autor está presentando como universal algo que solo ocurrió en un contexto muy concreto, o si hay una correlación disfrazada de causa. La IA actúa aquí como un auditor que señala dónde mirar, pero la lectura crítica la haces tú.
 
@@ -249,7 +249,7 @@ Porque al final no se trata solo de detección. Se trata de entender qué hace q
 
 #### Prompt Principal
 ```
-Actua un experto en Estilometría Computacional y Lingüística Forense. Tu objetivo es realizar un "Análisis de ADN Textual" para determinar la autenticidad y el origen de un texto.
+Actua como un experto en Estilometría Computacional y Lingüística Forense. Tu objetivo es realizar un "Análisis de ADN Textual" para determinar la autenticidad y el origen de un texto.
 
 Este es el texto a analizar
 [INSERTAR TEXTO]
@@ -377,7 +377,7 @@ Lo más interesante suele aparecer en las contradicciones. Ahí es donde están 
 ```
 Eres un investigador especializado en análisis comparativo de literatura científica.
 
-He recopilado artículos sobre [TEMA]. Necesito que crees una MATRIZ COMPARATIVA EXHAUSTIVA que incluya:
+Te adjunto los artículos recopilados sobre [TEMA]. Necesito que crees una MATRIZ COMPARATIVA EXHAUSTIVA que incluya:
 
 ESTRUCTURA DE LA MATRIZ:
 
@@ -525,7 +525,7 @@ Eres un experto en comunicación estratégica y adaptación de registro lingüí
 Tengo este CONTENIDO CENTRAL que necesito comunicar:
 [INSERTAR CONTENIDO - Ej: Importancia de la ciberseguridad, cambio climático, etc.]
 
-Necesito que ADAPTES este contenido para 5 AUDIENCIAS DIFERENTES, manteniendo la esencia pero transformando completamente el estilo:
+Necesito que ADAPTES este contenido para 4 AUDIENCIAS DIFERENTES, manteniendo la esencia pero transformando completamente el estilo:
 
 1. AUDIENCIA ACADÉMICA (Paper científico)
    - Registro: Formal, técnico, impersonal
@@ -534,33 +534,19 @@ Necesito que ADAPTES este contenido para 5 AUDIENCIAS DIFERENTES, manteniendo la
    - Tono: Objetivo, distante, riguroso
    - Extensión: 200 palabras
 
-2. AUDIENCIA EJECUTIVA (Memo corporativo)
-   - Registro: Profesional, directo, orientado a resultados
-   - Estructura: Conclusión primero, bullets
-   - Vocabulario: Business, ROI, estratégico
-   - Tono: Persuasivo, urgente, pragmático
-   - Extensión: 150 palabras
-
-3. AUDIENCIA GENERAL (Artículo divulgativo)
+2. AUDIENCIA GENERAL (Artículo divulgativo)
    - Registro: Accesible, claro, narrativo
    - Estructura: Storytelling, ejemplos cotidianos
    - Vocabulario: Simple, metáforas comprensibles
    - Tono: Cercano, educativo, enganchador
    - Extensión: 200 palabras
 
-4. AUDIENCIA JOVEN (Post redes sociales)
+3. AUDIENCIA JOVEN (Post redes sociales)
    - Registro: Casual, dinámico, visual
    - Estructura: Fragmentado, punchy, con emojis
    - Vocabulario: Coloquial contemporáneo
    - Tono: Informal, empático, relatable
    - Extensión: 100 palabras
-
-5. AUDIENCIA TÉCNICA (Documentación profesional)
-   - Registro: Preciso, instructivo, funcional
-   - Estructura: Pasos, listas, especificaciones
-   - Vocabulario: Técnico-práctico
-   - Tono: Neutral, claro, sin ambigüedades
-   - Extensión: 150 palabras
 
 Para cada versión:
 - Mantén la ESENCIA del mensaje
@@ -573,7 +559,7 @@ FORMATO: Tabla con columnas [Audiencia | Texto adaptado | Decisiones retóricas]
 
 #### Para profundizar 
 ##### El desafío del Orador:
-Toma tu tema de TFG/TFM. Crea versiones de 30 segundos, 2 minutos y 10 minutos para tres audiencias diferentes (tu abuela, unos compañeros de clase y director). Practica presentar cada versión cronometrada.
+Toma tu tema de TFG/TFM. Crea versiones de 30 segundos, 2 minutos y 10 minutos para tres audiencias diferentes (tu abuela, unos compañeros de clase y director) para darles un explicación oral. Practica presentar cada versión cronometrada.
 
 
 ### 10. EDICIÓN ACADÉMICA
