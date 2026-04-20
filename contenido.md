@@ -249,37 +249,119 @@ Porque al final no se trata solo de detección. Se trata de entender qué hace q
 
 #### Prompt Principal
 ```
-Actua como un experto en Estilometría Computacional y Lingüística Forense. Tu objetivo es realizar un "Análisis de ADN Textual" para determinar la autenticidad y el origen de un texto.
+Actúa como analista en Lingüística Forense, Estilometría Computacional
+y Evaluación Crítica de Producción Académica con el documento qie te adjunto.
+OBJETIVO
+Emitir un dictamen probabilístico sobre la autoría del texto
+(Humana / IA / Híbrida), minimizando falsos positivos mediante análisis
+multicapa, contraste adversarial y control de consistencia interna.
+PRINCIPIO METODOLÓGICO
+No todos los indicios son equivalentes. Se distinguen 5 capas con pesos
+distintos. Se exige convergencia entre capas para conclusiones robustas,
+y convergencia interna en Capa 1 para conclusiones inequívocas.
+La pulcritud estilística NO es evidencia suficiente de IA.
 
-Este es el texto a analizar
-[INSERTAR TEXTO]
+CAPAS (orden de prioridad)
+Capa 1 — Consistencia fáctica y trazabilidad (peso muy alto)
+Capa 2 — Coherencia lógica y semántica (peso alto)
+Capa 3 — Anclaje pragmático y situacional (peso alto)
+Capa 4 — Metacognición y proceso autoral (peso medio)
+Capa 5 — Estilometría superficial (peso bajo, confirmatorio)
 
-TAREA: INFORME PERICIAL ESTILOMÉTRICO
-Analiza basándote exclusivamente en evidencias observables, estructurado en:
+---
+1. CONSISTENCIA FÁCTICA Y TRAZABILIDAD (Capa 1)
+Verifica con cita textual:
+1.1. Fuentes: ausencia de DOI/URL/editorial, referencias vagas,
+     auto-referencias sin metodología.
+1.2. Cifras: valores redondos sospechosos, rangos repetitivos,
+     precisión espuria sin fuente.
+1.3. Coherencia numérica: inconsistencias internas.
+1.4. Artefactos de generación: numeraciones incoherentes,
+     arrastres de listas, anacronismos.
+---
+2. COHERENCIA LÓGICA Y SEMÁNTICA (Capa 2)
+2.1. Evolución argumental vs reformulación.
+2.2. Redundancia semántica entre secciones.
+2.3. Conclusiones no derivadas o saltos lógicos.
+2.4. Contradicciones internas.
+2.5. Consistencia terminológica:
+     - uso estable de conceptos clave
+     - ausencia de redefiniciones implícitas
+2.6. Patrón de cobertura:
+     - cobertura excesivamente equilibrada o exhaustiva
+     - ausencia de omisiones naturales
+---
+3. ANCLAJE PRAGMÁTICO Y SITUACIONAL (Capa 3)
+3.1. Anclaje institucional concreto (tutor, centro, fecha, etc.).
+3.2. Posicionamiento del autor (voz situada vs enciclopédica).
+3.3. Redundancias formales propias del género académico.
+3.4. Fricción contextual:
+     erratas, inconsistencias menores, cambios de registro.
+---
+4. METACOGNICIÓN Y PROCESO AUTORAL (Capa 4)
+4.1. Decisiones metodológicas justificadas.
+4.2. Limitaciones específicas (no genéricas).
+4.3. Dudas, revisiones o tensiones en el proceso.
+---
+5. ESTILOMETRÍA SUPERFICIAL (Capa 5 — confirmatoria)
+5.1. Variabilidad sintáctica (burstiness).
+5.2. Simetría estructural artificial.
+5.3. Listas paralelas uniformes.
+5.4. Léxico comodín y clausuras totalizadoras.
+---
+6. PRUEBA ADVERSARIAL
+6.1. TEST DE ESTABILIDAD ESTILÍSTICA
+- Reformula mentalmente un fragmento clave.
+- Evalúa:
+  - Alta invariancia → indicio IA
+  - Pérdida de matiz → indicio humano
+6.2. HIPÓTESIS
+H1 — Autoría humana competente
+- Cómo explica las evidencias
+- Qué evidencias no encajan
+H2 — Generación o asistencia IA
+- Cómo explica las evidencias
+- Qué evidencias no encajan
+---
+7. TABLA DE EVIDENCIAS
+[Capa | Indicador | Cita textual | Dirección (IA/Humano) | Peso]
 
-1. ARQUITECTURA SINTÁCTICA Y LÉXICA
-- Variabilidad de la longitud de oraciones: ¿Hay ritmo o es monótono?  
-- Densidad de conectores lógicos: ¿La transición entre ideas es orgánica o forzada/repetitiva?  
-- Riqueza de vocabulario: identifica términos inusuales o tecnicismos; comenta si predominan palabras comodín típicas de modelos de lenguaje.
-
-2. HUELLAS DE AUTORÍA (IA vs HUMANO)
-- Indicadores de IA: pulido excesivo, estructuras simétricas, ausencia de sesgos cognitivos, falta de anclaje personal/emocional.  
-- Indicadores humanos: idiosincrasias, errores sutiles de puntuación, giros idiomáticos, inconsistencias narrativas naturales.
-
-3. PRUEBA DE EVIDENCIA
-- Para cada afirmación anterior, extrae una cita textual que la respalde.
-
-4. JUICIO DE AUTENTICIDAD ACADÉMICA
-- ¿El texto presenta una voz autoral única o parece collage de múltiples fuentes?  
-- Evalúa el uso de jerga: ¿es apropiación profunda del concepto o uso superficial de palabras clave?
-
-5. CONCLUSIÓN Y METADATOS DEL ANÁLISIS
-- Grado de confianza (Bajo/Medio/Alto).  
-- Hipótesis final: [Autoría Humana / Generación IA / Escritura Híbrida].  
-- Limitaciones: aspectos del texto que impiden una conclusión definitiva.  
-
-Como complemento:
-- ¿Qué métricas o métodos computacionales podrían validar tu análisis?
+Mínimo:
+- 15 evidencias
+- ≥3 de Capa 1
+- ≥3 de Capa 2
+- ≥3 de Capa 3
+---
+8. DICTAMEN
+8.1. Ponderación razonada (no conteo simple)
+8.2. Resultado:
+- Humana
+- IA
+- Híbrida (% estimado de intervención IA)
+8.3. Grado de confianza:
+- Bajo / Medio / Alto / Inequívoco
+“Inequívoco” solo si:
+- ≥3 evidencias convergentes en Capa 1
+- ninguna evidencia de Capa 1 en contra
+- convergencia con Capa 2 o 3
+8.4. Contra-argumento:
+- mejor objeción posible
+- por qué se descarta
+---
+9. LIMITACIONES
+- Qué no puede determinarse
+- Qué datos faltan (corpus del autor, borradores, metadatos)
+---
+10. VALIDACIÓN COMPUTACIONAL
+Incluye estimación cualitativa:
+- Burstiness: Alta / Media / Baja
+- Variabilidad léxica: Alta / Media / Baja
+Métodos recomendados:
+- Perplejidad comparada entre modelos
+- Type-token ratio
+- Distribución de n-gramas funcionales
+- Comparación con corpus del autor
+- Verificación de fuentes (Scholar/Crossref)
 ```
 
 #### Para profundizar
