@@ -13,8 +13,6 @@ Normalmente escribes un prompt y esperas a ver qué pasa. Este ejercicio funcion
 
 Es una forma de aprender ingeniería de prompts desde dentro. Al reconstruir el prompt original, identificar por qué funciona o falla y reescribirlo para obtener algo mejor, entiendes qué elementos influyen realmente en el resultado: el rol que asignas, el contexto que das, el formato que pides, los límites que estableces. No como teoría, sino comprobándolo directamente.
 
-Quien sabe desmontar un prompt sabe construir uno mejor.
-
 #### Info. Generar un texto previo con esta instrucción u otra parecida para experimentar
 *Redacta un texto de no más de cuatro párrafos sobre la teoría del constructivismo y sus fundamentos: el aprendizaje por descubrimiento, la asimilación, la acomodación y el equilibrio. Cita a Piaget, Bruner y Vygotsky, y menciona cómo ha evolucionado la teoría en los últimos años. Evita el formato esquemático y adopta un tono académico para una audiencia de expertos en pedagogía.*
 
@@ -59,8 +57,6 @@ Genera un texto con alguna errata. Por ejemplo, en el ejercicio anterior, incluy
 La mayoría de las veces usas la IA para obtener respuestas. Este ejercicio invierte esa lógica: la IA no te da nada, solo te pregunta. Y esas preguntas son las que te obligan a pensar.
 
 Es incómodo al principio. Estás acostumbrado a recibir información, no a construirla. Pero ahí está precisamente el valor: razonas tú, argumentas tú, llegas a las conclusiones tú. La IA solo aparece para empujarte un poco más lejos con la pregunta adecuada en el momento oportuno.
-
-El resultado no es solo entender mejor un concepto. Es aprender a cuestionar lo que das por sentado, a considerar otras perspectivas y a sostener tus propios argumentos. Una habilidad que, una vez desarrollada, se queda.
 
 #### Info. Ejemplos para experimentar el método socrático
 - *"¿Debe el médico respetar siempre la decisión del paciente, incluso cuando va en contra del tratamiento recomendado?"*
@@ -164,11 +160,9 @@ IMPORTANTE: Si el texto es contradictorio o presenta debates, prioriza la Matriz
 **Desarrollar pensamiento crítico avanzado mediante el uso de IA como herramienta de auditoría intelectual que identifica sesgos cognitivos, falacias lógicas y debilidades metodológicas en textos académicos.**
 
 #### Descripción
-Leer un texto académico no es lo mismo que leerlo bien. La mayoría de los sesgos, las falacias y los problemas metodológicos pasan desapercibidos precisamente porque el texto tiene "pinta" de riguroso aunque no lo sea.
+Leer un texto académico no es lo mismo que valorarlo. La mayoría de los sesgos, las falacias y los problemas metodológicos pasan desapercibidos precisamente porque el texto tiene "pinta" de riguroso aunque no lo sea.
 
-Este ejercicio te entrena para ver lo que está debajo: si una conclusión se sostiene realmente en los datos, si la muestra es suficiente, si el autor está presentando como universal algo que solo ocurrió en un contexto muy concreto, o si hay una correlación disfrazada de causa. La IA actúa aquí como un auditor que señala dónde mirar, pero la lectura crítica la haces tú.
-
-Con el tiempo, ese filtro se vuelve automático. Y se aplica a cualquier texto, de cualquier disciplina, en cualquier situación profesional.
+Este ejercicio te entrena para ver lo que está debajo: si una conclusión se sostiene realmente en los datos, si la muestra es suficiente, si el autor está presentando como universal algo que solo ocurrió en un contexto muy concreto, o si hay una correlación disfrazada de causa. La IA aquí señala dónde mirar, pero la lectura crítica la haces tú. Con el tiempo, ese filtro se vuelve automático. Y se aplica a cualquier texto, de cualquier disciplina, en cualquier situación profesional.
 
 #### Info. Ejemplos de papers con "anomalías"
 - [Incidencia de la pandemia COVID en los delitos de odio en España](https://dialnet.unirioja.es/descarga/articulo/8400381.pdf)
