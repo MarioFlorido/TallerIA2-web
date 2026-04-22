@@ -5,7 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Taller IA</title>
 
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500&family=Playfair+Display:ital,wght@0,700;0,800;0,900;1,700;1,800&display=swap" rel="stylesheet">
 <script src="https://cdnjs.cloudflare.com/ajax/libs/marked/12.0.2/marked.min.js"></script>
 
 <style>
@@ -44,35 +44,42 @@ body{
   }
 }
 
-/* --- HERO: bloque púrpura completo + ilustración --- */
+/* --- HERO: ancho completo con bloque púrpura --- */
 .hero{
+  width:100%;
+  background:var(--accent);
+  color:white;
+  padding:90px 40px;
+  animation:fadeUp .6s ease;
+  box-sizing:border-box;
+}
+
+.hero-inner{
+  max-width:1300px;
+  margin:0 auto;
   display:grid;
   grid-template-columns:1.6fr 1fr;
-  gap:20px;
+  gap:40px;
   align-items:center;
-  margin-bottom:20px;
-  background:var(--accent);
-  border-radius:20px;
-  padding:52px 46px;
-  color:white;
-  animation:fadeUp .6s ease;
 }
 
 .hero-content h1{
-  font-size:clamp(2.8rem,5.2vw,4.2rem);
+  font-family:'Playfair Display', serif;
+  font-size:clamp(4rem,9vw,7.5rem);
   font-weight:900;
-  letter-spacing:-1.5px;
-  line-height:1.02;
+  letter-spacing:-2.5px;
+  line-height:0.95;
   color:white;
-  margin:18px 0 0;
+  margin:22px 0 0;
 }
 
 .hero-content p{
-  margin-top:18px;
-  font-size:1.15rem;
+  margin-top:22px;
+  font-size:1.2rem;
   color:rgba(255,255,255,0.88);
   max-width:none;
   line-height:1.5;
+  font-family:'Inter',sans-serif;
 }
 
 .hero-content p strong{
@@ -84,21 +91,22 @@ body{
   display:inline-block;
   font-size:.72rem;
   font-weight:700;
-  letter-spacing:2px;
+  letter-spacing:2.5px;
   text-transform:uppercase;
   color:white;
-  background:rgba(255,255,255,0.2);
-  padding:7px 14px;
+  background:rgba(255,255,255,0.18);
+  padding:8px 16px;
   border-radius:999px;
 }
 
 .hero-meta{
   display:flex;
   gap:14px;
-  margin-top:28px;
+  margin-top:32px;
   font-size:.9rem;
   color:rgba(255,255,255,0.8);
   flex-wrap:wrap;
+  letter-spacing:.5px;
 }
 
 .hero-illustration{
@@ -110,15 +118,17 @@ body{
 
 .hero-illustration svg{
   width:100%;
-  max-width:360px;
+  max-width:380px;
   height:auto;
 }
 
 @media(max-width:768px){
   .hero{
+    padding:60px 28px;
+  }
+  .hero-inner{
     grid-template-columns:1fr;
     gap:10px;
-    padding:36px 28px;
   }
   .hero-illustration{
     max-height:200px;
@@ -126,76 +136,144 @@ body{
 }
 
 .phase-title{
-  font-size:2.4rem;
-  margin-top:80px;
+  font-family:'Playfair Display', serif;
+  font-size:clamp(2.6rem,4.8vw,3.6rem);
+  margin-top:110px;
+  margin-bottom:8px;
   font-weight:800;
+  letter-spacing:-1px;
+  line-height:1.05;
 }
 
-.phase-title span{color:var(--accent)}
+.phase-title span{
+  color:var(--accent);
+  font-style:italic;
+  font-weight:700;
+}
 
 .phase-subtitle{
   color:var(--muted);
-  margin-bottom:28px;
+  margin-bottom:48px;
+  font-size:1.05rem;
+  max-width:640px;
+  line-height:1.5;
 }
 
 .grid{
   display:grid;
-  grid-template-columns:repeat(auto-fit,minmax(300px,1fr));
-  gap:26px;
+  grid-template-columns:repeat(auto-fit,minmax(320px,1fr));
+  gap:60px 44px;
 }
 
+/* --- ACTIVIDAD EDITORIAL (sin tarjeta) --- */
 .card{
   color:var(--text);
-  background:var(--card);
-  padding:20px;
-  border-radius:16px;
-  cursor:pointer;
-  transition:.25s;
-  border:1px solid var(--border);
+  background:transparent;
+  padding:0 0 36px;
+  border:none;
+  border-bottom:1px solid rgba(0,0,0,0.1);
+  border-radius:0;
+  box-shadow:none;
   position:relative;
-  box-shadow:0 2px 8px rgba(15,23,42,0.04), 0 1px 3px rgba(15,23,42,0.03);
+  display:flex;
+  flex-direction:column;
+  cursor:default;
+  transition:none;
 }
 
 .card:hover{
-  transform:translateY(-4px);
-  border-color:var(--accent);
-  box-shadow:0 12px 28px rgba(15,23,42,0.08), 0 4px 10px rgba(15,23,42,0.04);
+  transform:none;
+  border-color:rgba(0,0,0,0.1);
+  box-shadow:none;
+}
+
+.card:hover img{
+  transform:scale(1.02);
 }
 
 .card img{
   width:100%;
-  height:150px;
+  height:220px;
   object-fit:cover;
-  border-radius:10px;
-}
-
-.card h3{
-  font-size:1.6rem;
-  margin-top:12px;
+  border-radius:2px;
+  margin-bottom:24px;
+  transition:transform .5s ease;
 }
 
 .tag{
   display:inline-block;
-  font-size: 1rem;
+  font-size:.72rem;
   font-weight:700;
-  padding:6px 10px;
-  border-radius:999px;
-  background:var(--accent-soft);
+  padding:0;
+  background:none;
   color:var(--accent);
-  margin-top:10px;
+  letter-spacing:2.5px;
+  text-transform:uppercase;
+  margin:0 0 12px;
+  border-radius:0;
+}
+
+.card h3{
+  font-family:'Playfair Display', serif;
+  font-size:1.85rem;
+  font-weight:700;
+  line-height:1.1;
+  margin:0 0 14px;
+  letter-spacing:-0.5px;
 }
 
 .card p{
-  margin-top:10px;
+  margin:0 0 22px;
   color:var(--muted);
-  font-size:.95rem;
-  line-height: 1.2;
+  font-size:.98rem;
+  line-height:1.55;
 }
 
-/* --- Card completada --- */
+/* --- Botón CTA --- */
+.activity-cta{
+  display:inline-flex;
+  align-items:center;
+  gap:10px;
+  background:none;
+  border:none;
+  padding:0 0 4px;
+  font-family:'Inter',sans-serif;
+  font-size:.88rem;
+  font-weight:700;
+  color:var(--accent);
+  cursor:pointer;
+  margin-top:auto;
+  margin-right:auto;
+  letter-spacing:.5px;
+  text-transform:uppercase;
+  border-bottom:1.5px solid var(--accent);
+  transition:.25s;
+  align-self:flex-start;
+}
+
+.activity-cta .arrow{
+  transition:transform .3s ease;
+  display:inline-block;
+  font-size:1.1rem;
+}
+
+.activity-cta:hover{
+  gap:14px;
+}
+
+.activity-cta:hover .arrow{
+  transform:translateX(4px);
+}
+
+/* --- Card completada (estilo editorial) --- */
 .card.done{
-  border-color:rgba(34,197,94,0.6);
-  background:linear-gradient(135deg, var(--card), rgba(34,197,94,0.06));
+  background:transparent;
+  border-color:rgba(0,0,0,0.1);
+  opacity:.7;
+}
+
+.card.done img{
+  filter:grayscale(40%);
 }
 
 .card.done .done-label{
@@ -250,8 +328,12 @@ body{
 .panel.open{transform:translateX(0)}
 
 .panel h2{
-  font-size:2.4rem;
+  font-family:'Playfair Display', serif;
+  font-size:2.8rem;
   font-weight:800;
+  letter-spacing:-1px;
+  line-height:1.1;
+  margin:0 0 8px;
 }
 
 .panel-section{
@@ -395,13 +477,14 @@ button.done-btn.completed{
   display:flex;
   align-items:center;
   justify-content:space-between;
-  padding:20px 24px;
+  padding:24px 28px;
   background:rgba(100,100,100,0.08);
   border:none;
   color:var(--muted);
-  font-family:'Inter',sans-serif;
-  font-size:1.4rem;
-  font-weight:800;
+  font-family:'Playfair Display', serif;
+  font-size:1.7rem;
+  font-weight:700;
+  letter-spacing:-.3px;
   cursor:pointer;
   transition:.2s;
 }
@@ -522,47 +605,49 @@ button.done-btn.completed{
 
 <body>
 
-<div class="main">
-
 <section class="hero">
-  <div class="hero-content">
-    <span class="hero-badge">Universidad de Alicante · 2025</span>
-    <h1>Taller avanzado<br>de IA</h1>
-    <p><strong>Aprendizaje activo</strong> con inteligencia artificial</p>
-    <div class="hero-meta">
-      <span>Metodología</span>
-      <span>·</span>
-      <span>Pensamiento crítico</span>
-      <span>·</span>
-      <span>IA aplicada</span>
+  <div class="hero-inner">
+    <div class="hero-content">
+      <span class="hero-badge">Universidad de Alicante · 2025</span>
+      <h1>Taller avanzado<br>de IA</h1>
+      <p><strong>Aprendizaje activo</strong> con inteligencia artificial</p>
+      <div class="hero-meta">
+        <span>Metodología</span>
+        <span>·</span>
+        <span>Pensamiento crítico</span>
+        <span>·</span>
+        <span>IA aplicada</span>
+      </div>
+    </div>
+    <div class="hero-illustration" aria-hidden="true">
+      <svg viewBox="0 0 200 180" xmlns="http://www.w3.org/2000/svg">
+        <g stroke="#eff7ee" stroke-width="0.8" opacity="0.45" fill="none">
+          <line x1="25" y1="35" x2="95" y2="65"/>
+          <line x1="25" y1="35" x2="80" y2="120"/>
+          <line x1="25" y1="90" x2="95" y2="65"/>
+          <line x1="25" y1="90" x2="80" y2="120"/>
+          <line x1="25" y1="145" x2="80" y2="120"/>
+          <line x1="95" y1="65" x2="170" y2="55"/>
+          <line x1="95" y1="65" x2="170" y2="110"/>
+          <line x1="80" y1="120" x2="170" y2="110"/>
+          <line x1="80" y1="120" x2="170" y2="150"/>
+        </g>
+        <g fill="#eff7ee">
+          <circle cx="25" cy="35" r="5"/>
+          <circle cx="25" cy="90" r="5"/>
+          <circle cx="25" cy="145" r="5"/>
+          <circle cx="95" cy="65" r="7"/>
+          <circle cx="80" cy="120" r="7"/>
+          <circle cx="170" cy="55" r="5"/>
+          <circle cx="170" cy="110" r="6"/>
+          <circle cx="170" cy="150" r="5"/>
+        </g>
+      </svg>
     </div>
   </div>
-  <div class="hero-illustration" aria-hidden="true">
-    <svg viewBox="0 0 200 180" xmlns="http://www.w3.org/2000/svg">
-      <g stroke="#eff7ee" stroke-width="0.8" opacity="0.45" fill="none">
-        <line x1="25" y1="35" x2="95" y2="65"/>
-        <line x1="25" y1="35" x2="80" y2="120"/>
-        <line x1="25" y1="90" x2="95" y2="65"/>
-        <line x1="25" y1="90" x2="80" y2="120"/>
-        <line x1="25" y1="145" x2="80" y2="120"/>
-        <line x1="95" y1="65" x2="170" y2="55"/>
-        <line x1="95" y1="65" x2="170" y2="110"/>
-        <line x1="80" y1="120" x2="170" y2="110"/>
-        <line x1="80" y1="120" x2="170" y2="150"/>
-      </g>
-      <g fill="#eff7ee">
-        <circle cx="25" cy="35" r="5"/>
-        <circle cx="25" cy="90" r="5"/>
-        <circle cx="25" cy="145" r="5"/>
-        <circle cx="95" cy="65" r="7"/>
-        <circle cx="80" cy="120" r="7"/>
-        <circle cx="170" cy="55" r="5"/>
-        <circle cx="170" cy="110" r="6"/>
-        <circle cx="170" cy="150" r="5"/>
-      </g>
-    </svg>
-  </div>
 </section>
+
+<div class="main">
 
 <div id="content"></div>
 
@@ -787,8 +872,9 @@ function render(phases,specialSections){
     p.acts.forEach(a=>{
       const desc=a.sections.find(s=>s.title.includes('Descripción'));
       const done=isDone(a.id);
+      const jsonData=JSON.stringify(a).replace(/'/g,"&apos;");
 
-      html+=`<div class="card${done?' done':''}" data-id="${a.id}" onclick='openPanel(${JSON.stringify(a).replace(/'/g,"&apos;")})'>
+      html+=`<div class="card${done?' done':''}" data-id="${a.id}">
         ${a.img?`<img src="${a.img}">`:''}
         <div class="tag">${a.tag||''}</div>
         <h3>${a.title}</h3>
@@ -797,6 +883,10 @@ function render(phases,specialSections){
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg>
           Actividad completada
         </div>
+        <button class="activity-cta" onclick='openPanel(${jsonData})'>
+          <span>Explorar</span>
+          <span class="arrow">→</span>
+        </button>
       </div>`;
     });
 
