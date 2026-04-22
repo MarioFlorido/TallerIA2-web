@@ -235,8 +235,6 @@ Todo texto deja huellas. La forma en que construyes las frases, si varías o rep
 
 En este ejercicio usas la IA para analizar textos e identificar esos rasgos: si hay demasiada uniformidad sintáctica, si faltan las pequeñas imperfecciones naturales de quien escribe de verdad, si el tono es consistente o cambia sin razón. Sí, hay algo de paradoja en pedirle a una IA que detecte textos escritos por IA. Pero funciona, y el proceso te enseña más de lo que esperas.
 
-Porque al final no se trata solo de detección. Se trata de entender qué hace que un texto suene auténtico, y usar eso para escribir mejor.
-
 #### Info. Un trabajo creado por un investigador y otro por una IA
 - [TFG. Análisis del Sesgo Algorítmico en Sistemas de IA](https://github.com/MarioFlorido/TallerIA2/raw/main/TFG.Analisis_del_sesgo_Algoritmico_en_Sistemas_de_IA.pdf)
 - [TFG. Arquitectura para el Alzheimer. Residencias o viviendas adaptables](https://github.com/MarioFlorido/TallerIA2/raw/main/TFG.Arquitectura_para_el_Alzheimer.pdf)
@@ -377,9 +375,7 @@ Escribe tú mismo un párrafo de 200 palabras sobre un tema académico. Pídele 
 #### Descripción
 *Solo usamos el 10% del cerebro*, *el 93% de la comunicación es no verbal*... Todo el mundo ha oído afirmaciones de este tipo pero casi nadie ha comprobado de dónde viene.
 
-Este ejercicio convierte a la IA en un arqueólogo digital: parte de afirmaciones que circulan como verdades establecidas y excava hacia atrás hasta encontrar —o no encontrar— el estudio original. ¿Quién lo hizo? ¿Cuándo? ¿Con qué muestra? ¿Qué decía realmente? Muchas veces lo que encuentras no es el dato que se repite, sino algo bastante más matizado que se fue distorsionando cada vez que alguien lo citó de memoria.
-
-El hábito que desarrollas es el más valioso: no dar por válida ninguna afirmación sin preguntarte de dónde viene.
+Este ejercicio convierte a la IA en un arqueólogo digital: parte de afirmaciones que circulan como verdades establecidas y excava hacia atrás hasta encontrar —o no encontrar— el estudio original. ¿Quién lo hizo? ¿Cuándo? ¿Con qué muestra? ¿Qué decía realmente? Muchas veces lo que encuentras no es el dato que se repite, sino algo bastante más matizado que se fue distorsionando cada vez que alguien lo citó de memoria. El hábito que desarrollas es el más valioso: no dar por válida ninguna afirmación sin preguntarte de dónde viene.
 
 #### Info. Afirmaciones pseudocientíficas para investigar
 - *Sólo usamos el 10% de nuestro cerebro.*
@@ -433,7 +429,7 @@ Formato: Informe estructurado con secciones claras y fuentes verificables
 
 
 ### 7. Matrices de fuentes
-> **Tag:** Análisis comparativo de fuentes
+> **Tag:** Análisis comparativo de textos
 > **Imagen:** img/07-matrices-fuentes.jpg
 
 #### Objetivo Educacional
@@ -444,7 +440,6 @@ Leer varios artículos sobre un mismo tema no es lo mismo que compararlos. Puede
 
 La matriz de fuentes resuelve eso: obliga a confrontar los estudios criterio por criterio —metodología, muestra, hallazgos, limitaciones, conclusiones— y hace visible lo que una lectura lineal oculta. Es una herramienta estándar en las revisiones sistemáticas de literatura, pero construirla a mano con rigor lleva horas. Con la IA, el proceso es rápido y puedes iterar: cambiar los criterios, añadir más fuentes, afinar la comparación.
 
-Lo más interesante suele aparecer en las contradicciones. Ahí es donde están las preguntas que todavía nadie ha respondido bien.
 
 #### Info. Ejemplos
 [Referencias académicas (por tema) sobre Inteligencia Artificial y sus implicaciones](https://hackmd.io/@maflope/SJDJQ_2gWl)
@@ -585,9 +580,9 @@ Ejecuta las 3 ecuaciones en alguna base de datos académica. Compara: ¿Cuántos
 **Dominar la alternancia de código (code-switching) retórico: transformar el mismo contenido académico para audiencias radicalmente diferentes, manteniendo la esencia pero adaptando registro lingüístico, tono, estructura y vocabulario.**
 
 #### Descripción
-Esta habilidad profesional crítica te permite comunicar efectivamente con cualquier audiencia. No se trata de simplificar o complicar, sino de hacer una verdadera adaptación estratégica. Aprenderás a hablar el "idioma" de académicos, ejecutivos, público general, audiencias jóvenes y profesionales técnicos con el mismo mensaje.
+La competencia comunicativa te permite expresarte efectivamente ante culquier interlocutor. No se trata de simplificar o complicar, sino de hacer una verdadera adaptación estratégica. Aprenderás a hablar el "idioma" de académicos, profesionales, público general, audiencias específicas con el mismo mensaje.
 
-En el mundo profesional y académico, la capacidad de adaptar un mismo contenido a diferentes interlocutores es una de las competencias comunicativas más demandadas y menos trabajadas. Un investigador que solo sabe escribir para revistas científicas, un profesional que no puede explicar su proyecto a un público no especializado o un estudiante que no distingue entre un registro formal e informal pierden oportunidades de impacto y conexión con sus audiencias.
+En el mundo académico, la capacidad de adaptar un mismo contenido a diferentes interlocutores es una de las competencias comunicativas más demandadas y menos trabajadas. Un investigador que solo sabe escribir para revistas científicas, un profesional incapaz de explicar su proyecto en términos sencillos o un estudiante que no sabe adaptar el tono al contexto pierden la oportunidad de conectar con su audiencia.
 
 #### Info. Ejemplos de temas para la comunicación
 - *Importancia de la ciberseguridad*
