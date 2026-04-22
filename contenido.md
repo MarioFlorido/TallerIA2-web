@@ -1,7 +1,7 @@
 # FASE 1: FUNDAMENTOS
 ## Entender cómo funciona la IA
 
-### 1. HACKEAR PROMPTS
+### 1. Hackear prompts
 > **Tag:** Ingeniería inversa
 > **Imagen:** img/01-hackear-prompts.jpg
 
@@ -48,7 +48,7 @@ Necesito que hagas INGENIERÍA INVERSA:
 ##### Desafío:
 Genera un texto con alguna errata. Por ejemplo, en el ejercicio anterior, incluye un autor nuevo como Mickey Mouse. Verás que la IA lo incluye en el texto. Indícale a la IA que reconstruya el prompt original indicando por qué lo ha incluido.
 
-### 2. MÉTODO SOCRÁTICO
+### 2. Método socrático
 > **Tag:** Aprendizaje por preguntas
 > **Imagen:** img/02-metodo-socratico.jpg
 
@@ -108,8 +108,8 @@ REGLAS CRÍTICAS: Nunca muestres todas las preguntas a la vez. Solo una por turn
 # FASE 2: ANÁLISIS
 ## Desarrollar pensamiento crítico
 
-### 3. TRANSFORMAR VISUALMENTE
-> **Tag:** Texto a visualización
+### 3. Transformar visualmente
+> **Tag:** Pasar de texto a visualización
 > **Imagen:** img/03-transformar-visual.jpg
 
 #### Objetivo Educacional
@@ -156,7 +156,7 @@ IMPORTANTE: Si el texto es contradictorio o presenta debates, prioriza la Matriz
 **Mermaid:** Es una sencilla codificación, con un lenguaje muy sencillo, que posibilita crear grafos, diagramas... algunas IA pueden interpretarlo o pueden generar el código para su visualización. Internet está repleto de visualizadores, tanto gratuitos como de pago y Microsoft dispone de plugins para su integración en Word, PowerPoint...
 
 
-### 4. AUDITORÍA DE TEXTOS
+### 4. Auditoría de textos
 > **Tag:** Detección de sesgos y falacias
 > **Imagen:** img/04-auditoria-textos.jpg
 
@@ -229,7 +229,7 @@ Formato: Tabla con columnas [Tipo de problema | Cita textual | Explicación | Su
 - **Variables no controladas** — Factores externos que influyen en el resultado y no se han tenido en cuenta. *Ejemplo: un estudio sobre rendimiento académico que no controla el nivel socioeconómico de los participantes.*
 
 
-### 5. DETECCIÓN DEL ADN TEXTUAL
+### 5. Detección del ADN textual
 > **Tag:** Análisis estilométrico
 > **Imagen:** img/05-adn-textual.jpg
 
@@ -373,7 +373,7 @@ Escribe tú mismo un párrafo de 200 palabras sobre un tema académico. Pídele 
 ## Validar y comparar información
 
 
-### 6. ARQUEOLOGÍA DIGITAL
+### 6. Arqueología digital
 > **Tag:** Rastreo el origen de afirmaciones
 > **Imagen:** img/06-arqueologia-digital.jpg
 
@@ -438,7 +438,7 @@ Formato: Informe estructurado con secciones claras y fuentes verificables
 ¿Cuántas afirmaciones académicas que das por ciertas podrían beneficiarse de este análisis?
 
 
-### 7. MATRICES DE FUENTES
+### 7. Matrices de fuentes
 > **Tag:** Análisis comparativo de fuentes
 > **Imagen:** img/07-matrices-fuentes.jpg
 
@@ -494,7 +494,7 @@ Comienza con unos pocos artículos. Luego añade más a la matriz. Observa cómo
 
 ---
 
-### 8. ESTRATEGIA INVESTIGADORA ASISTIDA
+### 8. Estrategia investigadora asistida
 > **Tag:** Búsqueda académica profesional
 > **Imagen:** img/08-estratega-investigadora.jpg
 
@@ -583,7 +583,7 @@ Ejecuta las 3 ecuaciones en alguna base de datos académica. Compara: ¿Cuántos
 ## Crear contenido académico
 
 
-### 9. SALIDA DE DOCUMENTOS
+### 9. Salida de documentos
 > **Tag:** Adaptación por tipo de audiencia
 > **Imagen:** img/09-salida-documentos.jpg
 
@@ -644,7 +644,7 @@ FORMATO: Tabla con columnas [Audiencia | Texto adaptado | Decisiones retóricas]
 Toma tu tema de TFG/TFM. Crea versiones de 30 segundos, 2 minutos y 10 minutos para tres audiencias diferentes (tu abuela, unos compañeros de clase y director) para darles un explicación oral. Practica presentar cada versión cronometrada.
 
 
-### 10. EDICIÓN ACADÉMICA
+### 10. Edición académica
 > **Tag:** Edición multinivel de textos
 > **Imagen:** img/10-edicion-academica.jpg
 
