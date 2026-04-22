@@ -165,17 +165,28 @@ body{
   gap:60px 44px;
 }*/
 
-  .grid{
+ .grid{
   display:grid;
-  grid-template-columns:repeat(12,1fr);
-  gap:50px 40px;
+  grid-template-columns:repeat(auto-fit,minmax(320px,1fr));
+  gap:60px 44px;
 }
 
 .card{
   grid-column:span 6;
 }
 
-.card:nth-child(3n){
+/* FASE 3: composición editorial asimétrica */
+.phase-3-grid{
+  display:grid;
+  grid-template-columns:repeat(12,1fr);
+  gap:50px 40px;
+}
+
+.phase-3-grid .card{
+  grid-column:span 6;
+}
+
+.phase-3-grid .card:nth-child(3n){
   grid-column:span 12;
 }
 
@@ -881,7 +892,7 @@ function render(phases,specialSections){
   phases.forEach(p=>{
     html+=`<h2 class="phase-title"><span>FASE ${p.num}:</span> ${p.title}</h2>`;
     html+=p.subtitle?`<p class="phase-subtitle">${p.subtitle}</p>`:'';
-    html+='<div class="grid">';
+    html+=`<div class="${p.num == 3 ? 'phase-3-grid' : 'grid'}">`;
 
     p.acts.forEach(a=>{
       const desc=a.sections.find(s=>s.title.includes('Descripción'));
