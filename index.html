@@ -159,10 +159,24 @@ body{
   line-height:1.5;
 }
 
-.grid{
+/*.grid{
   display:grid;
   grid-template-columns:repeat(auto-fit,minmax(320px,1fr));
   gap:60px 44px;
+}*/
+
+  .grid{
+  display:grid;
+  grid-template-columns:repeat(12,1fr);
+  gap:50px 40px;
+}
+
+.card{
+  grid-column:span 6;
+}
+
+.card:nth-child(3n){
+  grid-column:span 12;
 }
 
 /* --- ACTIVIDAD EDITORIAL (sin tarjeta) --- */
