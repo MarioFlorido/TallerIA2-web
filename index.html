@@ -10,12 +10,14 @@
 
 <style>
 :root{
-  --bg:#ffffff;
-  --panel:#ffffff;
-  --text:#0f172a;
-  --muted:#64748b;
-  --accent:#7c3aed;
-  --border:rgba(0,0,0,0.08);
+  --bg:#ffffff;              /* fondo general */
+  --panel:#ffffff;           /* panel blanco */
+  --card:#ffffff;            /* tarjetas blancas */
+  --text:#0f172a;            /* texto principal oscuro */
+  --muted:#64748b;           /* texto secundario */
+  --accent:#7c3aed;          /* lo mantienes igual */
+  --accent-soft:rgba(124,58,237,0.08);
+  --border:rgba(0,0,0,0.08); /* bordes suaves en claro */
 }
 
 body{
@@ -31,17 +33,30 @@ body{
   margin:auto;
 }
 
-/* HERO */
+@keyframes fadeUp{
+  from{
+    opacity:0;
+    transform:translateY(10px);
+  }
+  to{
+    opacity:1;
+    transform:translateY(0);
+  }
+}
+
+/* --- HERO: ancho completo con bloque púrpura --- */
 .hero{
   width:100%;
   background:var(--accent);
   color:white;
   padding:90px 40px;
+  animation:fadeUp .6s ease;
+  box-sizing:border-box;
 }
 
 .hero-inner{
   max-width:1300px;
-  margin:auto;
+  margin:0 auto;
   display:grid;
   grid-template-columns:1.6fr 1fr;
   gap:40px;
@@ -49,33 +64,108 @@ body{
 }
 
 .hero-content h1{
-  font-family:'Playfair Display',serif;
-  font-size:clamp(4rem,9vw,7rem);
-  line-height:.95;
-  margin:20px 0 0;
+  font-family:'Playfair Display', serif;
+  font-size:clamp(4rem,9vw,7.5rem);
+  font-weight:900;
+  letter-spacing:-2.5px;
+  line-height:0.95;
+  color:white;
+  margin:22px 0 0;
+}
+
+.hero-content p{
+  margin-top:22px;
+  font-size:1.2rem;
+  color:rgba(255,255,255,0.88);
+  max-width:none;
+  line-height:1.5;
+  font-family:'Inter',sans-serif;
+}
+
+.hero-content p strong{
+  color:white;
+  font-weight:700;
 }
 
 .hero-badge{
   display:inline-block;
+  font-size:.72rem;
+  font-weight:700;
+  letter-spacing:2.5px;
+  text-transform:uppercase;
+  color:white;
+  background:rgba(255,255,255,0.18);
   padding:8px 16px;
   border-radius:999px;
-  background:rgba(255,255,255,.2);
-  font-size:.75rem;
-  letter-spacing:2px;
-  text-transform:uppercase;
 }
 
-.hero-content p{
-  margin-top:20px;
-  font-size:1.1rem;
-  opacity:.9;
+.hero-meta{
+  display:flex;
+  gap:14px;
+  margin-top:32px;
+  font-size:.9rem;
+  color:rgba(255,255,255,0.8);
+  flex-wrap:wrap;
+  letter-spacing:.5px;
 }
 
-/* FASES */
+.hero-illustration{
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  padding:20px;
+}
+
+.hero-illustration svg{
+  width:100%;
+  max-width:380px;
+  height:auto;
+}
+
+@media(max-width:768px){
+  .hero{
+    padding:60px 28px;
+  }
+  .hero-inner{
+    grid-template-columns:1fr;
+    gap:10px;
+  }
+  .hero-illustration{
+    max-height:200px;
+  }
+}
+
+.phase-title{
+  font-family:'Playfair Display', serif;
+  font-size:clamp(2.6rem,4.8vw,3.6rem);
+  margin-top:110px;
+  margin-bottom:8px;
+  font-weight:800;
+  letter-spacing:-1px;
+  line-height:1.05;
+}
+
+.phase-title span{
+  color:var(--accent);
+  font-style:italic;
+  font-weight:400;
+}
+
+.phase-subtitle{
+  color:var(--muted);
+  margin-bottom:48px;
+  font-size:1.05rem;
+  max-width:640px;
+  line-height:1.5;
+}
+  /* revelado de fases y completado */
+ /* --- REVEAL PROGRESIVO DE FASES --- */
 .phase-block{
   opacity:0;
   transform:translateY(50px);
-  transition:.8s ease;
+  transition:
+    opacity .8s ease,
+    transform .8s ease;
 }
 
 .phase-block.visible{
@@ -83,124 +173,18 @@ body{
   transform:translateY(0);
 }
 
-.phase-title{
-  font-family:'Playfair Display',serif;
-  font-size:clamp(2.6rem,4vw,3.5rem);
-  margin-top:100px;
-}
-
-.phase-title span{
-  color:var(--accent);
-  font-style:italic;
-}
-
-.phase-subtitle{
-  color:var(--muted);
-  margin-bottom:40px;
-}
-
-/* GRID NORMAL */
-.grid{
-  display:grid;
-  grid-template-columns:repeat(auto-fit,minmax(320px,1fr));
-  gap:60px 40px;
-}
-
-/* GRID FASE 3 */
-.phase-3-grid{
-  display:grid;
-  grid-template-columns:repeat(12,minmax(0,1fr));
-  gap:50px 40px;
-}
-
-.phase-3-grid .card{
-  grid-column:span 6;
-}
-
-.phase-3-grid .card:nth-child(3n){
-  grid-column:1/-1;
-}
-
-/* CARD */
+/* --- TRANSICIÓN DE COMPLETADO --- */
 .card{
-  border-bottom:1px solid var(--border);
-  padding-bottom:35px;
-  display:flex;
-  flex-direction:column;
-  transition:.35s ease;
+  transition:
+    opacity .35s ease,
+    border-color .35s ease,
+    transform .35s ease;
 }
 
 .card img{
-  width:100%;
-  height:220px;
-  object-fit:cover;
-  margin-bottom:20px;
-  transition:.4s ease;
-}
-
-.card:hover img{
-  transform:scale(1.02);
-}
-
-.card h3{
-  font-family:'Playfair Display',serif;
-  font-size:1.8rem;
-  margin:10px 0;
-}
-
-.tag{
-  color:var(--accent);
-  font-size:.75rem;
-  letter-spacing:2px;
-  text-transform:uppercase;
-  font-weight:700;
-}
-
-.card p{
-  color:var(--muted);
-  line-height:1.6;
-}
-
-/* CTA ROW */
-.card-actions{
-  display:flex;
-  justify-content:space-between;
-  align-items:center;
-  margin-top:auto;
-  padding-top:20px;
-}
-
-/* EXPLORAR */
-.activity-cta{
-  background:none;
-  border:none;
-  color:var(--accent);
-  font-weight:700;
-  cursor:pointer;
-  text-transform:uppercase;
-  font-size:.85rem;
-}
-
-/* COMPLETAR */
-.complete-btn{
-  background:none;
-  border:none;
-  color:#16a34a;
-  font-weight:600;
-  cursor:pointer;
-  font-size:.85rem;
-}
-
-.complete-btn:hover{
-  opacity:.8;
-}
-
-/* COMPLETADA */
-.done-label{
-  color:#16a34a;
-  font-size:.85rem;
-  font-weight:600;
-  cursor:pointer;
+  transition:
+    transform .5s ease,
+    filter .4s ease;
 }
 
 .card.done{
@@ -211,96 +195,58 @@ body{
   filter:grayscale(40%);
 }
 
-.done-label:hover{
-  opacity:.8;
+.card.done .done-label{
+  animation:completeReveal .35s ease;
 }
 
-/* PANEL */
-.overlay{
-  position:fixed;
-  inset:0;
-  background:rgba(0,0,0,.5);
-  display:none;
-  z-index:100;
-}
+@keyframes completeReveal{
+  from{
+    opacity:0;
+    transform:translateY(8px);
+  }
+  to{
+    opacity:1;
+    transform:translateY(0);
+  }
+} 
 
-.overlay.open{
-  display:block;
-}
+/*.grid{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(320px,1fr));
+  gap:60px 44px;
+}*/
 
-.panel{
-  position:fixed;
-  right:0;
-  top:0;
-  width:50%;
-  height:100vh;
-  background:white;
-  transform:translateX(100%);
-  transition:.35s;
-  padding:50px;
-  overflow:auto;
-  z-index:101;
-}
-
-.panel.open{
-  transform:translateX(0);
-}
-
-.panel h2{
-  font-family:'Playfair Display',serif;
-  font-size:2.5rem;
-}
-
-.close{
-  position:absolute;
-  top:20px;
-  right:20px;
-  cursor:pointer;
-}
-
-.panel-section{
-  margin-top:30px;
-}
-
-.panel-section h4{
-  color:var(--accent);
-}
-
-.prompt-toggle-btn{
+/* --- GRID NORMAL (fases 1,2 y 4) --- */
+.grid{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(320px,1fr));
+  gap:60px 44px;
   width:100%;
-  padding:12px;
-  background:#475569;
-  color:white;
-  border:none;
-  cursor:pointer;
 }
 
-.prompt-code{
-  max-height:0;
-  overflow:hidden;
-  transition:.4s ease;
+.grid .card{
+  width:100%;
 }
 
-.prompt-code.open{
-  max-height:3000px;
+/* --- FASE 3: composición editorial asimétrica --- */
+.phase-3-grid{
+  display:grid;
+  grid-template-columns:repeat(12,minmax(0,1fr));
+  gap:50px 40px;
+  width:100%;
 }
 
-.prompt-code pre{
-  background:#020617;
-  color:white;
-  padding:20px;
-  overflow:auto;
+.phase-3-grid .card{
+  width:100%;
+  grid-column:span 6;
 }
 
-/* FOOTER */
-.footer{
-  margin-top:100px;
-  padding:40px;
-  text-align:center;
-  border-top:1px solid var(--border);
-  color:var(--muted);
+/* cada tercer elemento ocupa todo el ancho */
+.phase-3-grid .card:nth-child(3n){
+  grid-column:1 / -1;
 }
 
+/* responsive */
 @media(max-width:900px){
   .phase-3-grid{
     grid-template-columns:1fr;
@@ -310,14 +256,442 @@ body{
   .phase-3-grid .card:nth-child(3n){
     grid-column:auto;
   }
+}
 
-  .panel{
-    width:95%;
-  }
+/* --- ACTIVIDAD EDITORIAL (sin tarjeta) --- */
+.card{
+  color:var(--text);
+  background:transparent;
+  padding:0 0 36px;
+  border:none;
+  border-bottom:2px solid rgba(0,0,0,0.1);
+  border-radius:0;
+  box-shadow:none;
+  position:relative;
+  display:flex;
+  flex-direction:column;
+  cursor:default;
+  transition:none;
+}
 
-  .hero-inner{
-    grid-template-columns:1fr;
-  }
+.card:hover{
+  transform:none;
+  border-color:rgba(0,0,0,0.1);
+  box-shadow:none;
+}
+
+.card:hover img{
+  transform:scale(1.02);
+}
+
+.card img{
+  width:100%;
+  height:220px;
+  object-fit:cover;
+  border-radius:2px;
+  margin-bottom:24px;
+  transition:transform .5s ease;
+}
+
+.tag{
+  display:inline-block;
+  font-size:.72rem;
+  font-weight:700;
+  padding:0;
+  background:none;
+  color:var(--accent);
+  letter-spacing:2.5px;
+  text-transform:uppercase;
+  margin:0 0 12px;
+  border-radius:0;
+}
+
+.card h3{
+  font-family:'Playfair Display', serif;
+  font-size:1.85rem;
+  font-weight:700;
+  line-height:1.1;
+  margin:0 0 14px;
+  letter-spacing:-0.5px;
+}
+
+.card p{
+  margin:0 0 15px;
+  color:var(--muted);
+  font-size:.98rem;
+  line-height:1.45;
+}
+
+/* --- Botón CTA --- */
+.activity-cta{
+  display:inline-flex;
+  align-items:center;
+  gap:10px;
+  background:none;
+  border:none;
+  padding:0 0 4px;
+  font-family:'Inter',sans-serif;
+  font-size:.88rem;
+  font-weight:700;
+  color:var(--accent);
+  cursor:pointer;
+  margin-top:auto;
+  margin-right:auto;
+  letter-spacing:.5px;
+  text-transform:uppercase;
+  border-bottom:1.5px solid var(--accent);
+  transition:.25s;
+  align-self:flex-start;
+}
+
+.activity-cta .arrow{
+  transition:transform .3s ease;
+  display:inline-block;
+  font-size:1.1rem;
+}
+
+.activity-cta:hover{
+  gap:14px;
+}
+
+.activity-cta:hover .arrow{
+  transform:translateX(4px);
+}
+
+/* --- Card completada (estilo editorial) --- */
+.card.done{
+  background:transparent;
+  border-color:rgba(0,0,0,0.1);
+  opacity:.5;
+}
+
+.card.done img{
+  filter:grayscale(50%);
+}
+
+.card.done .done-label{
+  display:flex;
+}
+
+.done-label{
+  display:none;
+  align-items:center;
+  gap:6px;
+  margin-top:14px;
+  font-size:.8rem;
+  font-weight:600;
+  color:#22c55e;
+}
+
+.done-label svg{
+  width:18px;
+  height:18px;
+  flex-shrink:0;
+}
+
+/* --- Panel lateral --- */
+.overlay{
+  position:fixed;
+  inset:0;
+  backdrop-filter:blur(10px);
+  background:rgba(0,0,0,0.5);
+  display:none;
+  z-index:100;
+}
+
+.overlay.open{display:block}
+
+.panel{
+  position:fixed;
+  right:0;
+  top:0;
+  width:50%;
+  height:100vh;
+  background:var(--panel);
+  color:#111;
+  transform:translateX(100%);
+  transition:.35s;
+  padding:50px;
+  padding-bottom:120px;
+  overflow-y:auto;
+  box-sizing:border-box;
+  z-index:101;
+}
+
+.panel.open{transform:translateX(0)}
+
+.panel h2{
+  font-family:'Playfair Display', serif;
+  font-size:2.8rem;
+  font-weight:800;
+  letter-spacing:-1px;
+  line-height:1.1;
+  margin:0 0 8px;
+}
+
+.panel-section{
+  margin-top:32px;
+}
+
+.panel-section h4{
+  font-size:1.05rem;
+  font-weight:700;
+  color:var(--accent);
+  margin-bottom:10px;
+}
+
+.panel-section p{
+  line-height:1.7;
+  color:#333;
+}
+
+.panel-section pre{
+  background:#020617;
+  color:#f9fafb;
+  padding:18px;
+  border-radius:10px;
+  font-family:'JetBrains Mono', monospace;
+  font-size:.85rem;
+  line-height:1.6;
+  white-space: pre-wrap;
+  word-break: break-word;
+  overflow-wrap: anywhere;
+  overflow-x:hidden;
+}
+
+/* --- PROMPT COLAPSABLE --- */
+.prompt-toggle-btn{
+  width:100%;
+  background:var(--muted);
+  color:white;
+  border:none;
+  padding:12px 18px;
+  border-radius:8px;
+  cursor:pointer;
+  font-weight:600;
+  font-size:.95rem;
+  display:flex;
+  align-items:center;
+  gap:10px;
+  transition:.2s;
+  font-family:'Inter',sans-serif;
+}
+
+.prompt-toggle-btn:hover{
+  opacity:.9;
+}
+
+.prompt-toggle-btn .arrow{
+  transition:transform .3s;
+  font-size:1.1rem;
+}
+
+.prompt-toggle-btn.open .arrow{
+  transform:rotate(90deg);
+}
+
+.prompt-code{
+  max-height:0;
+  overflow:hidden;
+  transition:max-height .4s ease;
+}
+
+.prompt-code.open{
+  max-height:3000px;
+}
+
+.prompt-code pre{
+  margin-top:12px;
+}
+
+.close{
+  position:absolute;
+  top:20px;
+  right:20px;
+  cursor:pointer;
+  font-size:1.5rem;
+  width:32px;
+  height:32px;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  border-radius:50%;
+  background:rgba(0,0,0,.05);
+  transition:.2s;
+}
+
+.close:hover{
+  background:rgba(0,0,0,.1);
+}
+
+/* --- BOTÓN AL FINAL DEL PANEL --- */
+.panel-footer{
+  margin-top:40px;
+  padding-top:20px;
+  display:flex;
+  justify-content:center;
+}
+
+button.done-btn{
+  max-width:300px;
+  padding:10px 24px;
+  background:transparent;
+  border:2px solid #22c55e;
+  border-radius:8px;
+  color:#22c55e;
+  cursor:pointer;
+  font-size:.9rem;
+  font-weight:600;
+  transition:.2s;
+  font-family:'Inter',sans-serif;
+}
+
+button.done-btn:hover{
+  background:rgba(34,197,94,0.1);
+}
+
+button.done-btn.completed{
+  background:#22c55e;
+  color:white;
+}
+
+/* --- SECCIÓN ESPECIAL (ÉTICA) DESTACADA --- */
+.special-section{
+  margin-top:80px;
+  border-radius:16px;
+  border:1px solid var(--border);
+  max-width:100%;
+  overflow:hidden;
+  background:rgba(100,100,100,0.05);
+}
+
+.special-toggle{
+  width:100%;
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  padding:24px 28px;
+  background:rgba(100,100,100,0.08);
+  border:none;
+  color:var(--muted);
+  font-family:'Playfair Display', serif;
+  font-size:1.7rem;
+  font-weight:700;
+  letter-spacing:-.3px;
+  cursor:pointer;
+  transition:.2s;
+}
+
+.special-toggle:hover{
+  background:rgba(0,0,0,0.12);
+}
+
+.special-toggle .chevron{
+  transition:transform .3s;
+  font-size:1.4rem;
+  color:var(--accent);
+}
+
+.special-section.open .chevron{
+  transform:rotate(180deg);
+}
+
+.special-body{
+  max-height:0;
+  overflow:hidden;
+  transition:max-height .4s ease;
+  padding:0 28px;
+  color:var(--bg);
+}
+
+.special-section.open .special-body{
+  max-height:2000px;
+  padding:0 28px 28px;
+}
+
+.special-body h2{
+  color:var(--accent);
+  font-size:1.4rem;
+  margin-top:24px;
+}
+
+.special-body h3{
+  color:var(--text);
+  font-size:1.1rem;
+  margin-top:20px;
+}
+
+.special-body ul{
+  color:var(--muted);
+  line-height:1.8;
+}
+
+.special-body p{
+  color:var(--muted);
+  line-height:1.5;
+}
+
+/* --- ESTILOS PARA TABLAS --- */
+.special-body table{
+  width:80%;
+  border-collapse:collapse;
+  margin:24px auto;
+  background:rgba(0,0,0,0.05);
+  border-radius:8px;
+  overflow:hidden;
+}
+
+.special-body table th{
+  background:rgba(124,58,237,0.1);
+  color:var(--accent);
+  font-weight:700;
+  text-align:left;
+  padding:16px 20px;
+  font-size:1.05rem;
+  border-bottom:2px solid var(--accent);
+}
+
+.special-body table td{
+  padding:8px 20px;
+  color:var(--muted);
+  line-height:1.3;
+  border-bottom:1px solid rgba(255,255,255,0.05);
+}
+
+.special-body table tr:last-child td{
+  border-bottom:none;
+}
+
+.special-body table tr:hover{
+  background:rgba(124,58,237,0.05);
+}
+
+/* --- FOOTER --- */
+.footer{
+  margin-top:100px;
+  padding:40px 28px;
+  border-top:1px solid var(--border);
+  text-align:center;
+}
+
+.footer p{
+  color:var(--muted);
+  line-height:1.8;
+  margin:0;
+  font-size:.95rem;
+}
+
+.footer p a{
+  color:var(--accent);
+  text-decoration:none;
+}
+
+.footer p a:hover{
+  opacity:.8;
+}
+
+@media(max-width:768px){
+  .panel{width:95%}
 }
 </style>
 </head>
@@ -329,18 +703,53 @@ body{
     <div class="hero-content">
       <span class="hero-badge">Universidad de Alicante · 2025</span>
       <h1>Taller avanzado<br>de IA</h1>
-      <p>Aprendizaje activo con inteligencia artificial</p>
+      <p><strong>Aprendizaje activo</strong> con inteligencia artificial</p>
+      <div class="hero-meta">
+        <span>Metodología</span>
+        <span>·</span>
+        <span>Pensamiento crítico</span>
+        <span>·</span>
+        <span>IA aplicada</span>
+      </div>
+    </div>
+    <div class="hero-illustration" aria-hidden="true">
+      <svg viewBox="0 0 200 180" xmlns="http://www.w3.org/2000/svg">
+        <g stroke="#eff7ee" stroke-width="0.8" opacity="0.45" fill="none">
+          <line x1="25" y1="35" x2="95" y2="65"/>
+          <line x1="25" y1="35" x2="80" y2="120"/>
+          <line x1="25" y1="90" x2="95" y2="65"/>
+          <line x1="25" y1="90" x2="80" y2="120"/>
+          <line x1="25" y1="145" x2="80" y2="120"/>
+          <line x1="95" y1="65" x2="170" y2="55"/>
+          <line x1="95" y1="65" x2="170" y2="110"/>
+          <line x1="80" y1="120" x2="170" y2="110"/>
+          <line x1="80" y1="120" x2="170" y2="150"/>
+        </g>
+        <g fill="#eff7ee">
+          <circle cx="25" cy="35" r="5"/>
+          <circle cx="25" cy="90" r="5"/>
+          <circle cx="25" cy="145" r="5"/>
+          <circle cx="95" cy="65" r="7"/>
+          <circle cx="80" cy="120" r="7"/>
+          <circle cx="170" cy="55" r="5"/>
+          <circle cx="170" cy="110" r="6"/>
+          <circle cx="170" cy="150" r="5"/>
+        </g>
+      </svg>
     </div>
   </div>
 </section>
 
 <div class="main">
-  <div id="content"></div>
 
-  <footer class="footer">
-    <p>Taller avanzado de inteligencia artificial</p>
-    <p>Universidad de Alicante • 2025</p>
-  </footer>
+<div id="content"></div>
+
+<footer class="footer">
+  <p>Taller avanzado de inteligencia artificial</p>
+  <p><a href="mailto:mario.florido@ua.es">mario.florido@ua.es</a></p>
+  <p>Universidad de Alicante • 2025</p>
+</footer>
+
 </div>
 
 <div id="overlay" class="overlay" onclick="closePanel()"></div>
@@ -348,6 +757,16 @@ body{
 
 <script>
 const STORAGE_KEY="progress";
+
+function getSectionOrder(title){
+  if(title==='Objetivo Educacional') return 1;
+  if(title.startsWith('Info')) return 2;
+  if(title==='Prompt Principal') return 3;
+  if(title==='Para profundizar') return 4;
+  return 99;
+}
+
+let lastScroll=0;
 
 function getProgress(){
   return JSON.parse(localStorage.getItem(STORAGE_KEY)||"{}");
@@ -378,6 +797,7 @@ async function load(){
 function parse(md){
   const lines=md.split('\n');
   let phases=[],phase=null,act=null,sec=null,buf=[];
+  let specialSections=[],currentSpecial=null;
 
   function flush(){
     const t=buf.join('\n').trim();
@@ -386,72 +806,96 @@ function parse(md){
     act.sections.push({title:sec.title,content:t});
   }
 
-  for(const line of lines){
-    let m=line.match(/^# FASE (\d+): (.+)/);
-    if(m){
-      flush();
-      phase={num:m[1],title:m[2],subtitle:'',acts:[]};
-      phases.push(phase);
-      continue;
-    }
-
-    if(phase && !phase.acts.length && line.match(/^## /)){
-      phase.subtitle=line.replace(/^## /,'');
-      continue;
-    }
-
-    m=line.match(/^### (\d+)\. (.+)/);
-    if(m){
-      flush();
-      act={id:m[1],title:m[2],tag:'',img:'',sections:[]};
-      phase.acts.push(act);
-      continue;
-    }
-
-    m=line.match(/\*\*Tag:\*\*\s*(.+)/);
-    if(m && act){act.tag=m[1];continue;}
-
-    m=line.match(/\*\*Imagen:\*\*\s*(.+)/);
-    if(m && act){act.img=m[1];continue;}
-
-    m=line.match(/^#### (.+)/);
-    if(m){
-      flush();
-      sec={title:m[1]};
-      continue;
-    }
-
-    if(sec && act){
-      buf.push(line);
-    }
+  function flushSpecialContent(){
+    const t=buf.join('\n').trim();
+    buf=[];
+    if(!currentSpecial||!t) return;
+    currentSpecial.content+='\n'+t;
   }
 
-  flush();
-  render(phases);
+  for(const line of lines){
+    let m=line.match(/^# FASE (\d+): (.+)/);
+    if(m){flush();phase={num:m[1],title:m[2],subtitle:'',acts:[]};phases.push(phase);continue}
+
+    if(phase && !phase.acts.length && line.match(/^## /)){
+      m=line.match(/^## (.+)/);
+      phase.subtitle=m[1];continue}
+
+    m=line.match(/^# (.+)$/);
+    if(m && !m[1].includes('FASE')){
+      if(currentSpecial)flushSpecialContent();else flush();
+      sec=null;act=null;
+      currentSpecial={title:m[1],content:''};
+      specialSections.push(currentSpecial);
+      phase=null;continue}
+
+    m=line.match(/^### (\d+)\. (.+)/);
+    if(m){flush();act={id:m[1],title:m[2],tag:'',img:'',sections:[]};if(phase)phase.acts.push(act);continue}
+
+    m=line.match(/\*\*Tag:\*\*\s*(.+)/);
+    if(m && act){act.tag=m[1];continue}
+
+    m=line.match(/\*\*Imagen:\*\*\s*(.+)/);
+    if(m && act){act.img=m[1];continue}
+
+    m=line.match(/^#### (.+)/);
+    if(m){if(act){flush();sec={title:m[1]}}else if(currentSpecial){flushSpecialContent();currentSpecial.content+='\n### '+m[1]+'\n'}continue}
+
+    if(line.trim()===''){
+      if((sec&&act)||currentSpecial)buf.push('');
+      continue;
+    }
+
+    if(sec&&act)buf.push(line);
+    else if(currentSpecial)buf.push(line);
+  }
+
+  if(currentSpecial)flushSpecialContent();else flush();
+
+  phases.forEach(p=>p.acts.forEach(a=>{
+    a.sections.sort((x,y)=>{
+      return getSectionOrder(x.title) - getSectionOrder(y.title);
+    });
+  }));
+
+  render(phases,specialSections);
+}
+
+function togglePrompt(btn){
+  btn.classList.toggle('open');
+  btn.nextElementSibling.classList.toggle('open');
+  const text = btn.querySelector('.prompt-text');
+  text.textContent = btn.classList.contains('open') ? 'Ocultar Prompt' : 'Ver Prompt';
 }
 
 function openPanel(a){
+  lastScroll=window.scrollY;
   document.body.style.overflow='hidden';
+
+  const done=isDone(a.id);
+
   document.getElementById("overlay").classList.add("open");
 
-  let sectionsHtml='';
-
+  let sectionsHtml = '';
   a.sections
     .filter(s=>!s.title.includes('Descripción'))
     .forEach(s=>{
       if(s.title.includes('Prompt')){
-        sectionsHtml+=`
+        // Prompt colapsable
+        const promptContent = s.content.replace(/```/g,'');
+        sectionsHtml += `
         <div class="panel-section">
           <h4>${s.title}</h4>
-          <button class="prompt-toggle-btn" onclick="togglePrompt(this)">
-            Ver Prompt
+          <button class="prompt-toggle-btn" onclick="event.stopPropagation();togglePrompt(this)">
+            <span class="arrow">▸</span>
+            <span class="prompt-text">Ver Prompt</span>
           </button>
           <div class="prompt-code">
-            <pre>${s.content.replace(/```/g,'')}</pre>
+            <pre>${promptContent}</pre>
           </div>
         </div>`;
-      }else{
-        sectionsHtml+=`
+      } else {
+        sectionsHtml += `
         <div class="panel-section">
           <h4>${s.title}</h4>
           ${marked.parse(s.content)}
@@ -463,6 +907,11 @@ function openPanel(a){
     <div class="close" onclick="closePanel()">✕</div>
     <h2>${a.title}</h2>
     ${sectionsHtml}
+    <div class="panel-footer">
+      <button class="done-btn${done?' completed':''}" id="doneBtn" onclick="toggleDone('${a.id}')">
+        ${done?'✓ Completada':'Marcar completada'}
+      </button>
+    </div>
   `;
 
   document.getElementById("panel").classList.add("open");
@@ -472,75 +921,95 @@ function closePanel(){
   document.body.style.overflow='auto';
   document.getElementById("panel").classList.remove("open");
   document.getElementById("overlay").classList.remove("open");
+  window.scrollTo({top:lastScroll});
 }
 
 function toggleDone(id){
-  if(isDone(id)){
+  const currentlyDone = isDone(id);
+  
+  if(currentlyDone){
+    // Desmarcar
     removeProgress(id);
-  }else{
+    
+    const btn=document.getElementById('doneBtn');
+    if(btn){
+      btn.classList.remove('completed');
+      btn.textContent='Marcar completada';
+    }
+    
+    const card=document.querySelector(`.card[data-id="${id}"]`);
+    if(card) card.classList.remove('done');
+  } else {
+    // Marcar
     saveProgress(id);
+    
+    const btn=document.getElementById('doneBtn');
+    if(btn){
+      btn.classList.add('completed');
+      btn.textContent='✓ Completada';
+    }
+    
+    const card=document.querySelector(`.card[data-id="${id}"]`);
+    if(card) card.classList.add('done');
   }
-  load();
 }
 
-function togglePrompt(btn){
-  btn.nextElementSibling.classList.toggle('open');
-}
-
-function render(phases){
+function render(phases,specialSections){
   let html='';
 
   phases.forEach(p=>{
-    html+=`<section class="phase-block">`;
+html+=`<section class="phase-block">`;
 
-    html+=`
-      <h2 class="phase-title">
-        <span>FASE ${p.num}:</span> ${p.title}
-      </h2>
-    `;
+html+=`<h2 class="phase-title">
+  <span>FASE ${p.num}:</span> ${p.title}
+</h2>`;
 
-    if(p.subtitle){
-      html+=`<p class="phase-subtitle">${p.subtitle}</p>`;
-    }
+html+=p.subtitle
+  ? `<p class="phase-subtitle">${p.subtitle}</p>`
+  : '';
 
-    html+=`<div class="${p.num == 3 ? 'phase-3-grid' : 'grid'}">`;
+html+=`<div class="${p.num == 3 ? 'phase-3-grid' : 'grid'}">`;
 
     p.acts.forEach(a=>{
       const desc=a.sections.find(s=>s.title.includes('Descripción'));
       const done=isDone(a.id);
       const jsonData=JSON.stringify(a).replace(/'/g,"&apos;");
 
-      html+=`
-      <div class="card ${done ? 'done' : ''}">
-        ${a.img ? `<img src="${a.img}">` : ''}
-        <div class="tag">${a.tag}</div>
+      html+=`<div class="card${done?' done':''}" data-id="${a.id}">
+        ${a.img?`<img src="${a.img}">`:''}
+        <div class="tag">${a.tag||''}</div>
         <h3>${a.title}</h3>
-        ${desc ? marked.parse(desc.content) : ''}
-
-        <div class="card-actions">
-          <button class="activity-cta" onclick='openPanel(${jsonData})'>
-            Explorar →
-          </button>
-
-          ${
-            done
-            ? `<div class="done-label" onclick="toggleDone('${a.id}')">
-                ✓ Actividad completada
-              </div>`
-            : `<button class="complete-btn" onclick="toggleDone('${a.id}')">
-                Marcar completada
-              </button>`
-          }
+        ${desc?marked.parse(desc.content):''}
+        <div class="done-label">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg>
+          Actividad completada
         </div>
-      </div>
-      `;
+        <button class="activity-cta" onclick='openPanel(${jsonData})'>
+          <span>Explorar</span>
+          <span class="arrow">→</span>
+        </button>
+      </div>`;
     });
 
-    html+='</div></section>';
+    html+='</div></section>'
+  });
+
+  specialSections.forEach((spec,i)=>{
+    html+=`<div class="special-section" id="special-${i}">
+      <button class="special-toggle" onclick="toggleSpecial(${i})">
+        ${spec.title}
+        <span class="chevron">▼</span>
+      </button>
+      <div class="special-body">${marked.parse(spec.content)}</div>
+    </div>`;
   });
 
   document.getElementById("content").innerHTML=html;
   initPhaseReveal();
+}
+
+function toggleSpecial(i){
+  document.getElementById('special-'+i).classList.toggle('open');
 }
 
 function initPhaseReveal(){
@@ -553,16 +1022,17 @@ function initPhaseReveal(){
       }
     });
   },{
-    threshold:.15
+    threshold:0.15
   });
 
-  phases.forEach(p=>{
-    observer.observe(p);
+  phases.forEach(phase=>{
+    observer.observe(phase);
   });
 }
 
-document.addEventListener('keydown',e=>{
-  if(e.key==="Escape") closePanel();
+// Cerrar panel con ESC
+document.addEventListener('keydown', e => {
+  if(e.key === 'Escape') closePanel();
 });
 
 load();
