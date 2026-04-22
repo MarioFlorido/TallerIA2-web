@@ -322,6 +322,17 @@ body{
   line-height:1.45;
 }
 
+/* --- Pie de la tarjeta: Explorar (izq) + Completar (der) --- */
+.card-footer{
+  margin-top:auto;
+  padding-top:18px;
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  gap:16px;
+  flex-wrap:wrap;
+}
+
 /* --- Botón CTA --- */
 .activity-cta{
   display:inline-flex;
@@ -335,13 +346,62 @@ body{
   font-weight:700;
   color:var(--accent);
   cursor:pointer;
-  margin-top:auto;
-  margin-right:auto;
   letter-spacing:.5px;
   text-transform:uppercase;
   border-bottom:1.5px solid var(--accent);
   transition:.25s;
-  align-self:flex-start;
+}
+
+/* --- Botón "Marcar completada" / "Actividad completada" --- */
+.complete-btn{
+  display:inline-flex;
+  align-items:center;
+  gap:8px;
+  background:none;
+  border:none;
+  padding:4px 0;
+  font-family:'Inter',sans-serif;
+  font-size:.78rem;
+  font-weight:700;
+  color:var(--muted);
+  cursor:pointer;
+  letter-spacing:1.5px;
+  text-transform:uppercase;
+  transition:color .25s;
+}
+
+.complete-btn:hover{
+  color:var(--text);
+}
+
+.complete-btn svg{
+  width:15px;
+  height:15px;
+  flex-shrink:0;
+  transition:transform .3s ease;
+}
+
+.complete-btn:hover svg{
+  transform:scale(1.1);
+}
+
+.complete-btn .state-default,
+.complete-btn .state-done{
+  display:inline-flex;
+  align-items:center;
+  gap:8px;
+}
+
+.complete-btn .state-done{
+  display:none;
+  color:#22c55e;
+}
+
+.card.done .complete-btn .state-default{display:none}
+.card.done .complete-btn .state-done{display:inline-flex}
+
+.card.done .complete-btn:hover .state-done{
+  color:#15803d;
 }
 
 .activity-cta .arrow{
@@ -872,8 +932,6 @@ function openPanel(a){
   lastScroll=window.scrollY;
   document.body.style.overflow='hidden';
 
-  const done=isDone(a.id);
-
   document.getElementById("overlay").classList.add("open");
 
   let sectionsHtml = '';
@@ -907,11 +965,6 @@ function openPanel(a){
     <div class="close" onclick="closePanel()">✕</div>
     <h2>${a.title}</h2>
     ${sectionsHtml}
-    <div class="panel-footer">
-      <button class="done-btn${done?' completed':''}" id="doneBtn" onclick="toggleDone('${a.id}')">
-        ${done?'✓ Completada':'Marcar completada'}
-      </button>
-    </div>
   `;
 
   document.getElementById("panel").classList.add("open");
@@ -926,30 +979,13 @@ function closePanel(){
 
 function toggleDone(id){
   const currentlyDone = isDone(id);
-  
+  const card=document.querySelector(`.card[data-id="${id}"]`);
+
   if(currentlyDone){
-    // Desmarcar
     removeProgress(id);
-    
-    const btn=document.getElementById('doneBtn');
-    if(btn){
-      btn.classList.remove('completed');
-      btn.textContent='Marcar completada';
-    }
-    
-    const card=document.querySelector(`.card[data-id="${id}"]`);
     if(card) card.classList.remove('done');
   } else {
-    // Marcar
     saveProgress(id);
-    
-    const btn=document.getElementById('doneBtn');
-    if(btn){
-      btn.classList.add('completed');
-      btn.textContent='✓ Completada';
-    }
-    
-    const card=document.querySelector(`.card[data-id="${id}"]`);
     if(card) card.classList.add('done');
   }
 }
@@ -980,14 +1016,22 @@ html+=`<div class="${p.num == 3 ? 'phase-3-grid' : 'grid'}">`;
         <div class="tag">${a.tag||''}</div>
         <h3>${a.title}</h3>
         ${desc?marked.parse(desc.content):''}
-        <div class="done-label">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg>
-          Actividad completada
+        <div class="card-footer">
+          <button class="activity-cta" onclick='openPanel(${jsonData})'>
+            <span>Explorar</span>
+            <span class="arrow">→</span>
+          </button>
+          <button class="complete-btn" onclick="event.stopPropagation();toggleDone('${a.id}')" aria-label="Marcar o desmarcar como completada">
+            <span class="state-default">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/></svg>
+              <span>Marcar completada</span>
+            </span>
+            <span class="state-done">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg>
+              <span>Actividad completada</span>
+            </span>
+          </button>
         </div>
-        <button class="activity-cta" onclick='openPanel(${jsonData})'>
-          <span>Explorar</span>
-          <span class="arrow">→</span>
-        </button>
       </div>`;
     });
 
