@@ -5,19 +5,17 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Taller IA</title>
 
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500&family=Playfair+Display:wght@500;700;900&display=swap" rel="stylesheet">
 <script src="https://cdnjs.cloudflare.com/ajax/libs/marked/12.0.2/marked.min.js"></script>
 
 <style>
 :root{
   --bg:#f6f8fb;
   --panel:#ffffff;
-  --card:#ffffff;
   --text:#0f172a;
   --muted:#64748b;
   --accent:#7c3aed;
-  --accent-soft:rgba(124,58,237,0.08);
-  --border:rgba(15,23,42,0.06);
+  --border:rgba(0,0,0,0.06);
 }
 
 body{
@@ -27,156 +25,153 @@ body{
   color:var(--text);
 }
 
-.main{
-  padding:60px 40px;
-  max-width:1300px;
-  margin:auto;
-}
-
-/* HERO */
+/* HERO FULL WIDTH */
 .hero{
-  display:grid;
-  grid-template-columns:1.6fr 1fr;
-  gap:20px;
-  align-items:center;
-  margin-bottom:30px;
+  width:100%;
   background:var(--accent);
-  border-radius:24px;
-  padding:56px 50px;
   color:white;
+  padding:80px 60px;
 }
 
-.hero-content h1{
-  font-size:clamp(2.8rem,5vw,4rem);
-  font-weight:900;
-  line-height:1.05;
-  margin:16px 0 0;
+.hero h1{
+  font-family:'Playfair Display',serif;
+  font-size:clamp(3.5rem,7vw,6rem);
+  line-height:1;
+  margin:0;
 }
 
-.hero-content p{
-  margin-top:16px;
-  font-size:1.1rem;
+.hero p{
+  margin-top:20px;
+  font-size:1.2rem;
   opacity:.9;
 }
 
-.hero-badge{
-  font-size:.7rem;
-  font-weight:700;
-  letter-spacing:2px;
-  text-transform:uppercase;
-  background:rgba(255,255,255,0.2);
-  padding:6px 12px;
-  border-radius:999px;
+/* CONTENIDO */
+.main{
+  padding:60px 40px;
+  max-width:1200px;
+  margin:auto;
 }
 
+/* TITULOS FASE */
 .phase-title{
-  font-size:2.2rem;
-  margin-top:90px;
-  font-weight:800;
+  font-family:'Playfair Display',serif;
+  font-size:2.6rem;
+  margin-top:100px;
 }
 
-.phase-title span{color:var(--accent)}
+.phase-title span{
+  color:var(--accent);
+}
 
 .phase-subtitle{
   color:var(--muted);
   margin-bottom:30px;
 }
 
-/* GRID */
-.grid{
-  display:grid;
-  grid-template-columns:repeat(auto-fit,minmax(320px,1fr));
-  gap:28px;
-}
-
-/* NUEVO BLOQUE (no tarjeta típica) */
+/* BASE ACTIVIDAD */
 .card{
-  position:relative;
-  padding:18px;
-  background:linear-gradient(180deg,#ffffff 0%,#fbfbfd 100%);
-  border:1px solid var(--border);
-  border-radius:16px;
+  margin-bottom:30px;
+  padding-bottom:20px;
+  border-bottom:1px solid var(--border);
+}
+
+/* BOTÓN */
+.open-btn{
+  margin-top:12px;
+  background:transparent;
+  border:1px solid var(--accent);
+  color:var(--accent);
+  padding:6px 14px;
+  border-radius:6px;
   cursor:pointer;
-  transition:.25s;
+  font-size:.85rem;
 }
 
-/* Variación automática */
-.card:nth-child(3n){
-  background:linear-gradient(180deg,#ffffff 0%,#f7f9fc 100%);
+.open-btn:hover{
+  background:var(--accent);
+  color:white;
 }
 
-.card:nth-child(4n){
-  border-left:3px solid var(--accent);
-  padding-left:14px;
-}
-
-.card:nth-child(5n){
-  border-radius:24px 12px 24px 12px;
-}
-
-.card:hover{
-  transform:translateY(-5px);
-  box-shadow:0 12px 30px rgba(15,23,42,0.08);
-}
-
-/* Imagen más protagonista */
-.card img{
-  width:100%;
-  height:170px;
-  object-fit:cover;
-  border-radius:10px;
-  margin-bottom:12px;
-}
-
-.card:nth-child(even) img{
-  height:210px;
-}
-
-/* TAG más limpio */
-.tag{
-  font-size:.7rem;
-  text-transform:uppercase;
-  letter-spacing:.08em;
-  color:var(--muted);
-  margin-bottom:6px;
-}
-
-/* Título */
-.card h3{
-  font-size:1.2rem;
-  font-weight:600;
-  margin:0 0 6px;
-}
-
-/* Texto */
-.card p{
-  font-size:.95rem;
-  color:var(--muted);
-  line-height:1.5;
-}
-
-/* COMPLETADO */
+/* DONE */
 .card.done{
   opacity:.6;
 }
 
-.card.done::after{
-  content:"✓";
-  position:absolute;
-  top:10px;
-  right:12px;
+.done-label{
+  display:none;
+  margin-top:10px;
+  font-size:.8rem;
   color:#22c55e;
-  font-weight:700;
+  font-weight:600;
+}
+
+.card.done .done-label{
+  display:block;
+}
+
+/* ===== FASE 1 (EDITORIAL HORIZONTAL) ===== */
+.phase-1 .card{
+  display:flex;
+  gap:20px;
+  align-items:flex-start;
+}
+
+.phase-1 img{
+  width:140px;
+  height:100px;
+  object-fit:cover;
+  border-radius:8px;
+}
+
+/* ===== FASE 2 (TARJETAS) ===== */
+.phase-2{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
+  gap:24px;
+}
+
+.phase-2 .card{
+  border:1px solid var(--border);
+  padding:16px;
+  border-radius:12px;
+}
+
+.phase-2 img{
+  width:100%;
+  height:140px;
+  object-fit:cover;
+  border-radius:8px;
+}
+
+/* ===== FASE 3 (IMAGEN CIRCULAR) ===== */
+.phase-3 .card{
+  display:flex;
+  gap:20px;
+  align-items:center;
+}
+
+.phase-3 img{
+  width:90px;
+  height:90px;
+  border-radius:50%;
+  object-fit:cover;
+}
+
+/* ===== FASE 4 (MINIMAL) ===== */
+.phase-4 img{
+  width:100%;
+  height:80px;
+  object-fit:cover;
+  opacity:.85;
 }
 
 /* PANEL */
 .overlay{
   position:fixed;
   inset:0;
-  backdrop-filter:blur(8px);
   background:rgba(0,0,0,0.4);
   display:none;
-  z-index:100;
 }
 
 .overlay.open{display:block}
@@ -189,83 +184,63 @@ body{
   height:100vh;
   background:white;
   transform:translateX(100%);
-  transition:.35s;
-  padding:50px;
-  overflow-y:auto;
-  z-index:101;
-  box-shadow:-20px 0 40px rgba(0,0,0,0.08);
+  transition:.3s;
+  padding:40px;
+  overflow:auto;
 }
 
 .panel.open{transform:translateX(0)}
 
 .panel h2{
+  font-family:'Playfair Display',serif;
   font-size:2rem;
-  font-weight:800;
 }
 
 .panel-section{
-  margin-top:30px;
+  margin-top:24px;
 }
 
 .panel-section h4{
-  font-size:1rem;
   color:var(--accent);
-  margin-bottom:8px;
 }
 
-.panel-section pre{
-  background:#020617;
-  color:#f9fafb;
-  padding:16px;
-  border-radius:10px;
-  font-family:'JetBrains Mono', monospace;
-  font-size:.85rem;
-}
-
-/* BOTÓN PROMPT */
 .prompt-toggle-btn{
-  width:100%;
-  background:var(--muted);
+  margin-top:10px;
+  background:#555;
   color:white;
   border:none;
-  padding:10px;
-  border-radius:6px;
+  padding:8px;
   cursor:pointer;
-  font-weight:600;
 }
 
 .prompt-code{
   max-height:0;
   overflow:hidden;
-  transition:max-height .4s ease;
+  transition:.3s;
 }
 
 .prompt-code.open{
   max-height:2000px;
 }
 
-/* BOTÓN DONE */
 .panel-footer{
   margin-top:40px;
-  display:flex;
-  justify-content:center;
+  text-align:center;
 }
 
-button.done-btn{
-  padding:10px 24px;
+.done-btn{
   border:2px solid #22c55e;
   background:none;
-  border-radius:8px;
+  padding:10px 20px;
   color:#22c55e;
   cursor:pointer;
 }
 
-button.done-btn.completed{
+.done-btn.completed{
   background:#22c55e;
   color:white;
 }
 
-/* FOOTER */
 .footer{
   margin-top:100px;
   text-align:center;
@@ -274,23 +249,19 @@ button.done-btn.completed{
 
 @media(max-width:768px){
   .panel{width:95%}
-  .hero{grid-template-columns:1fr}
+  .hero{padding:60px 30px}
 }
 </style>
 </head>
 
 <body>
 
-<div class="main">
-
 <section class="hero">
-  <div class="hero-content">
-    <span class="hero-badge">Universidad de Alicante · 2025</span>
-    <h1>Taller avanzado<br>de IA</h1>
-    <p><strong>Aprendizaje activo</strong> con inteligencia artificial</p>
-  </div>
+  <h1>Taller avanzado de IA</h1>
+  <p>Aprendizaje activo con inteligencia artificial</p>
 </section>
 
+<div class="main">
 <div id="content"></div>
 
 <footer class="footer">
@@ -298,7 +269,6 @@ button.done-btn.completed{
   <p><a href="mailto:mario.florido@ua.es">mario.florido@ua.es</a></p>
   <p>Universidad de Alicante • 2025</p>
 </footer>
-
 </div>
 
 <div id="overlay" class="overlay" onclick="closePanel()"></div>
@@ -346,20 +316,12 @@ async function load(){
 function parse(md){
   const lines=md.split('\n');
   let phases=[],phase=null,act=null,sec=null,buf=[];
-  let specialSections=[],currentSpecial=null;
 
   function flush(){
     const t=buf.join('\n').trim();
     buf=[];
     if(!sec||!act||!t) return;
     act.sections.push({title:sec.title,content:t});
-  }
-
-  function flushSpecialContent(){
-    const t=buf.join('\n').trim();
-    buf=[];
-    if(!currentSpecial||!t) return;
-    currentSpecial.content+='\n'+t;
   }
 
   for(const line of lines){
@@ -371,7 +333,7 @@ function parse(md){
       phase.subtitle=m[1];continue}
 
     m=line.match(/^### (\d+)\. (.+)/);
-    if(m){flush();act={id:m[1],title:m[2],tag:'',img:'',sections:[]};if(phase)phase.acts.push(act);continue}
+    if(m){flush();act={id:m[1],title:m[2],tag:'',img:'',sections:[]};phase.acts.push(act);continue}
 
     m=line.match(/\*\*Tag:\*\*\s*(.+)/);
     if(m && act){act.tag=m[1];continue}
@@ -380,7 +342,7 @@ function parse(md){
     if(m && act){act.img=m[1];continue}
 
     m=line.match(/^#### (.+)/);
-    if(m){if(act){flush();sec={title:m[1]}}continue}
+    if(m){flush();sec={title:m[1]};continue}
 
     if(line.trim()===''){
       if(sec&&act)buf.push('');
@@ -393,17 +355,10 @@ function parse(md){
   flush();
 
   phases.forEach(p=>p.acts.forEach(a=>{
-    a.sections.sort((x,y)=>{
-      return getSectionOrder(x.title) - getSectionOrder(y.title);
-    });
+    a.sections.sort((x,y)=>getSectionOrder(x.title)-getSectionOrder(y.title));
   }));
 
   render(phases);
-}
-
-function togglePrompt(btn){
-  btn.classList.toggle('open');
-  btn.nextElementSibling.classList.toggle('open');
 }
 
 function openPanel(a){
@@ -429,11 +384,15 @@ function openPanel(a){
     }
   });
 
+  const done=isDone(a.id);
+
   document.getElementById("panel").innerHTML=`
     <h2>${a.title}</h2>
     ${sectionsHtml}
     <div class="panel-footer">
-      <button class="done-btn" onclick="toggleDone('${a.id}')">Marcar completada</button>
+      <button class="done-btn${done?' completed':''}" onclick="toggleDone('${a.id}')">
+        ${done?'✓ Completada':'Marcar completada'}
+      </button>
     </div>
   `;
 
@@ -450,8 +409,11 @@ function closePanel(){
 function toggleDone(id){
   if(isDone(id)) removeProgress(id);
   else saveProgress(id);
-
   location.reload();
+}
+
+function togglePrompt(btn){
+  btn.nextElementSibling.classList.toggle('open');
 }
 
 function render(phases){
@@ -460,17 +422,25 @@ function render(phases){
   phases.forEach(p=>{
     html+=`<h2 class="phase-title"><span>FASE ${p.num}:</span> ${p.title}</h2>`;
     html+=p.subtitle?`<p class="phase-subtitle">${p.subtitle}</p>`:'';
-    html+='<div class="grid">';
+
+    html+=`<div class="phase-${p.num}">`;
 
     p.acts.forEach(a=>{
       const desc=a.sections.find(s=>s.title.includes('Descripción'));
       const done=isDone(a.id);
 
-      html+=`<div class="card${done?' done':''}" onclick='openPanel(${JSON.stringify(a).replace(/'/g,"&apos;")})'>
+      html+=`
+      <div class="card${done?' done':''}">
         ${a.img?`<img src="${a.img}">`:''}
-        <div class="tag">${a.tag||''}</div>
-        <h3>${a.title}</h3>
-        ${desc?marked.parse(desc.content):''}
+        <div>
+          <div class="tag">${a.tag||''}</div>
+          <h3>${a.title}</h3>
+          ${desc?marked.parse(desc.content):''}
+          <button class="open-btn" onclick='openPanel(${JSON.stringify(a).replace(/'/g,"&apos;")})'>
+            Ver actividad
+          </button>
+          <div class="done-label">✓ Actividad completada</div>
+        </div>
       </div>`;
     });
 
