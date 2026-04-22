@@ -158,6 +158,57 @@ body{
   max-width:640px;
   line-height:1.5;
 }
+  /* revelado de fases y completado */
+ /* --- REVEAL PROGRESIVO DE FASES --- */
+.phase-block{
+  opacity:0;
+  transform:translateY(50px);
+  transition:
+    opacity .8s ease,
+    transform .8s ease;
+}
+
+.phase-block.visible{
+  opacity:1;
+  transform:translateY(0);
+}
+
+/* --- TRANSICIÓN DE COMPLETADO --- */
+.card{
+  transition:
+    opacity .35s ease,
+    border-color .35s ease,
+    transform .35s ease;
+}
+
+.card img{
+  transition:
+    transform .5s ease,
+    filter .4s ease;
+}
+
+.card.done{
+  opacity:.65;
+}
+
+.card.done img{
+  filter:grayscale(40%);
+}
+
+.card.done .done-label{
+  animation:completeReveal .35s ease;
+}
+
+@keyframes completeReveal{
+  from{
+    opacity:0;
+    transform:translateY(8px);
+  }
+  to{
+    opacity:1;
+    transform:translateY(0);
+  }
+} 
 
 /*.grid{
   display:grid;
@@ -907,9 +958,17 @@ function render(phases,specialSections){
   let html='';
 
   phases.forEach(p=>{
-    html+=`<h2 class="phase-title"><span>FASE ${p.num}:</span> ${p.title}</h2>`;
-    html+=p.subtitle?`<p class="phase-subtitle">${p.subtitle}</p>`:'';
-    html+=`<div class="${p.num == 3 ? 'phase-3-grid' : 'grid'}">`;
+html+=`<section class="phase-block">`;
+
+html+=`<h2 class="phase-title">
+  <span>FASE ${p.num}:</span> ${p.title}
+</h2>`;
+
+html+=p.subtitle
+  ? `<p class="phase-subtitle">${p.subtitle}</p>`
+  : '';
+
+html+=`<div class="${p.num == 3 ? 'phase-3-grid' : 'grid'}">`;
 
     p.acts.forEach(a=>{
       const desc=a.sections.find(s=>s.title.includes('Descripción'));
@@ -932,7 +991,7 @@ function render(phases,specialSections){
       </div>`;
     });
 
-    html+='</div>';
+    html+='</div></section>'
   });
 
   specialSections.forEach((spec,i)=>{
@@ -946,10 +1005,29 @@ function render(phases,specialSections){
   });
 
   document.getElementById("content").innerHTML=html;
+  initPhaseReveal();
 }
 
 function toggleSpecial(i){
   document.getElementById('special-'+i).classList.toggle('open');
+}
+
+function initPhaseReveal(){
+  const phases=document.querySelectorAll('.phase-block');
+
+  const observer=new IntersectionObserver((entries)=>{
+    entries.forEach(entry=>{
+      if(entry.isIntersecting){
+        entry.target.classList.add('visible');
+      }
+    });
+  },{
+    threshold:0.15
+  });
+
+  phases.forEach(phase=>{
+    observer.observe(phase);
+  });
 }
 
 // Cerrar panel con ESC
