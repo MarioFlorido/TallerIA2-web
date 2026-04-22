@@ -11,13 +11,11 @@
 <style>
 :root{
   --bg:#ffffff;              /* fondo general */
-  --panel:#ffffff;           /* panel blanco */
-  --card:#ffffff;            /* tarjetas blancas */
-  --text:#0f172a;            /* texto principal oscuro */
+  --panel:#ffffff;           /* panel lateral */
+  --text:#0f172a;            /* texto principal */
   --muted:#64748b;           /* texto secundario */
-  --accent:#7c3aed;          /* lo mantienes igual */
-  --accent-soft:rgba(124,58,237,0.08);
-  --border:rgba(0,0,0,0.08); /* bordes suaves en claro */
+  --accent:#7c3aed;          /* acento principal */
+  --border:rgba(0,0,0,0.08); /* bordes suaves */
 }
 
 body{
@@ -158,63 +156,17 @@ body{
   max-width:640px;
   line-height:1.5;
 }
-  /* revelado de fases y completado */
- /* --- REVEAL PROGRESIVO DE FASES --- */
+/* --- REVEAL PROGRESIVO DE FASES --- */
 .phase-block{
   opacity:0;
   transform:translateY(50px);
-  transition:
-    opacity .8s ease,
-    transform .8s ease;
+  transition:opacity .8s ease, transform .8s ease;
 }
 
 .phase-block.visible{
   opacity:1;
   transform:translateY(0);
 }
-
-/* --- TRANSICIÓN DE COMPLETADO --- */
-.card{
-  transition:
-    opacity .35s ease,
-    border-color .35s ease,
-    transform .35s ease;
-}
-
-.card img{
-  transition:
-    transform .5s ease,
-    filter .4s ease;
-}
-
-.card.done{
-  opacity:.65;
-}
-
-.card.done img{
-  filter:grayscale(40%);
-}
-
-.card.done .done-label{
-  animation:completeReveal .35s ease;
-}
-
-@keyframes completeReveal{
-  from{
-    opacity:0;
-    transform:translateY(8px);
-  }
-  to{
-    opacity:1;
-    transform:translateY(0);
-  }
-} 
-
-/*.grid{
-  display:grid;
-  grid-template-columns:repeat(auto-fit,minmax(320px,1fr));
-  gap:60px 44px;
-}*/
 
 /* --- GRID NORMAL (fases 1,2 y 4) --- */
 .grid{
@@ -258,7 +210,7 @@ body{
   }
 }
 
-/* --- ACTIVIDAD EDITORIAL (sin tarjeta) --- */
+/* --- TARJETA (estilo editorial) --- */
 .card{
   color:var(--text);
   background:transparent;
@@ -271,17 +223,7 @@ body{
   display:flex;
   flex-direction:column;
   cursor:default;
-  transition:none;
-}
-
-.card:hover{
-  transform:none;
-  border-color:rgba(0,0,0,0.1);
-  box-shadow:none;
-}
-
-.card:hover img{
-  transform:scale(1.02);
+  transition:opacity .35s ease;
 }
 
 .card img{
@@ -290,7 +232,7 @@ body{
   object-fit:cover;
   border-radius:2px;
   margin-bottom:24px;
-  transition:transform .5s ease;
+  transition:filter .4s ease;
 }
 
 .tag{
@@ -418,35 +360,13 @@ body{
   transform:translateX(4px);
 }
 
-/* --- Card completada (estilo editorial) --- */
+/* --- Estado completado --- */
 .card.done{
-  background:transparent;
-  border-color:rgba(0,0,0,0.1);
   opacity:.5;
 }
 
 .card.done img{
   filter:grayscale(50%);
-}
-
-.card.done .done-label{
-  display:flex;
-}
-
-.done-label{
-  display:none;
-  align-items:center;
-  gap:6px;
-  margin-top:14px;
-  font-size:.8rem;
-  font-weight:600;
-  color:#22c55e;
-}
-
-.done-label svg{
-  width:18px;
-  height:18px;
-  flex-shrink:0;
 }
 
 /* --- Panel lateral --- */
@@ -584,37 +504,6 @@ body{
   background:rgba(0,0,0,.1);
 }
 
-/* --- BOTÓN AL FINAL DEL PANEL --- */
-.panel-footer{
-  margin-top:40px;
-  padding-top:20px;
-  display:flex;
-  justify-content:center;
-}
-
-button.done-btn{
-  max-width:300px;
-  padding:10px 24px;
-  background:transparent;
-  border:2px solid #22c55e;
-  border-radius:8px;
-  color:#22c55e;
-  cursor:pointer;
-  font-size:.9rem;
-  font-weight:600;
-  transition:.2s;
-  font-family:'Inter',sans-serif;
-}
-
-button.done-btn:hover{
-  background:rgba(34,197,94,0.1);
-}
-
-button.done-btn.completed{
-  background:#22c55e;
-  color:white;
-}
-
 /* --- SECCIÓN ESPECIAL (ÉTICA) DESTACADA --- */
 .special-section{
   margin-top:80px;
@@ -643,7 +532,7 @@ button.done-btn.completed{
 }
 
 .special-toggle:hover{
-  background:rgba(0,0,0,0.12);
+  background:rgba(100,100,100,0.15);
 }
 
 .special-toggle .chevron{
@@ -661,7 +550,6 @@ button.done-btn.completed{
   overflow:hidden;
   transition:max-height .4s ease;
   padding:0 28px;
-  color:var(--bg);
 }
 
 .special-section.open .special-body{
