@@ -165,29 +165,46 @@ body{
   gap:60px 44px;
 }*/
 
- .grid{
+/* --- GRID NORMAL (fases 1,2 y 4) --- */
+.grid{
   display:grid;
   grid-template-columns:repeat(auto-fit,minmax(320px,1fr));
   gap:60px 44px;
+  width:100%;
 }
 
-.card{
-  grid-column:span 6;
+.grid .card{
+  width:100%;
 }
 
-/* FASE 3: composición editorial asimétrica */
+/* --- FASE 3: composición editorial asimétrica --- */
 .phase-3-grid{
   display:grid;
-  grid-template-columns:repeat(12,1fr);
+  grid-template-columns:repeat(12,minmax(0,1fr));
   gap:50px 40px;
+  width:100%;
 }
 
 .phase-3-grid .card{
+  width:100%;
   grid-column:span 6;
 }
 
+/* cada tercer elemento ocupa todo el ancho */
 .phase-3-grid .card:nth-child(3n){
-  grid-column:span 12;
+  grid-column:1 / -1;
+}
+
+/* responsive */
+@media(max-width:900px){
+  .phase-3-grid{
+    grid-template-columns:1fr;
+  }
+
+  .phase-3-grid .card,
+  .phase-3-grid .card:nth-child(3n){
+    grid-column:auto;
+  }
 }
 
 /* --- ACTIVIDAD EDITORIAL (sin tarjeta) --- */
