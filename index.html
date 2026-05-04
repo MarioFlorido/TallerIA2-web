@@ -25,10 +25,55 @@ body{
   color:var(--text);
 }
 
-.main{
+/* === ARQUITECTURA: secciones a 100% ancho con inner centrado === */
+
+#content{
+  width:100%;
+}
+
+/* Cada fase ocupa el 100% del viewport y su padding controla el aire lateral */
+.phase-block{
   padding:60px 40px;
+  /* reveal progresivo */
+  opacity:0;
+  transform:translateY(50px);
+  transition:opacity .8s ease, transform .8s ease;
+}
+
+.phase-block.visible{
+  opacity:1;
+  transform:translateY(0);
+}
+
+/* Wrapper interno que centra el contenido a max-width */
+.phase-inner{
   max-width:1100px;
-  margin:auto;
+  margin:0 auto;
+}
+
+/* --- FASE 2: fondo gris claro a sangre completa --- */
+.phase-block.phase-bg-grey{
+  background:#e9e9e9;
+}
+
+/* --- FASE 3: imagen de nodos como fondo + overlay púrpura translúcido --- */
+.phase-block.phase-bg-nodes{
+  background-color:rgba(124,58,237,0.08); /* --accent al 8% */
+  background-image:url('img/nodos.png');  /* placeholder: tú suministras */
+  background-repeat:no-repeat;
+  background-position:center;
+  background-size:cover;
+}
+
+/* --- Sección inferior (guía ética + footer) --- */
+.bottom-area{
+  width:100%;
+  padding:60px 40px 0;
+}
+
+.bottom-inner{
+  max-width:1100px;
+  margin:0 auto;
 }
 
 @keyframes fadeUp{
@@ -132,6 +177,12 @@ body{
   .hero-illustration{
     max-height:200px;
   }
+  .phase-block{
+    padding:48px 28px;
+  }
+  .bottom-area{
+    padding:48px 28px 0;
+  }
 }
 
 .phase-title{
@@ -156,17 +207,6 @@ body{
   font-size:1.05rem;
   max-width:640px;
   line-height:1.5;
-}
-/* --- REVEAL PROGRESIVO DE FASES --- */
-.phase-block{
-  opacity:0;
-  transform:translateY(50px);
-  transition:opacity .5s ease, transform .5s ease;
-}
-
-.phase-block.visible{
-  opacity:1;
-  transform:translateY(0);
 }
 
 /* --- GRID NORMAL (fases 1,2 y 4) --- */
@@ -669,17 +709,18 @@ body{
   </div>
 </section>
 
-<div class="main">
+<main id="content"></main>
 
-<div id="content"></div>
-
-<footer class="footer">
-  <p>Taller avanzado de inteligencia artificial</p>
-  <p><a href="mailto:mario.florido@ua.es">mario.florido@ua.es</a></p>
-  <p>Universidad de Alicante • 2025</p>
-</footer>
-
-</div>
+<section class="bottom-area">
+  <div class="bottom-inner">
+    <div id="bottom-content"></div>
+    <footer class="footer">
+      <p>Taller avanzado de inteligencia artificial</p>
+      <p><a href="mailto:mario.florido@ua.es">mario.florido@ua.es</a></p>
+      <p>Universidad de Alicante • 2025</p>
+    </footer>
+  </div>
+</section>
 
 <div id="overlay" class="overlay" onclick="closePanel()"></div>
 <div id="panel" class="panel"></div>
@@ -863,17 +904,24 @@ function render(phases,specialSections){
   let html='';
 
   phases.forEach(p=>{
-html+=`<section class="phase-block">`;
+    // Clase de fondo según la fase (puedes ampliarlo aquí)
+    const bgClass =
+      p.num == 2 ? ' phase-bg-grey'  :
+      p.num == 3 ? ' phase-bg-nodes' :
+      '';
 
-html+=`<h2 class="phase-title">
-  <span>FASE ${p.num}:</span> ${p.title}
-</h2>`;
+    html+=`<section class="phase-block${bgClass}">`;
+    html+=`<div class="phase-inner">`;
 
-html+=p.subtitle
-  ? `<p class="phase-subtitle">${p.subtitle}</p>`
-  : '';
+    html+=`<h2 class="phase-title">
+      <span>FASE ${p.num}:</span> ${p.title}
+    </h2>`;
 
-html+=`<div class="${p.num == 3 ? 'phase-3-grid' : 'grid'}">`;
+    html+=p.subtitle
+      ? `<p class="phase-subtitle">${p.subtitle}</p>`
+      : '';
+
+    html+=`<div class="${p.num == 3 ? 'phase-3-grid' : 'grid'}">`;
 
     p.acts.forEach(a=>{
       const desc=a.sections.find(s=>s.title.includes('Descripción'));
@@ -904,11 +952,15 @@ html+=`<div class="${p.num == 3 ? 'phase-3-grid' : 'grid'}">`;
       </div>`;
     });
 
-    html+='</div></section>'
+    html+='</div>';      // cierra .grid / .phase-3-grid
+    html+='</div>';      // cierra .phase-inner
+    html+='</section>';  // cierra .phase-block
   });
 
+  // Las secciones especiales (guía ética) van al área inferior
+  let specialHtml='';
   specialSections.forEach((spec,i)=>{
-    html+=`<div class="special-section" id="special-${i}">
+    specialHtml+=`<div class="special-section" id="special-${i}">
       <button class="special-toggle" onclick="toggleSpecial(${i})">
         ${spec.title}
         <span class="chevron">▼</span>
@@ -918,6 +970,7 @@ html+=`<div class="${p.num == 3 ? 'phase-3-grid' : 'grid'}">`;
   });
 
   document.getElementById("content").innerHTML=html;
+  document.getElementById("bottom-content").innerHTML=specialHtml;
   initPhaseReveal();
 }
 
