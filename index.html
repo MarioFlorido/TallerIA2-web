@@ -56,13 +56,18 @@ body{
   background:#e9e9e9;
 }
 
-/* --- FASE 3: imagen de nodos como fondo + overlay púrpura translúcido --- */
+/* --- FASE 3: imagen de nodos como fondo sobre blanco --- */
 .phase-block.phase-bg-nodes{
-  background-color:rgba(124,58,237,0.08); /* --accent al 8% */
+  background-color:#ffffff;
   background-image:url('img/nodos.png');  /* placeholder: tú suministras */
   background-repeat:no-repeat;
   background-position:center;
   background-size:cover;
+}
+
+/* --- FASE 4: fondo lila tenue (--accent al 20%) --- */
+.phase-block.phase-bg-lilac{
+  background:rgba(124,58,237,0.2);
 }
 
 /* --- Sección inferior (guía ética + footer) --- */
@@ -254,12 +259,12 @@ body{
 /* --- TARJETA (estilo editorial) --- */
 .card{
   color:var(--text);
-  background:transparent;
-  padding:0 0 36px;
+  background:#ffffff;
+  padding:0 28px 28px;
   border:none;
-  border-bottom:2px solid rgba(0,0,0,0.1);
-  border-radius:0;
+  border-radius:6px;
   box-shadow:none;
+  overflow:hidden;
   position:relative;
   display:flex;
   flex-direction:column;
@@ -268,11 +273,11 @@ body{
 }
 
 .card img{
-  width:100%;
+  /* Ocupa todo el ancho de la tarjeta sobresaliendo del padding lateral */
+  width:calc(100% + 56px);
+  margin:0 -28px 24px;
   height:220px;
   object-fit:cover;
-  border-radius:2px;
-  margin-bottom:24px;
   transition:filter .4s ease;
 }
 
@@ -287,6 +292,11 @@ body{
   text-transform:uppercase;
   margin:0 0 12px;
   border-radius:0;
+}
+
+/* Si la tarjeta empieza directamente con .tag (sin imagen), añadir aire arriba */
+.card > .tag:first-child{
+  margin-top:28px;
 }
 
 .card h3{
@@ -908,6 +918,7 @@ function render(phases,specialSections){
     const bgClass =
       p.num == 2 ? ' phase-bg-grey'  :
       p.num == 3 ? ' phase-bg-nodes' :
+      p.num == 4 ? ' phase-bg-lilac' :
       '';
 
     html+=`<section class="phase-block${bgClass}">`;
