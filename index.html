@@ -6,7 +6,10 @@
 <title>Taller IA</title>
 
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500&family=Playfair+Display:ital,wght@0,700;0,800;0,900;1,700;1,800&display=swap" rel="stylesheet">
-<script src="https://cdnjs.cloudflare.com/ajax/libs/marked/12.0.2/marked.min.js"></script>
+<meta http-equiv="Content-Security-Policy" content="default-src 'none'; script-src 'self' 'sha256-Du+OJKJSbdUgz5nrHeWWINvez6XKDDU/tyj/5c2uvwo=' https://cdnjs.cloudflare.com; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src https://fonts.gstatic.com; img-src 'self' data:; connect-src 'self'; base-uri 'none'; form-action 'none'">
+<script>document.documentElement.classList.add('js')</script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/marked/12.0.2/marked.min.js" integrity="sha384-/TQbtLCAerC3jgaim+N78RZSDYV7ryeoBCVqTuzRrFec2akfBkHS7ACQ3PQhvMVi" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/dompurify/3.1.6/purify.min.js" integrity="sha384-+VfUPEb0PdtChMwmBcBmykRMDd+v6D/oFmB3rZM/puCMDYcIvF968OimRh4KQY9a" crossorigin="anonymous"></script>
 
 <style>
 :root{
@@ -14,7 +17,9 @@
   --panel:#ffffff;           /* panel lateral */
   --text:#0f172a;            /* texto principal */
   --muted:#64748b;           /* texto secundario */
-  --accent:#500CC7;          /* acento principal */
+  --accent:#C2410C;          /* acento principal (naranja quemado, contraste 5.2:1 con blanco) */
+  --accent-rgb:194,65,12;    /* mismo color en RGB, para derivados con transparencia */
+  --accent-soft:#FDBA8C;     /* versión clara: ilustración sobre fondo de acento */
   --border:rgba(0,0,0,0.08); /* bordes suaves */
 }
 
@@ -34,15 +39,32 @@ body{
 /* Cada fase ocupa el 100% del viewport y su padding controla el aire lateral */
 .phase-block{
   padding:60px 40px;
-  /* reveal progresivo */
+}
+
+/* reveal progresivo (solo si hay JS) */
+.js .phase-block{
   opacity:0;
   transform:translateY(50px);
   transition:opacity .8s ease, transform .8s ease;
 }
 
-.phase-block.visible{
+.js .phase-block.visible{
   opacity:1;
   transform:translateY(0);
+}
+
+@media(prefers-reduced-motion:reduce){
+  .js .phase-block{opacity:1;transform:none;transition:none}
+}
+
+.load-error{
+  color:var(--muted);
+  line-height:1.6;
+}
+
+:focus-visible{
+  outline:3px solid var(--accent);
+  outline-offset:2px;
 }
 
 /* Wrapper interno que centra el contenido a max-width */
@@ -59,15 +81,28 @@ body{
 /* --- FASE 3: imagen de nodos como fondo sobre blanco --- */
 .phase-block.phase-bg-nodes{
   background-color:#ffffff;
-  background-image:url('img/red.png');  /* placeholder: tú suministras */
-  background-repeat:no-repeat;
-  background-position:center;
-  background-size:cover;
+  position:relative;
 }
 
-/* --- FASE 4: fondo lila tenue (--accent al 20%) --- */
-.phase-block.phase-bg-lilac{
-  background:rgba(124,58,237,0.2);
+/* La red es una silueta: se tiñe con el acento mediante máscara */
+.phase-block.phase-bg-nodes::before{
+  content:'';
+  position:absolute;
+  inset:0;
+  background-color:var(--accent);
+  opacity:.45;
+  -webkit-mask:url('img/red.png') center/cover no-repeat;
+  mask:url('img/red.png') center/cover no-repeat;
+  pointer-events:none;
+}
+
+.phase-block.phase-bg-nodes .phase-inner{
+  position:relative;
+}
+
+/* --- FASE 4: fondo tenue del acento --- */
+.phase-block.phase-bg-tint{
+  background:rgba(var(--accent-rgb),0.12);
 }
 
 /* --- Sección inferior (guía ética + footer) --- */
@@ -164,11 +199,13 @@ body{
   padding:20px;
 }
 
-.hero-illustration img{
+.hero-illustration .brain{
   width:100%;
   max-width:380px;
-  height:auto;
-  display:block;
+  aspect-ratio:707/590;
+  background-color:var(--accent-soft);
+  -webkit-mask:url('img/cerebro.png') center/contain no-repeat;
+  mask:url('img/cerebro.png') center/contain no-repeat;
 }
 
 @media(max-width:768px){
@@ -193,7 +230,7 @@ body{
 .phase-title{
   font-family:'Playfair Display', serif;
   font-size:clamp(2.6rem,4.8vw,3.6rem);
-  margin-top:110px;
+  margin-top:20px;
   margin-bottom:8px;
   font-weight:800;
   letter-spacing:-1px;
@@ -331,8 +368,6 @@ body{
   display:inline-flex;
   align-items:center;
   gap:10px;
-  border:none;
-  background:none;
   padding:0 5px 0 4px;
   font-family:'Inter',sans-serif;
   font-size:.88rem;
@@ -344,7 +379,7 @@ body{
   border:1.5px solid var(--accent);
   transition:.25s;
   border-radius:5px;
-  background-color: var(--accent);
+  background-color:var(--accent);
 }
 
 /* --- Botón "Marcar completada" / "Actividad completada" --- */
@@ -542,6 +577,8 @@ body{
   top:20px;
   right:20px;
   cursor:pointer;
+  border:none;
+  color:inherit;
   font-size:1.5rem;
   width:32px;
   height:32px;
@@ -569,6 +606,7 @@ body{
 
 .special-toggle{
   width:100%;
+  text-align:left;
   display:flex;
   align-items:center;
   justify-content:space-between;
@@ -643,7 +681,7 @@ body{
 }
 
 .special-body table th{
-  background:rgba(124,58,237,0.1);
+  background:rgba(var(--accent-rgb),0.1);
   color:var(--accent);
   font-weight:700;
   text-align:left;
@@ -664,7 +702,7 @@ body{
 }
 
 .special-body table tr:hover{
-  background:rgba(124,58,237,0.05);
+  background:rgba(var(--accent-rgb),0.05);
 }
 
 /* --- FOOTER --- */
@@ -702,7 +740,7 @@ body{
 <section class="hero">
   <div class="hero-inner">
     <div class="hero-content">
-      <span class="hero-badge">Universidad de Alicante · 2025</span>
+      <span class="hero-badge">Universidad de Alicante · 2025-26</span>
       <h1>Taller avanzado<br>de IA</h1>
       <p><strong>Aprendizaje activo</strong> con inteligencia artificial</p>
       <div class="hero-meta">
@@ -714,7 +752,7 @@ body{
       </div>
     </div>
     <div class="hero-illustration" aria-hidden="true">
-      <img src="img/cerebro.png" alt="">
+      <div class="brain"></div>
     </div>
   </div>
 </section>
@@ -727,293 +765,15 @@ body{
     <footer class="footer">
       <p>Taller avanzado de inteligencia artificial</p>
       <p><a href="mailto:mario.florido@ua.es">mario.florido@ua.es</a></p>
-      <p>Universidad de Alicante • 2025</p>
+      <p>Universidad de Alicante • 2025-26</p>
     </footer>
   </div>
 </section>
 
-<div id="overlay" class="overlay" onclick="closePanel()"></div>
-<div id="panel" class="panel"></div>
+<div id="overlay" class="overlay"></div>
+<div id="panel" class="panel" role="dialog" aria-modal="true" aria-labelledby="panel-title"></div>
 
-<script>
-const STORAGE_KEY="progress";
-
-function getSectionOrder(title){
-  if(title==='Objetivo Educacional') return 1;
-  if(title.startsWith('Info')) return 2;
-  if(title==='Prompt Principal') return 3;
-  if(title==='Para profundizar') return 4;
-  return 99;
-}
-
-let lastScroll=0;
-
-function getProgress(){
-  return JSON.parse(localStorage.getItem(STORAGE_KEY)||"{}");
-}
-
-function saveProgress(id){
-  let data=getProgress();
-  data[id]=true;
-  localStorage.setItem(STORAGE_KEY,JSON.stringify(data));
-}
-
-function removeProgress(id){
-  let data=getProgress();
-  delete data[id];
-  localStorage.setItem(STORAGE_KEY,JSON.stringify(data));
-}
-
-function isDone(id){
-  return !!getProgress()[id];
-}
-
-async function load(){
-  const res=await fetch('contenido.md');
-  const md=await res.text();
-  parse(md);
-}
-
-function parse(md){
-  const lines=md.split('\n');
-  let phases=[],phase=null,act=null,sec=null,buf=[];
-  let specialSections=[],currentSpecial=null;
-
-  function flush(){
-    const t=buf.join('\n').trim();
-    buf=[];
-    if(!sec||!act||!t) return;
-    act.sections.push({title:sec.title,content:t});
-  }
-
-  function flushSpecialContent(){
-    const t=buf.join('\n').trim();
-    buf=[];
-    if(!currentSpecial||!t) return;
-    currentSpecial.content+='\n'+t;
-  }
-
-  for(const line of lines){
-    let m=line.match(/^# FASE (\d+): (.+)/);
-    if(m){flush();phase={num:m[1],title:m[2],subtitle:'',acts:[]};phases.push(phase);continue}
-
-    if(phase && !phase.acts.length && line.match(/^## /)){
-      m=line.match(/^## (.+)/);
-      phase.subtitle=m[1];continue}
-
-    m=line.match(/^# (.+)$/);
-    if(m && !m[1].includes('FASE')){
-      if(currentSpecial)flushSpecialContent();else flush();
-      sec=null;act=null;
-      currentSpecial={title:m[1],content:''};
-      specialSections.push(currentSpecial);
-      phase=null;continue}
-
-    m=line.match(/^### (\d+)\. (.+)/);
-    if(m){flush();act={id:m[1],title:m[2],tag:'',img:'',sections:[]};if(phase)phase.acts.push(act);continue}
-
-    m=line.match(/\*\*Tag:\*\*\s*(.+)/);
-    if(m && act){act.tag=m[1];continue}
-
-    m=line.match(/\*\*Imagen:\*\*\s*(.+)/);
-    if(m && act){act.img=m[1];continue}
-
-    m=line.match(/^#### (.+)/);
-    if(m){if(act){flush();sec={title:m[1]}}else if(currentSpecial){flushSpecialContent();currentSpecial.content+='\n### '+m[1]+'\n'}continue}
-
-    if(line.trim()===''){
-      if((sec&&act)||currentSpecial)buf.push('');
-      continue;
-    }
-
-    if(sec&&act)buf.push(line);
-    else if(currentSpecial)buf.push(line);
-  }
-
-  if(currentSpecial)flushSpecialContent();else flush();
-
-  phases.forEach(p=>p.acts.forEach(a=>{
-    a.sections.sort((x,y)=>{
-      return getSectionOrder(x.title) - getSectionOrder(y.title);
-    });
-  }));
-
-  render(phases,specialSections);
-}
-
-function togglePrompt(btn){
-  btn.classList.toggle('open');
-  btn.nextElementSibling.classList.toggle('open');
-  const text = btn.querySelector('.prompt-text');
-  text.textContent = btn.classList.contains('open') ? 'Ocultar Prompt' : 'Ver Prompt';
-}
-
-function openPanel(a){
-  lastScroll=window.scrollY;
-  document.body.style.overflow='hidden';
-
-  document.getElementById("overlay").classList.add("open");
-
-  let sectionsHtml = '';
-  a.sections
-    .filter(s=>!s.title.includes('Descripción'))
-    .forEach(s=>{
-      if(s.title.includes('Prompt')){
-        // Prompt colapsable
-        const promptContent = s.content.replace(/```/g,'');
-        sectionsHtml += `
-        <div class="panel-section">
-          <h4>${s.title}</h4>
-          <button class="prompt-toggle-btn" onclick="event.stopPropagation();togglePrompt(this)">
-            <span class="arrow">▸</span>
-            <span class="prompt-text">Ver Prompt</span>
-          </button>
-          <div class="prompt-code">
-            <pre>${promptContent}</pre>
-          </div>
-        </div>`;
-      } else {
-        sectionsHtml += `
-        <div class="panel-section">
-          <h4>${s.title}</h4>
-          ${marked.parse(s.content)}
-        </div>`;
-      }
-    });
-
-  document.getElementById("panel").innerHTML=`
-    <div class="close" onclick="closePanel()">✕</div>
-    <h2>${a.title}</h2>
-    ${sectionsHtml}
-  `;
-
-  document.getElementById("panel").classList.add("open");
-}
-
-function closePanel(){
-  document.body.style.overflow='auto';
-  document.getElementById("panel").classList.remove("open");
-  document.getElementById("overlay").classList.remove("open");
-  window.scrollTo({top:lastScroll});
-}
-
-function toggleDone(id){
-  const currentlyDone = isDone(id);
-  const card=document.querySelector(`.card[data-id="${id}"]`);
-
-  if(currentlyDone){
-    removeProgress(id);
-    if(card) card.classList.remove('done');
-  } else {
-    saveProgress(id);
-    if(card) card.classList.add('done');
-  }
-}
-
-function render(phases,specialSections){
-  let html='';
-
-  phases.forEach(p=>{
-    // Clase de fondo según la fase (puedes ampliarlo aquí)
-    const bgClass =
-      p.num == 2 ? ' phase-bg-grey'  :
-      p.num == 3 ? ' phase-bg-nodes' :
-      p.num == 4 ? ' phase-bg-lilac' :
-      '';
-
-    html+=`<section class="phase-block${bgClass}">`;
-    html+=`<div class="phase-inner">`;
-
-    html+=`<h2 class="phase-title">
-      <span>FASE ${p.num}:</span> ${p.title}
-    </h2>`;
-
-    html+=p.subtitle
-      ? `<p class="phase-subtitle">${p.subtitle}</p>`
-      : '';
-
-    html+=`<div class="${p.num == 3 ? 'phase-3-grid' : 'grid'}">`;
-
-    p.acts.forEach(a=>{
-      const desc=a.sections.find(s=>s.title.includes('Descripción'));
-      const done=isDone(a.id);
-      const jsonData=JSON.stringify(a).replace(/'/g,"&apos;");
-
-      html+=`<div class="card${done?' done':''}" data-id="${a.id}">
-        ${a.img?`<img src="${a.img}">`:''}
-        <div class="tag">${a.tag||''}</div>
-        <h3>${a.title}</h3>
-        ${desc?marked.parse(desc.content):''}
-        <div class="card-footer">
-          <button class="activity-cta" onclick='openPanel(${jsonData})'>
-            <span>Explorar</span>
-            <span class="arrow">→</span>
-          </button>
-          <button class="complete-btn" onclick="event.stopPropagation();toggleDone('${a.id}')" aria-label="Marcar o desmarcar como completada">
-            <span class="state-default">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/></svg>
-              <span>Marcar completada</span>
-            </span>
-            <span class="state-done">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg>
-              <span>Actividad completada</span>
-            </span>
-          </button>
-        </div>
-      </div>`;
-    });
-
-    html+='</div>';      // cierra .grid / .phase-3-grid
-    html+='</div>';      // cierra .phase-inner
-    html+='</section>';  // cierra .phase-block
-  });
-
-  // Las secciones especiales (guía ética) van al área inferior
-  let specialHtml='';
-  specialSections.forEach((spec,i)=>{
-    specialHtml+=`<div class="special-section" id="special-${i}">
-      <button class="special-toggle" onclick="toggleSpecial(${i})">
-        ${spec.title}
-        <span class="chevron">▼</span>
-      </button>
-      <div class="special-body">${marked.parse(spec.content)}</div>
-    </div>`;
-  });
-
-  document.getElementById("content").innerHTML=html;
-  document.getElementById("bottom-content").innerHTML=specialHtml;
-  initPhaseReveal();
-}
-
-function toggleSpecial(i){
-  document.getElementById('special-'+i).classList.toggle('open');
-}
-
-function initPhaseReveal(){
-  const phases=document.querySelectorAll('.phase-block');
-
-  const observer=new IntersectionObserver((entries)=>{
-    entries.forEach(entry=>{
-      if(entry.isIntersecting){
-        entry.target.classList.add('visible');
-      }
-    });
-  },{
-    threshold:0.15
-  });
-
-  phases.forEach(phase=>{
-    observer.observe(phase);
-  });
-}
-
-// Cerrar panel con ESC
-document.addEventListener('keydown', e => {
-  if(e.key === 'Escape') closePanel();
-});
-
-load();
-</script>
+<script src="app.js"></script>
 
 </body>
 </html>
