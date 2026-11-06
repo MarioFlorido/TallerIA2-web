@@ -245,7 +245,7 @@ function render(phases,specialSections){
     const bgClass =
       p.num == 2 ? ' phase-bg-grey'  :
       p.num == 3 ? ' phase-bg-nodes' :
-      p.num == 4 ? ' phase-bg-lilac' :
+      p.num == 4 ? ' phase-bg-tint' :
       '';
 
     html+=`<section class="phase-block${bgClass}">`;

@@ -17,7 +17,9 @@
   --panel:#ffffff;           /* panel lateral */
   --text:#0f172a;            /* texto principal */
   --muted:#64748b;           /* texto secundario */
-  --accent:#500CC7;          /* acento principal */
+  --accent:#C2410C;          /* acento principal (naranja quemado, contraste 5.2:1 con blanco) */
+  --accent-rgb:194,65,12;    /* mismo color en RGB, para derivados con transparencia */
+  --accent-soft:#FDBA8C;     /* versión clara: ilustración sobre fondo de acento */
   --border:rgba(0,0,0,0.08); /* bordes suaves */
 }
 
@@ -79,15 +81,28 @@ body{
 /* --- FASE 3: imagen de nodos como fondo sobre blanco --- */
 .phase-block.phase-bg-nodes{
   background-color:#ffffff;
-  background-image:url('img/red.png');  
-  background-repeat:no-repeat;
-  background-position:center;
-  background-size:cover;
+  position:relative;
 }
 
-/* --- FASE 4: fondo lila tenue (--accent al 20%) --- */
-.phase-block.phase-bg-lilac{
-  background:rgba(80,12,199,0.2);
+/* La red es una silueta: se tiñe con el acento mediante máscara */
+.phase-block.phase-bg-nodes::before{
+  content:'';
+  position:absolute;
+  inset:0;
+  background-color:var(--accent);
+  opacity:.45;
+  -webkit-mask:url('img/red.png') center/cover no-repeat;
+  mask:url('img/red.png') center/cover no-repeat;
+  pointer-events:none;
+}
+
+.phase-block.phase-bg-nodes .phase-inner{
+  position:relative;
+}
+
+/* --- FASE 4: fondo tenue del acento --- */
+.phase-block.phase-bg-tint{
+  background:rgba(var(--accent-rgb),0.12);
 }
 
 /* --- Sección inferior (guía ética + footer) --- */
@@ -184,11 +199,13 @@ body{
   padding:20px;
 }
 
-.hero-illustration img{
+.hero-illustration .brain{
   width:100%;
   max-width:380px;
-  height:auto;
-  display:block;
+  aspect-ratio:707/590;
+  background-color:var(--accent-soft);
+  -webkit-mask:url('img/cerebro.png') center/contain no-repeat;
+  mask:url('img/cerebro.png') center/contain no-repeat;
 }
 
 @media(max-width:768px){
@@ -664,7 +681,7 @@ body{
 }
 
 .special-body table th{
-  background:rgba(80,12,199,0.1);
+  background:rgba(var(--accent-rgb),0.1);
   color:var(--accent);
   font-weight:700;
   text-align:left;
@@ -685,7 +702,7 @@ body{
 }
 
 .special-body table tr:hover{
-  background:rgba(80,12,199,0.05);
+  background:rgba(var(--accent-rgb),0.05);
 }
 
 /* --- FOOTER --- */
@@ -735,7 +752,7 @@ body{
       </div>
     </div>
     <div class="hero-illustration" aria-hidden="true">
-      <img src="img/cerebro.png" alt="">
+      <div class="brain"></div>
     </div>
   </div>
 </section>
