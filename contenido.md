@@ -560,7 +560,7 @@ AYÚDAME PASO A PASO:
 
 FORMATO: Entrega estructurada con las ecuaciones listas para copiar y pegar
 ```
-#### Para profundizar 
+#### Para profundizar
 ##### Test de efectividad:
 Ejecuta las 3 ecuaciones en alguna base de datos académica. Compara: ¿Cuántos resultados da cada una? ¿Cuál ofrece el mejor balance? Documenta los 5 primeros resultados de cada búsqueda y evalúa su relevancia. Luego, ajusta las ecuaciones basándote en los resultados reales.
 
@@ -628,7 +628,7 @@ Para cada versión:
 FORMATO: Tabla con columnas [Audiencia | Texto adaptado | Decisiones retóricas]
 ```
 
-#### Para profundizar 
+#### Para profundizar
 ##### El desafío del Orador:
 Toma tu tema de TFG/TFM. Crea versiones de 30 segundos, 2 minutos y 10 minutos para tres audiencias diferentes (tu abuela, unos compañeros de clase y director) para darles un explicación oral. Practica presentar cada versión cronometrada.
 
