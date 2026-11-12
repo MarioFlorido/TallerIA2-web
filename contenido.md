@@ -236,8 +236,8 @@ Todo texto deja huellas. La forma en que construyes las frases, si varías o rep
 En este ejercicio usas la IA para analizar textos e identificar esos rasgos: si hay demasiada uniformidad sintáctica, si faltan las pequeñas imperfecciones naturales de quien escribe de verdad, si el tono es consistente o cambia sin razón. Sí, hay algo de paradoja en pedirle a una IA que detecte textos escritos por IA. Pero funciona, y el proceso te enseña más de lo que esperas.
 
 #### Info. Un trabajo creado por un investigador y otro por una IA
-- [TFG. Análisis del Sesgo Algorítmico en Sistemas de IA](https://github.com/MarioFlorido/TallerIA2/raw/main/TFG.Analisis_del_sesgo_Algoritmico_en_Sistemas_de_IA.pdf)
-- [TFG. Arquitectura para el Alzheimer. Residencias o viviendas adaptables](https://github.com/MarioFlorido/TallerIA2/raw/main/TFG.Arquitectura_para_el_Alzheimer.pdf)
+- [TFG. Análisis del Sesgo Algorítmico en Sistemas de IA](docs/TFG.Analisis_del_sesgo_Algoritmico_en_Sistemas_de_IA.pdf)
+- [TFG. Arquitectura para el Alzheimer. Residencias o viviendas adaptables](docs/TFG.Arquitectura_para_el_Alzheimer.pdf)
 
 #### Prompt Principal
 ```
