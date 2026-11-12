@@ -442,7 +442,7 @@ La matriz de fuentes resuelve eso: obliga a confrontar los estudios criterio por
 
 
 #### Info. Ejemplos
-[Referencias académicas (por tema) sobre Inteligencia Artificial y sus implicaciones](https://hackmd.io/@maflope/SJDJQ_2gWl)
+[Referencias académicas (por tema) sobre Inteligencia Artificial y sus implicaciones](docs/Referencias_academicas_IA.md)
 
 #### Prompt Principal
 ```
@@ -648,7 +648,7 @@ La IA no escribe por ti en este ejercicio: lee lo que has escrito y te da retroa
 El texto sigue siendo tuyo. Pero cada revisión te enseña algo que la próxima vez aplicarás solo, sin necesitar que nadie te lo señale.
 
 #### Info. Texto de ejemplo
-[Preprint sobre un artículo sobre la resistencia digital](https://raw.githubusercontent.com/MarioFlorido/TallerIA2/49e3f31768a3a9e694f4b68c45076bcb77ea2c1b/Articulo_Resistencia_Digital_Cooperativismo.docx)
+[Preprint sobre un artículo sobre la resistencia digital](docs/Articulo_Resistencia_Digital_Cooperativismo.docx)
 
 #### Prompt Principal
 ```
