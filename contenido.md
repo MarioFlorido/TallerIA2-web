@@ -94,7 +94,7 @@ Cuando observes que el estudiante ya tiene los elementos necesarios, formula una
 "Con todo lo que has reflexionado, ¿cómo responderías ahora tu propia pregunta?"
 
 
-REGLAS CRÍTICAS: Nunca muestres todas las preguntas a la vez. Solo una por turno. Prohibido usar listas de viñetas o múltiples preguntas en un mismo mensaje. Mantén un tono paciente, curioso y profesional. Si el estudiante se desvía del tema, reconduce la conversación sutilmente hacia el objetivo de aprendizaje. No prolongues en exceso el diálogo con preguntas vacias, redundantes...
+REGLAS CRÍTICAS: Nunca muestres todas las preguntas a la vez. Solo una por turno. Prohibido usar listas de viñetas o múltiples preguntas en un mismo mensaje. Mantén un tono paciente, curioso y profesional. Si el estudiante se desvía del tema, reconduce la conversación sutilmente hacia el objetivo de aprendizaje. No prolongues en exceso el diálogo con preguntas vacías, redundantes...
 ```
 #### Para profundizar
 ##### Pregunta de Reflexión
@@ -242,7 +242,7 @@ En este ejercicio usas la IA para analizar textos e identificar esos rasgos: si 
 #### Prompt Principal
 ```
 Actúa como analista en Lingüística Forense, Estilometría Computacional
-y Evaluación Crítica de Producción Académica con el documento qie te adjunto.
+y Evaluación Crítica de Producción Académica con el documento que te adjunto.
 OBJETIVO
 Emitir un dictamen probabilístico sobre la autoría del texto
 (Humana / IA / Híbrida), minimizando falsos positivos mediante análisis
@@ -580,7 +580,7 @@ Ejecuta las 3 ecuaciones en alguna base de datos académica. Compara: ¿Cuántos
 **Dominar la alternancia de código (code-switching) retórico: transformar el mismo contenido académico para audiencias radicalmente diferentes, manteniendo la esencia pero adaptando registro lingüístico, tono, estructura y vocabulario.**
 
 #### Descripción
-La competencia comunicativa te permite expresarte efectivamente ante culquier interlocutor. No se trata de simplificar o complicar, sino de hacer una verdadera adaptación estratégica. Aprenderás a hablar el "idioma" de académicos, profesionales, público general, audiencias específicas con el mismo mensaje.
+La competencia comunicativa te permite expresarte efectivamente ante cualquier interlocutor. No se trata de simplificar o complicar, sino de hacer una verdadera adaptación estratégica. Aprenderás a hablar el "idioma" de académicos, profesionales, público general, audiencias específicas con el mismo mensaje.
 
 En el mundo académico, la capacidad de adaptar un mismo contenido a diferentes interlocutores es una de las competencias comunicativas más demandadas y menos trabajadas. Un investigador que solo sabe escribir para revistas científicas, un profesional incapaz de explicar su proyecto en términos sencillos o un estudiante que no sabe adaptar el tono al contexto pierden la oportunidad de conectar con su audiencia.
 
@@ -630,7 +630,7 @@ FORMATO: Tabla con columnas [Audiencia | Texto adaptado | Decisiones retóricas]
 
 #### Para profundizar
 ##### El desafío del Orador:
-Toma tu tema de TFG/TFM. Crea versiones de 30 segundos, 2 minutos y 10 minutos para tres audiencias diferentes (tu abuela, unos compañeros de clase y director) para darles un explicación oral. Practica presentar cada versión cronometrada.
+Toma tu tema de TFG/TFM. Crea versiones de 30 segundos, 2 minutos y 10 minutos para tres audiencias diferentes (tu abuela, unos compañeros de clase y tu director) para darles una explicación oral. Practica presentar cada versión cronometrada.
 
 
 ### 10. Edición académica
@@ -760,4 +760,4 @@ Como habrás deducido, parte de este taller se ha realizado con IA:
 - La secuenciación de contenidos. La IA ha asistido para darle mayor coherencia al itinerario de aprendizaje.
 - Los prompts fueron refinados con ChatGPT y Claude.
 - La idea del layout fue propuesta por ChatGPT.
-- Las imágenes fueron creadas con Gemini, excepto "La Escuela de Atenas", pintada por Rafael... al que nunca podra superar una IA!
+- Las imágenes fueron creadas con Gemini, excepto "La Escuela de Atenas", pintada por Rafael... al que nunca podrá superar una IA!
