@@ -107,6 +107,7 @@ body{
 
 /* --- Sección inferior (guía ética + footer) --- */
 .bottom-area{
+  box-sizing:border-box;
   width:100%;
   padding:60px 40px 0;
 }
@@ -254,13 +255,14 @@ body{
 /* --- GRID NORMAL (fases 1,2 y 4) --- */
 .grid{
   display:grid;
-  grid-template-columns:repeat(auto-fit,minmax(320px,1fr));
+  grid-template-columns:repeat(auto-fit,minmax(min(320px,100%),1fr));
   gap:60px 44px;
   width:100%;
 }
 
 .grid .card{
   width:100%;
+  min-width:0;
 }
 
 /* --- FASE 3: composición editorial asimétrica --- */
@@ -273,6 +275,7 @@ body{
 
 .phase-3-grid .card{
   width:100%;
+  min-width:0;
   grid-column:span 6;
 }
 
@@ -297,6 +300,7 @@ body{
 .card{
   color:var(--text);
   background:#ffffff;
+  box-sizing:border-box;
   padding:0 28px 28px;
   border:none;
   border-radius:6px;
