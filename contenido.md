@@ -442,7 +442,7 @@ La matriz de fuentes resuelve eso: obliga a confrontar los estudios criterio por
 
 
 #### Info. Ejemplos
-[Referencias académicas (por tema) sobre Inteligencia Artificial y sus implicaciones](docs/Referencias_academicas_IA.md)
+[Referencias académicas (por tema) sobre Inteligencia Artificial y sus implicaciones](docs/Referencias_academicas_IA.html)
 
 #### Prompt Principal
 ```
