@@ -596,7 +596,7 @@ Eres un experto en comunicación estratégica y adaptación de registro lingüí
 Tengo este CONTENIDO CENTRAL que necesito comunicar:
 [INSERTAR CONTENIDO - Ej: Importancia de la ciberseguridad, cambio climático, etc.]
 
-Necesito que ADAPTES este contenido para 4 AUDIENCIAS DIFERENTES, manteniendo la esencia pero transformando completamente el estilo:
+Necesito que ADAPTES este contenido para 3 AUDIENCIAS DIFERENTES, manteniendo la esencia pero transformando completamente el estilo:
 
 1. AUDIENCIA ACADÉMICA (Paper científico)
    - Registro: Formal, técnico, impersonal
